@@ -27,7 +27,7 @@ public class LoginServiceImpl implements ILoginService {
             List list =userDao.selectUser(user);
             messageInfo.setData(list);
         }catch(Exception e){
-            logger.error("查询用户表出错！"+e.getMessage());
+            logger.error("查询用户表出1错！"+e.getMessage());
             throw new LoginException("查询用户出错：" + e.getMessage());
         }
         return null;
