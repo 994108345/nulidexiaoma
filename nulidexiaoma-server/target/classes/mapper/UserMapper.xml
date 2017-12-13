@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为IUserDao接口方法提供sql语句配置 -->
+<mapper namespace="com.mb.wzl.dao.IUserDao">
+
+    <select id="selectUser" resultType="com.mb.wzl.entity.User" parameterType="String">
+        SELECT * FROM user WHERE id = #{id}
+    </select>
+
+    <select id="selectUserByUsername" resultType="com.mb.wzl.entity.User" >
+        SELECT * FROM
+        USER
+        WHERE USERNAME=#{username,jdbcType=VARCHAR}
+        AND PASSWORD=#{password,jdbcType=VARCHAR}
+    </select>
+
+    <select id="testMoreParams" resultType="com.mb.wzl.entity.User">
+        select * from USER
+        where USERNAME=#{userName}
+        or NAME IN
+        <foreach collection="list" item="item" open="(" close=")" separator=",">
+            #{item.name}
+        </foreach>
+    </select>
+
+</mapper>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="nulidexiaoma-web:war">
+    <output-path>$PROJECT_DIR$/nulidexiaoma-web/target</output-path>
+    <root id="archive" name="nulidexiaoma-web.war">
+      <element id="artifact" artifact-name="nulidexiaoma-web:war exploded" />
+    </root>
+  </artifact>
+</component>

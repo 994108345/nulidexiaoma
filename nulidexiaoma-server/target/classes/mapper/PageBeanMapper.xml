@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mb.wzl.dao.IPageBeanDao" >
+    <resultMap id="PageBeanAllEntityMap" type="com.mb.wzl.entity.PageBeanAllEntity" >
+        <id column="ID" property="id" jdbcType="VARCHAR" />
+        <result column="ROLE_NAME" property="roleName" jdbcType="VARCHAR" />
+    </resultMap>
+    <!--根据message查询权限的信息-->
+    <select id="selectCurrentCountByTableName" statementType="STATEMENT"  resultMap="PageBeanAllEntityMap" >
+        select * from ${tableName} LIMIT ${firstCountNum},${countNum}
+    </select>
+    <select id="selectAllCount" statementType="STATEMENT" resultType="java.lang.Integer">
+        select count(*) from ${tableName}
+    </select>
+</mapper>

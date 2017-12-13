@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mb.wzl.dao.IJurisdictionDao" >
+  <resultMap id="BaseResultMap" type="com.mb.wzl.entity.Jurisdiction" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="MENU" property="menu" jdbcType="VARCHAR" />
+    <result column="MESSAGE" property="message" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, MENU, MESSAGE
+  </sql>
+  <!--根据message查询权限的信息-->
+  <select id="selectByMenu" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select *
+    from jurisdiction
+    where MESSAGE=#{message.jdbcType=VARCHAR}
+  </select>
+  <!--<delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from jurisdiction
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.mb.model.Jurisdiction" >
+    insert into jurisdiction (ID, MENU, MESSAGE
+      )
+    values (#{id,jdbcType=VARCHAR}, #{menu,jdbcType=VARCHAR}, #{message,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mb.model.Jurisdiction" >
+    insert into jurisdiction
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="menu != null" >
+        MENU,
+      </if>
+      <if test="message != null" >
+        MESSAGE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="menu != null" >
+        #{menu,jdbcType=VARCHAR},
+      </if>
+      <if test="message != null" >
+        #{message,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mb.model.Jurisdiction" >
+    update jurisdiction
+    <set >
+      <if test="menu != null" >
+        MENU = #{menu,jdbcType=VARCHAR},
+      </if>
+      <if test="message != null" >
+        MESSAGE = #{message,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mb.model.Jurisdiction" >
+    update jurisdiction
+    set MENU = #{menu,jdbcType=VARCHAR},
+      MESSAGE = #{message,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>-->
+</mapper>
