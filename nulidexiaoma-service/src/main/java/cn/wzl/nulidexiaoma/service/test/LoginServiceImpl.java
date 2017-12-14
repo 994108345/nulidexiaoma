@@ -1,7 +1,6 @@
-package cn.wzl.nulidexiaoma.service;
+package cn.wzl.nulidexiaoma.service.test;
 
 import cn.wzl.nulidexiaoma.api.ILoginService;
-import cn.wzl.nulidexiaoma.common.Exception.LoginException;
 import cn.wzl.nulidexiaoma.common.MessageInfo;
 import cn.wzl.nulidexiaoma.common.MessageStatus;
 import cn.wzl.nulidexiaoma.dao.login.api.IUserDao;

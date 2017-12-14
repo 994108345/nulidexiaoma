@@ -25,14 +25,6 @@
             <artifactId>nulidexiaoma-web</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-
-        <!-- 单元测试 -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-        </dependency>
-
         <!-- 1.日志 -->
         <!-- 实现slf4j接口并整合 -->
         <dependency>
@@ -149,6 +141,11 @@
             <artifactId>spring-test</artifactId>
             <version>4.1.7.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>4.1.7.RELEASE</version>
+        </dependency>
 
         <!-- redis客户端:Jedis -->
         <dependency>
@@ -230,17 +227,38 @@
             <artifactId>gson</artifactId>
             <version>2.2.2</version>
         </dependency>
+        <!--测试-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+        </dependency>
     </dependencies>
+
+    <properties>
+        <server.port>8080</server.port>
+        <server.path>/nulidexiaoma</server.path>
+    </properties>
+
     <build>
         <finalName>nulidexiaoma</finalName>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
                 <configuration>
-                    <!-- 设置JDK版本 -->
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <port>${server.port}</port>
+                    <path>${server.path}</path>
+                    <uriEncoding>UTF-8</uriEncoding>
+                </configuration>
+            </plugin>
+            <!--设置启动maven的时候忽略test测试-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
                 </configuration>
             </plugin>
         </plugins>

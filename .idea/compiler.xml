@@ -18,16 +18,16 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="nulidexiaoma" target="1.5" />
-      <module name="nulidexiaoma-api" target="1.5" />
-      <module name="nulidexiaoma-basedao" target="1.5" />
+      <module name="nulidexiaoma" target="1.7" />
+      <module name="nulidexiaoma-api" target="1.7" />
+      <module name="nulidexiaoma-basedao" target="1.7" />
       <module name="nulidexiaoma-cn.wzl.nulidexiaoma.dao.login.api" target="1.5" />
-      <module name="nulidexiaoma-common" target="1.5" />
+      <module name="nulidexiaoma-common" target="1.7" />
       <module name="nulidexiaoma-dao" target="1.7" />
-      <module name="nulidexiaoma-model" target="1.5" />
+      <module name="nulidexiaoma-model" target="1.7" />
       <module name="nulidexiaoma-server" target="1.7" />
-      <module name="nulidexiaoma-service" target="1.6" />
-      <module name="nulidexiaoma-web" target="1.5" />
+      <module name="nulidexiaoma-service" target="1.7" />
+      <module name="nulidexiaoma-web" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
