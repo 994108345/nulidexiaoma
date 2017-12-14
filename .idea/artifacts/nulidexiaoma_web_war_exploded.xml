@@ -7,6 +7,20 @@
           <element id="module-output" name="nulidexiaoma-web" />
         </element>
         <element id="directory" name="lib">
+          <element id="archive" name="nulidexiaoma-service-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="nulidexiaoma-service" />
+          </element>
+          <element id="archive" name="nulidexiaoma-dao-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="nulidexiaoma-dao" />
+          </element>
+          <element id="library" level="project" name="Maven: cn.wzl:nulidexiaoma-api:1.0-SNAPSHOT" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.0.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.0.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.0.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.0.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.0.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.0.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.8.0-beta0" />
           <element id="archive" name="nulidexiaoma-common-1.0-SNAPSHOT.jar">
             <element id="module-output" name="nulidexiaoma-common" />
           </element>

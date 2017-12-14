@@ -12,7 +12,7 @@
        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <!-- 扫描web相关的bean -->
-    <context:component-scan base-package="com.mb.wzl.controller"/>
+    <context:component-scan base-package="cn.wzl.nulidexiaoma"/>
 
     <!-- 开启SpringMVC注解模式 -->
     <mvc:annotation-driven/>
@@ -21,32 +21,30 @@
     <!-- 静态资源默认servlet配置 -->
     <mvc:default-servlet-handler/>
 
-    <!-- 配置jsp 显示ViewResolver -->
-    <cn.wzl.nulidexiaoma.dao.bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <!--org.springframework.web.servlet.view.UrlBasedViewResolver-->
-        <!--org.springframework.web.servlet.view.InternalResourceViewResolver-->
+    <!-- 配置jsp 显示ViewResolver 视图解释类-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value="/jsp"/>
         <property name="suffix" value=".jsp"/>
-    </cn.wzl.nulidexiaoma.dao.bean>
+    </bean>
     <!-- 启动JSON格式的配置 -->
-    <cn.wzl.nulidexiaoma.dao.bean id="jsonConverter"
-          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></cn.wzl.nulidexiaoma.dao.bean>
-    <cn.wzl.nulidexiaoma.dao.bean
+    <bean id="jsonConverter"
+          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
+    <bean
             class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
         <property name="messageConverters">
             <list>
-                <ref cn.wzl.nulidexiaoma.dao.bean="stringConverter" />
-                <ref cn.wzl.nulidexiaoma.dao.bean="jsonConverter" />
+                <ref bean="stringConverter" />
+                <ref bean="jsonConverter" />
             </list>
         </property>
-    </cn.wzl.nulidexiaoma.dao.bean>
-    <cn.wzl.nulidexiaoma.dao.bean id="stringConverter"
+    </bean>
+    <bean id="stringConverter"
           class="org.springframework.http.converter.StringHttpMessageConverter">
         <property name="supportedMediaTypes">
             <list>
                 <value>text/plain;charset=UTF-8</value>
             </list>
         </property>
-    </cn.wzl.nulidexiaoma.dao.bean>
+    </bean>
 </beans>

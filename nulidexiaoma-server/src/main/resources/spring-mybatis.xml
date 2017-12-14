@@ -11,48 +11,48 @@
        http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!-- 扫描service包下所有使用注解的类型 -->
-    <context:component-scan base-package="com.mb.wzl.service"/>
+    <context:component-scan base-package="cn.wzl.nulidexiaoma.service"/>
 
 
     <!-- 配置数据库相关参数properties的属性：${url} -->
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
     <!-- 数据库连接池 -->
-    <cn.wzl.nulidexiaoma.dao.bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="${jdbc.driver}"/>
         <property name="jdbcUrl" value="${jdbc.url}"/>
         <property name="user" value="${jdbc.username}"/>
-        <property name="password" value="${jdbc.password}"/>
+        <property name="password" value="${jdbc.password}bobo"/>
         <property name="maxPoolSize" value="${c3p0.maxPoolSize}"/>
         <property name="minPoolSize" value="${c3p0.minPoolSize}"/>
         <property name="autoCommitOnClose" value="${c3p0.autoCommitOnClose}"/>
         <property name="checkoutTimeout" value="${c3p0.checkoutTimeout}"/>
         <property name="acquireRetryAttempts" value="${c3p0.acquireRetryAttempts}"/>
-    </cn.wzl.nulidexiaoma.dao.bean>
+    </bean>
 
     <!-- 配置SqlSessionFactory对象 -->
-    <cn.wzl.nulidexiaoma.dao.bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!-- 注入数据库连接池 -->
         <property name="dataSource" ref="dataSource"/>
         <!-- 扫描model包 使用别名 -->
         <property name="typeAliasesPackage" value="com.mb.wzl.entity"/>
         <!-- 扫描sql配置文件:mapper需要的xml文件 -->
-        <property name="mapperLocations" value="classpath:cn.wzl.nulidexiaoma.dao.mapper/*.xml"/>
-    </cn.wzl.nulidexiaoma.dao.bean>
+        <property name="mapperLocations" value="classpath:cn/wzl/nulidexiaoma/dao/**/mapper/*.xml"/>
+    </bean>
 
     <!-- 配置扫描Dao接口包，动态实现Dao接口，注入到spring容器中 -->
-    <cn.wzl.nulidexiaoma.dao.bean class="org.mybatis.spring.cn.wzl.nulidexiaoma.dao.mapper.MapperScannerConfigurer">
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- 注入sqlSessionFactory -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <!-- 给出需要扫描Dao接口包 -->
         <property name="basePackage" value="com.mb.wzl.dao"/>
-    </cn.wzl.nulidexiaoma.dao.bean>
+    </bean>
 
     <!-- 配置事务管理器 -->
-    <cn.wzl.nulidexiaoma.dao.bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <!-- 注入数据库连接池 -->
         <property name="dataSource" ref="dataSource"/>
-    </cn.wzl.nulidexiaoma.dao.bean>
+    </bean>
 
     <!-- 配置基于注解的声明式事务 -->
     <tx:annotation-driven transaction-manager="transactionManager"/>

@@ -8,14 +8,13 @@
   <modules>
     <module>nulidexiaoma-web</module>
     <module>nulidexiaoma-service</module>
-    <module>nulidexiaoma-cn.wzl.nulidexiaoma.dao.api</module>
+    <module>nulidexiaoma-api</module>
     <module>nulidexiaoma-dao</module>
     <module>nulidexiaoma-common</module>
     <module>nulidexiaoma-server</module>
     <module>nulidexiaoma-model</module>
+    <module>nulidexiaoma-basedao</module>
   </modules>
-  <name>nulidexiaoma Maven Webapp</name>
-  <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -23,18 +22,7 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-      <dependency>
-          <groupId>cn.wzl</groupId>
-          <artifactId>nulidexiaoma-common</artifactId>
-          <version>1.0-SNAPSHOT</version>
-      </dependency>
-    <dependency>
-      <groupId>cn.wzl</groupId>
-      <artifactId>nulidexiaoma-model</artifactId>
-      <version>1.0-SNAPSHOT</version>
-    </dependency>
   </dependencies>
   <build>
-    <finalName>nulidexiaoma</finalName>
   </build>
 </project>

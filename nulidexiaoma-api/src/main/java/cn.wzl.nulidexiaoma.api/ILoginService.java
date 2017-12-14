@@ -11,5 +11,5 @@ import java.util.List;
  */
 
 public interface ILoginService {
-    MessageInfo<List> selectUser(User user) throws LoginException;
+    MessageInfo<List> selectUser(User user);
 }
