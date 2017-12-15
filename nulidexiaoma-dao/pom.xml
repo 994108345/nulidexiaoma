@@ -22,12 +22,10 @@
             <artifactId>nulidexiaoma-basedao</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!--内部依赖-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>5.0.1.RELEASE</version>
         </dependency>
-
+        <!--内部依赖-->
     </dependencies>
 </project>

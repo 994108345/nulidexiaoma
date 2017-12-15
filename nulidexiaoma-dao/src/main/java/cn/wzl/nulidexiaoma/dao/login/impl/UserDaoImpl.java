@@ -1,10 +1,8 @@
 package cn.wzl.nulidexiaoma.dao.login.impl;
-
 import cn.wzl.nulidexiaoma.basedao.impl.BaseToolsDaoImpl;
 import cn.wzl.nulidexiaoma.dao.login.api.IUserDao;
 import cn.wzl.nulidexiaoma.model.User;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 /**

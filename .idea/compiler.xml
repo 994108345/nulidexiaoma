@@ -28,6 +28,7 @@
       <module name="nulidexiaoma-server" target="1.7" />
       <module name="nulidexiaoma-service" target="1.7" />
       <module name="nulidexiaoma-web" target="1.7" />
+      <module name="nulidexioama-server" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
