@@ -24,7 +24,7 @@
 
    <!-- <import resource="classpath:dataSource/datasource.xml"/>-->
     <import resource="classpath:mybatis/spring-mybatis.xml"/>
-    <import resource="classpath:mvc/spring-mvc.xml"/>
+    <!--<import resource="classpath:mvc/spring-mvc.xml"/>-->
    <!-- <import resource="classpath:dubbo/spring-dubbo-server.xml"/>
     <import resource="classpath:dubbo/spring-dubbo-client.xml"/>
     <import resource="classpath:dubbo/spring-permission-config.xml"/>

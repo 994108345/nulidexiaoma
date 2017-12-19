@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma.iml" filepath="$PROJECT_DIR$/nulidexiaoma.iml" />
-      <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-api/nulidexiaoma-api.iml" filepath="$PROJECT_DIR$/nulidexiaoma-api/nulidexiaoma-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-basedao/nulidexiaoma-basedao.iml" filepath="$PROJECT_DIR$/nulidexiaoma-basedao/nulidexiaoma-basedao.iml" />
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-common/nulidexiaoma-common.iml" filepath="$PROJECT_DIR$/nulidexiaoma-common/nulidexiaoma-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-dao/nulidexiaoma-dao.iml" filepath="$PROJECT_DIR$/nulidexiaoma-dao/nulidexiaoma-dao.iml" />
@@ -11,6 +10,8 @@
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-server/nulidexiaoma-server.iml" filepath="$PROJECT_DIR$/nulidexiaoma-server/nulidexiaoma-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-service/nulidexiaoma-service.iml" filepath="$PROJECT_DIR$/nulidexiaoma-service/nulidexiaoma-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-web/nulidexiaoma-web.iml" filepath="$PROJECT_DIR$/nulidexiaoma-web/nulidexiaoma-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-server/nulidexiaoma.server.iml" filepath="$PROJECT_DIR$/nulidexiaoma-server/nulidexiaoma.server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nulidexioama-api/nulidexioama-api.iml" filepath="$PROJECT_DIR$/nulidexioama-api/nulidexioama-api.iml" />
     </modules>
   </component>
 </project>

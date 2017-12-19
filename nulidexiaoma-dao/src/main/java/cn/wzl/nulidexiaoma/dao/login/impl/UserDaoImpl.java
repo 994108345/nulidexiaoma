@@ -1,6 +1,6 @@
 package cn.wzl.nulidexiaoma.dao.login.impl;
 import cn.wzl.nulidexiaoma.basedao.impl.BaseToolsDaoImpl;
-import cn.wzl.nulidexiaoma.dao.login.api.IUserDao;
+import cn.wzl.nulidexiaoma.dao.login.IUserDao;
 import cn.wzl.nulidexiaoma.model.User;
 import org.springframework.stereotype.Repository;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
 public class UserDaoImpl extends BaseToolsDaoImpl implements IUserDao {
 
     public String getNameSpace() {
-        return "cn.wzl.nulidexiaoma.dao.login.cn.wzl.nulidexiaoma.basedao.impl.UserDaoImpl.";
+        return "cn.wzl.nulidexiaoma.dao.login.IUserDao.";
     }
     @Override
     public List<User> selectUser(User user) {

@@ -4,7 +4,6 @@ import cn.wzl.nulidexiaoma.api.ILoginService;
 import cn.wzl.nulidexiaoma.common.Exception.LoginException;
 import cn.wzl.nulidexiaoma.common.MessageInfo;
 import cn.wzl.nulidexiaoma.model.User;
-import org.junit.Test;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;

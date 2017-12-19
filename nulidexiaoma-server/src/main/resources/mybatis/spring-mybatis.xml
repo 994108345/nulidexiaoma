@@ -35,18 +35,18 @@
         <!-- 注入数据库连接池 -->
         <property name="dataSource" ref="dataSource"/>
         <!-- 扫描model包 使用别名 -->
-        <property name="typeAliasesPackage" value="com.mb.wzl.entity"/>
+       <!-- <property name="typeAliasesPackage" value="cn.wzl.nulidexiaoma.model"/>-->
         <!-- 扫描sql配置文件:mapper需要的xml文件 -->
-        <property name="mapperLocations" value="classpath:cn/wzl/nulidexiaoma/dao/login/mapper/UserMapper.xml"/>
+        <property name="mapperLocations" value="classpath*:cn/wzl/nulidexiaoma/dao/**/mapper/*.xml"/>
     </bean>
 
     <!-- 配置扫描Dao接口包，动态实现Dao接口，注入到spring容器中 -->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <!-- 注入sqlSessionFactory -->
+<!--    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        &lt;!&ndash; 注入sqlSessionFactory &ndash;&gt;
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-        <!-- 给出需要扫描Dao接口包 -->
-        <property name="basePackage" value="com.mb.wzl.dao"/>
-    </bean>
+        &lt;!&ndash; 给出需要扫描Dao接口包 &ndash;&gt;
+        <property name="basePackage" value="cn.wzl.nulidexiaoma.dao"/>
+    </bean>-->
 
     <!-- 配置事务管理器 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -57,4 +57,7 @@
     <!-- 配置基于注解的声明式事务 -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
+    <bean id="localSqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory" />
+    </bean>
 </beans>

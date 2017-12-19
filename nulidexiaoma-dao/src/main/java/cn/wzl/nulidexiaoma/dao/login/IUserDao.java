@@ -1,4 +1,4 @@
-package cn.wzl.nulidexiaoma.dao.login.api;
+package cn.wzl.nulidexiaoma.dao.login;
 
 import cn.wzl.nulidexiaoma.basedao.IBaseToolsDao;
 import cn.wzl.nulidexiaoma.model.User;

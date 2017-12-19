@@ -1,6 +1,5 @@
 package cn.wzl.nulidexiaoma.api;
 
-import cn.wzl.nulidexiaoma.common.Exception.LoginException;
 import cn.wzl.nulidexiaoma.common.MessageInfo;
 import cn.wzl.nulidexiaoma.model.User;
 

@@ -6,7 +6,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="nulidexiaoma-api" />
         <module name="nulidexiaoma-basedao" />
         <module name="nulidexiaoma-cn.wzl.nulidexiaoma.dao.login.api" />
         <module name="nulidexiaoma-common" />
@@ -15,6 +14,8 @@
         <module name="nulidexiaoma-server" />
         <module name="nulidexiaoma-service" />
         <module name="nulidexiaoma-web" />
+        <module name="nulidexiaoma.server" />
+        <module name="nulidexioama-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -28,6 +29,8 @@
       <module name="nulidexiaoma-server" target="1.7" />
       <module name="nulidexiaoma-service" target="1.7" />
       <module name="nulidexiaoma-web" target="1.7" />
+      <module name="nulidexiaoma.server" target="1.7" />
+      <module name="nulidexioama-api" target="1.7" />
       <module name="nulidexioama-server" target="1.7" />
     </bytecodeTargetLevel>
   </component>

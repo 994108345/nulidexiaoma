@@ -8,53 +8,13 @@
   <modules>
     <module>nulidexiaoma-web</module>
     <module>nulidexiaoma-service</module>
-    <module>nulidexiaoma-api</module>
     <module>nulidexiaoma-dao</module>
     <module>nulidexiaoma-common</module>
     <module>nulidexiaoma-model</module>
     <module>nulidexiaoma-basedao</module>
     <module>nulidexiaoma-server</module>
+    <module>nulidexioama-api</module>
   </modules>
-  <!-- -->
-  <!--<distributionManagement>
-    <repository>
-      <id>releases</id>
-      <url>http://10.100.200.4:8081/nexus/content/repositories/releases</url>
-    </repository>
-    <snapshotRepository>
-      <id>snapshots</id>
-      <url>http://10.100.200.4:8081/nexus/content/repositories/snapshots</url>
-    </snapshotRepository>
-  </distributionManagement>
-
-  <repositories>
-    <repository>
-      <id>nexus</id>
-      <name>Nexus</name>
-      <url>http://10.100.200.4:8081/nexus/content/groups/public/</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
-  <pluginRepositories>
-    <pluginRepository>
-      <id>nexus</id>
-      <name>Nexus</name>
-      <url>http://10.100.200.4:8081/nexus/content/groups/public/</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </pluginRepository>
-  </pluginRepositories>-->
-
-  <!-- -->
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <spring-version>4.3.4.RELEASE</spring-version>
@@ -74,6 +34,7 @@
     <commons-lang3-version>3.3.2</commons-lang3-version>
     <commons-dbcp2-version>2.1.1</commons-dbcp2-version>
     <dubbo-version>2.5.3</dubbo-version>
+    <junit-version>4.12</junit-version>
 
     <zookeeper-version>3.4.6</zookeeper-version>
     <zkclient-version>0.1</zkclient-version>
@@ -286,23 +247,24 @@
         <artifactId>guava</artifactId>
         <version>20.0</version>
       </dependency>
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-test</artifactId>
+        <version>${spring-version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit-version}</version>
+        <scope>test</scope>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
   <!-- -->
   <dependencies>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-test</artifactId>
-      <version>${spring-version}</version>
-      <scope>test</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>spring-core</artifactId>
-          <groupId>org.springframework</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
@@ -406,16 +368,10 @@
       <resource>
         <!-- 将xml文件导入jar包 -->
         <directory>src/main/resources</directory>
-        <excludes>
-          <exclude>properties/**</exclude>
-          <exclude>app.properties</exclude>
-          <exclude>dubbo.properties</exclude>
-          <exclude>jdbc.properties</exclude>
-          <exclude>log4j.xml</exclude>
-        </excludes>
-      </resource>
-      <resource>
-        <directory>src/main/resources/properties/${profiles.active}</directory>
+        <includes>
+          <include>**/*.properties</include>
+          <include>**/*.xml</include>
+        </includes>
       </resource>
     </resources>
   </build>
