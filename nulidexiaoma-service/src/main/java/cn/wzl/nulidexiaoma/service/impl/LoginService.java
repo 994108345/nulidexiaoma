@@ -26,6 +26,10 @@ public class LoginService implements ILoginService {
         MessageInfo messageInfo = new MessageInfo();
         try {
             List list =userDao.selectUser(user);
+            if(list.size() <= 0){
+                messageInfo.setMessageStatus(MessageStatus.ERROR.getStatus(),"用户名错误");
+                return messageInfo;
+            }
             messageInfo.setData(list);
         }catch(Exception e){
             e.printStackTrace();
