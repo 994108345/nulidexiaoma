@@ -22,8 +22,8 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-context:4.3.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.3.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:4.3.4.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: cn.wzl:nulidexiaoma-api:1.0-SNAPSHOT" level="project" />
     <orderEntry type="module" module-name="nulidexiaoma-model" />
+    <orderEntry type="module" module-name="nulidexioama-api" />
     <orderEntry type="module" module-name="nulidexiaoma-common" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:5.0.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:4.3.4.RELEASE" level="project" />

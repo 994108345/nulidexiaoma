@@ -1,4 +1,4 @@
-package cn.wzl.nulidexiaoma.common.Exception;
+package cn.wzl.nulidexiaoma.common.exception;
 
 /**
  * Created by 99410 on 2017/12/6.

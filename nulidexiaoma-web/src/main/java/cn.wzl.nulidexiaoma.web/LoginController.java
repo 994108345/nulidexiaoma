@@ -1,7 +1,6 @@
 package cn.wzl.nulidexiaoma.web;
 
 import cn.wzl.nulidexiaoma.api.ILoginService;
-import cn.wzl.nulidexiaoma.common.Exception.LoginException;
 import cn.wzl.nulidexiaoma.common.MessageInfo;
 import cn.wzl.nulidexiaoma.model.User;
 import org.springframework.http.MediaType;
