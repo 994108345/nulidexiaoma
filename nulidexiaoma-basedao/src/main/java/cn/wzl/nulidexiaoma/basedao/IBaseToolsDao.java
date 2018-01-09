@@ -29,4 +29,32 @@ public interface IBaseToolsDao<T> {
      * @return
      */
     public SearchResult selectPageBean(Object o);
+
+    /**
+     * 批量查询
+     * @param o
+     * @return
+     */
+    public List selectList(Object o);
+
+    /**
+     * 批量插入
+     * @param list
+     * @return
+     */
+    public int insertList(List list);
+
+    /**
+     * 批量更新
+     * @param list
+     * @return
+     */
+    public int updateList(List list);
+
+    /**
+     * 批量删除
+     * @param list
+     * @return
+     */
+    public int deleteList(List list);
 }

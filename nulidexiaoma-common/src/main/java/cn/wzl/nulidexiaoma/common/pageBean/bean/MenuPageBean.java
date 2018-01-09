@@ -1,9 +1,14 @@
-package cn.wzl.nulidexiaoma.model;
+package cn.wzl.nulidexiaoma.common.pageBean.bean;
 
-public class Menu {
+import cn.wzl.nulidexiaoma.common.pageBean.PageBean;
+
+/**
+ * Created by wenzailong on 2018/1/9.
+ */
+public class MenuPageBean extends PageBean {
     private Integer id;
 
-    private String MenuId;
+    private String menuId;
 
     private String menuName;
 
@@ -24,11 +29,11 @@ public class Menu {
     }
 
     public String getMenuId() {
-        return MenuId;
+        return menuId;
     }
 
     public void setMenuId(String menuId) {
-        MenuId = menuId;
+        this.menuId = menuId;
     }
 
     public String getMenuName() {

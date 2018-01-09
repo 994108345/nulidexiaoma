@@ -3,6 +3,7 @@
 <mapper namespace="cn.wzl.nulidexiaoma.dao.permissions.impl.MenuDaoImpl" >
   <resultMap id="BaseResultMap" type="cn.wzl.nulidexiaoma.model.Menu" >
     <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="MENU_ID" property="menuId" jdbcType="VARCHAR" />
     <result column="MENU_NAME" property="menuName" jdbcType="VARCHAR" />
     <result column="LINK_URL" property="linkUrl" jdbcType="VARCHAR" />
     <result column="PARENT_ID" property="parentId" jdbcType="INTEGER" />

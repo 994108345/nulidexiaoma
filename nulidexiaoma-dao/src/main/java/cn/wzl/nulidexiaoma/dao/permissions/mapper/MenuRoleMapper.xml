@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.wzl.nulidexiaoma.dao.permissions.impl.MenuUserDaoImpl" >
-  <resultMap id="BaseResultMap" type="cn.wzl.nulidexiaoma.model.MenuUser" >
+<mapper namespace="cn.wzl.nulidexiaoma.dao.permissions.impl.MenuRoleDao" >
+  <resultMap id="BaseResultMap" type="cn.wzl.nulidexiaoma.model.MenuRole" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="MENU_ID" property="menuId" jdbcType="INTEGER" />
-    <result column="USER_ID" property="userId" jdbcType="INTEGER" />
-    <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+    <result column="ROLE_ID" property="roleId" jdbcType="INTEGER" />
+    <result column="ROLE_NAME" property="roleName" jdbcType="VARCHAR" />
     <result column="MENU__NAME" property="menuName" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -21,13 +21,13 @@
     delete from menu_user
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.mb.model.MenuUser" >
+  <insert id="insert" parameterType="com.mb.moMenuRoleUser" >
     insert into menu_user (ID, MENU_ID, USER_ID, 
       USER_NAME, MENU__NAME)
     values (#{id,jdbcType=INTEGER}, #{menuId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
       #{userName,jdbcType=VARCHAR}, #{menuName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.mb.model.MenuUser" >
+  <insert id="insertSelective" parameterType="com.mb.moMenuRoleUser" >
     insert into menu_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mb.model.MenuUser" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mb.moMenuRoleUser" >
     update menu_user
     <set >
       <if test="menuId != null" >
@@ -82,7 +82,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mb.model.MenuUser" >
+  <update id="updateByPrimaryKey" parameterType="com.mb.moMenuRoleUser" >
     update menu_user
     set MENU_ID = #{menuId,jdbcType=INTEGER},
       USER_ID = #{userId,jdbcType=INTEGER},

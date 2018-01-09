@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 
@@ -19,9 +20,11 @@ import javax.annotation.Resource;
 public class RoleController {
     @Resource
     IRoleService roleService;
-    @RequestMapping(value = "getRolePageBean" ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE,
-            method = RequestMethod.POST,consumes = "application/json")
+    @RequestMapping(value = "getRolePageBean" ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE,method = RequestMethod.POST,consumes = "application/json")
+    @ResponseBody
     public SearchResult getRolePageBean(@RequestBody RolePageBean rolePageBean){
-        return roleService.getPageBean(rolePageBean);
+        SearchResult searchResult = new SearchResult();
+        searchResult = roleService.getPageBean(rolePageBean);
+        return searchResult;
     }
 }

@@ -1,5 +1,58 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.wzl.nulidexiaoma.dao.permissions.impl.MenuDaoImpl" >
+    <!--查询分页记录-->
+    <select id="selectListByCondition" resultMap="BaseResultMap" >
+        select * from menu
+        where 1=1
+        <if test="id != null" >
+            and ID = #{id,jdbcType=INTEGER}
+        </if>
+        <if test="menuId != null" >
+            and MENU_ID = #{id,jdbcType=VARCHAR}
+        </if>
+        <if test="menuName != null" >
+            and MENU_NAME = #{id,jdbcType=VARCHAR}
+        </if>
+        <if test="linkUrl != null" >
+            and LINK_URL = #{id,jdbcType=VARCHAR}
+        </if>
+        <if test="parentId != null" >
+            and PARENT_ID = #{id,jdbcType=INTEGER}
+        </if>
+        <if test="iconName != null" >
+            and ICON_NAME = #{id,jdbcType=VARCHAR}
+        </if>
+        <if test="sortid != null" >
+            and SORTID = #{id,jdbcType=INTEGER}
+        </if>
 
+        limit  ${start},${pageSize}
+    </select>
+    <!--查询记录总数-->
+    <select id="selectCountByCondition" resultType="java.lang.Integer">
+        select count(*) from menu
+        where 1=1
+        <if test="id != null" >
+            and ID = #{id,jdbcType=INTEGER}
+        </if>
+        <if test="menuId != null" >
+            and MENU_ID = #{id,jdbcType=VARCHAR}
+        </if>
+        <if test="menuName != null" >
+            and MENU_NAME = #{id,jdbcType=VARCHAR}
+        </if>
+        <if test="linkUrl != null" >
+            and LINK_URL = #{id,jdbcType=VARCHAR}
+        </if>
+        <if test="parentId != null" >
+            and PARENT_ID = #{id,jdbcType=INTEGER}
+        </if>
+        <if test="iconName != null" >
+            and ICON_NAME = #{id,jdbcType=VARCHAR}
+        </if>
+        <if test="sortid != null" >
+            and SORTID = #{id,jdbcType=INTEGER}
+        </if>
+    </select>
 </mapper>

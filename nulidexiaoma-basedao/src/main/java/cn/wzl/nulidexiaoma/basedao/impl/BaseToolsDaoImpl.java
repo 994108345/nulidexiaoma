@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -58,5 +59,59 @@ public abstract class BaseToolsDaoImpl<T> implements IBaseToolsDao<T>{
 
         }
         return messageInfo;
+    }
+
+    /**
+     * 批量查询
+     * @param o
+     * @return
+     */
+    @Override
+    public List selectList(Object o) {
+        return localSqlSession.selectList(getNameSpace()+"selectList",o);
+    }
+
+    /**
+     * 批量插入
+     * @param list
+     * @return
+     */
+    @Override
+    public int insertList(List list) {
+        if(list.size()<=1000){
+            return localSqlSession.insert(getNameSpace()+"insertList",list);
+        }else{
+            List insertList = new ArrayList();
+            for(int i =0; i < list.size();){
+                if(i+1000<list.size()) {
+                    insertList = list.subList(i, 1000);
+                }else{
+                    insertList = list.subList(i, list.size());
+                }
+                i = i + 1000;
+                localSqlSession.insert(getNameSpace()+"insertList",insertList);
+            }
+        }
+        return 0;
+    }
+
+    /**
+     * 批量更新
+     * @param list
+     * @return
+     */
+    @Override
+    public int updateList(List list) {
+        return 0;
+    }
+
+    /**
+     * 批量删除
+     * @param list
+     * @return
+     */
+    @Override
+    public int deleteList(List list) {
+        return 0;
     }
 }

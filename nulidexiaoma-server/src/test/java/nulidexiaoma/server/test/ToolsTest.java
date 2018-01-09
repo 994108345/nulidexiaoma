@@ -9,6 +9,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by wenzailong on 2017/12/20.
  */
@@ -25,5 +28,13 @@ public class ToolsTest {
         String str=JSON.toJSONString(user);
         System.out.println(str);
 
+    }
+    @Test
+    public void listTest(){
+        List list = new ArrayList<>();
+        list.add("1");list.add("1");list.add("1");list.add("1");list.add("1");list.add("1");list.add("1");list.add("1");
+        list.add("2");list.add("2");list.add("2");list.add("2");list.add("2");list.add("2");list.add("2");list.add("2");
+        List sublist = list.subList(0,16);
+        System.out.println(sublist.toString());
     }
 }
