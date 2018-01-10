@@ -1,11 +1,32 @@
 package cn.wzl.nulidexiaoma.api;
 
+import cn.wzl.nulidexiaoma.common.MessageInfo;
 import cn.wzl.nulidexiaoma.common.pageBean.SearchResult;
 import cn.wzl.nulidexiaoma.common.pageBean.bean.MenuPageBean;
+import cn.wzl.nulidexiaoma.model.Menu;
 
 /**
  * Created by wenzailong on 2018/1/9.
  */
 public interface IMenuService {
+    /**
+     * 获取分页数据
+     * @param menuPageBean
+     * @return
+     */
     public SearchResult getPageBean(MenuPageBean menuPageBean);
+
+    /**
+     * 批量查询
+     * @param menu
+     * @return
+     */
+    public MessageInfo selectList(Menu menu);
+
+    /**
+     * 查找所有菜单
+     * @param menu
+     * @return
+     */
+    public MessageInfo selectAllList(Menu menu);
 }

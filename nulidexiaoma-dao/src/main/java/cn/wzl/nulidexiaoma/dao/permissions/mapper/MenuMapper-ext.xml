@@ -55,4 +55,30 @@
             and SORTID = #{id,jdbcType=INTEGER}
         </if>
     </select>
+    <!--批量查询-->
+    <select id="selectList" resultMap="BaseResultMap">
+        select * from menu
+        where 1=1
+        <if test="id != null" >
+            and ID = #{id,jdbcType=INTEGER}
+        </if>
+        <if test="menuId != null" >
+            and MENU_ID = #{id,jdbcType=VARCHAR}
+        </if>
+        <if test="menuName != null" >
+            and MENU_NAME = #{id,jdbcType=VARCHAR}
+        </if>
+        <if test="linkUrl != null" >
+            and LINK_URL = #{id,jdbcType=VARCHAR}
+        </if>
+        <if test="parentId != null" >
+            and PARENT_ID = #{id,jdbcType=INTEGER}
+        </if>
+        <if test="iconName != null" >
+            and ICON_NAME = #{id,jdbcType=VARCHAR}
+        </if>
+        <if test="sortid != null" >
+            and SORTID = #{id,jdbcType=INTEGER}
+        </if>
+    </select>
 </mapper>
