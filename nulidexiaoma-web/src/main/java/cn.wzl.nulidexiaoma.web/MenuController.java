@@ -48,7 +48,7 @@ public class MenuController {
     }
 
     /**
-     * 获取菜单集合
+     * 获取树形菜单集合
      * @return
      */
     @RequestMapping(value = "getMenuTree" ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE,

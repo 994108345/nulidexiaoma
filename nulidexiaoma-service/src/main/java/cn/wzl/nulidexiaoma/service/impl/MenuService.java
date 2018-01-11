@@ -65,9 +65,6 @@ public class MenuService implements IMenuService{
         List resultList = new ArrayList();
         try {
             List list = iMenuDao.selectList(menu);
-            for(int i = 0; i < list.size(); i++){
-
-            }
             messageInfo.setData(list);
         } catch (Exception e) {
             logger.error("查找树形菜单出错" + e.getMessage());
