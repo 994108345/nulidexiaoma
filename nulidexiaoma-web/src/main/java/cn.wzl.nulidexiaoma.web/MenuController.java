@@ -57,4 +57,5 @@ public class MenuController {
     public MessageInfo getMenuTree(Menu menu){
         return iMenuService.selectAllList(menu);
     }
+
 }
