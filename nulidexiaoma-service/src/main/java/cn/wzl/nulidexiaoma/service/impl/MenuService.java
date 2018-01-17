@@ -7,6 +7,7 @@ import cn.wzl.nulidexiaoma.common.pageBean.SearchResult;
 import cn.wzl.nulidexiaoma.common.pageBean.bean.MenuPageBean;
 import cn.wzl.nulidexiaoma.dao.permissions.IMenuDao;
 import cn.wzl.nulidexiaoma.model.Menu;
+import org.apache.commons.codec.binary.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -65,11 +66,50 @@ public class MenuService implements IMenuService{
         List resultList = new ArrayList();
         try {
             List list = iMenuDao.selectList(menu);
-            messageInfo.setData(list);
+            List menuTreeList = this.getMenuTree(list,"0",list.size());
+            messageInfo.setData(menuTreeList);
         } catch (Exception e) {
             logger.error("查找树形菜单出错" + e.getMessage());
             messageInfo.setMessageStatus(MessageStatus.ERROR.getStatus(),"查找树形菜单出错");
         }
         return messageInfo;
     }
+
+    /**
+     * 递归菜单
+     * @return
+     */
+    public List getMenuTree(List<Menu> menuList,String menuId,int n){
+        List<Branch> resultList = new ArrayList();
+
+        List<Branch> children = new ArrayList();
+        for(Menu menu:menuList){
+            String parentId = menu.getParentId()+"";
+            if(StringUtils.equals(parentId,menuId)){
+                Branch branch = new Branch();
+                Data data = new Data();
+                data.menuId = menu.getMenuId();
+                data.menuName = menu.getMenuName();
+                branch.data = data;
+                resultList.add(branch);
+            }
+
+        }
+        for(Branch child:resultList){
+            child.children = getMenuTree(menuList,child.data.menuId,n-1);
+        }
+        if(n == 0){
+            return resultList;
+        }
+        return resultList;
+    }
+}
+class Branch{
+ public Data data;
+ public List<Branch> children = new ArrayList();
+}
+class Data{
+    public String menuName;
+    public String menuId;
+
 }

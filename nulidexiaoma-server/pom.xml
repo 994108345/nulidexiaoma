@@ -265,7 +265,7 @@
 
 
     <properties>
-        <server.port>8080</server.port>
+        <server.port>8079</server.port>
         <server.path>/nulidexiaoma</server.path>
     </properties>
 
