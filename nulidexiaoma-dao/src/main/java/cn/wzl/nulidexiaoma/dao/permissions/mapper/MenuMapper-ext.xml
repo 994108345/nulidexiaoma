@@ -82,7 +82,7 @@
         </if>
     </select>
     <!--批量插入-->
-    <insert id="insertList" parameterMap="java.util.List">
+    <insert id="insertList" parameterType="java.util.List">
         insert into menu
         <trim prefix="(" suffix=")" suffixOverrides="," >
             <if test="id != null" >

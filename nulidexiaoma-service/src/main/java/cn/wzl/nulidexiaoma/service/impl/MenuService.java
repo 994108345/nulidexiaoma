@@ -103,6 +103,23 @@ public class MenuService implements IMenuService{
         }
         return resultList;
     }
+
+    /**
+     * 批量插入菜单
+     * @param list
+     * @return
+     */
+    @Override
+    public MessageInfo insertList(List list) {
+        MessageInfo messageInfo = new MessageInfo();
+        try {
+            int returnNum = iMenuDao.insertList(list);
+        } catch (Exception e) {
+            e.printStackTrace();
+            messageInfo.setMessageStatus(MessageStatus.ERROR.getStatus(),"插入菜单出错"+e.getMessage());
+        }
+        return messageInfo;
+    }
 }
 class Branch{
  public Data data;

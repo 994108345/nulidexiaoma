@@ -5,6 +5,8 @@ import cn.wzl.nulidexiaoma.common.pageBean.SearchResult;
 import cn.wzl.nulidexiaoma.common.pageBean.bean.MenuPageBean;
 import cn.wzl.nulidexiaoma.model.Menu;
 
+import java.util.List;
+
 /**
  * Created by wenzailong on 2018/1/9.
  */
@@ -29,4 +31,11 @@ public interface IMenuService {
      * @return
      */
     public MessageInfo selectAllList(Menu menu);
+
+    /**
+     * 批量插入菜单
+     * @param list
+     * @return
+     */
+    public MessageInfo insertList(List list);
 }

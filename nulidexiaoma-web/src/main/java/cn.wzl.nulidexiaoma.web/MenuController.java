@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by wenzailong on 2018/1/9.
@@ -58,4 +60,17 @@ public class MenuController {
         return iMenuService.selectAllList(menu);
     }
 
+    /**
+     * 获取菜单
+     * @param menu
+     * @return
+     */
+    @RequestMapping(value = "addMenu" ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE,
+            method = RequestMethod.POST,consumes = "application/json")
+    @ResponseBody
+    public MessageInfo addMenu(Menu menu){
+        List list = new ArrayList<>();
+        list.add(menu);
+        return iMenuService.insertList(list);
+    }
 }
