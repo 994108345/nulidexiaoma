@@ -9,22 +9,22 @@
             and ID = #{id,jdbcType=INTEGER}
         </if>
         <if test="menuId != null" >
-            and MENU_ID = #{id,jdbcType=VARCHAR}
+            and MENU_ID = #{menuId,jdbcType=VARCHAR}
         </if>
         <if test="menuName != null" >
-            and MENU_NAME = #{id,jdbcType=VARCHAR}
+            and MENU_NAME = #{menuName,jdbcType=VARCHAR}
         </if>
         <if test="linkUrl != null" >
-            and LINK_URL = #{id,jdbcType=VARCHAR}
+            and LINK_URL = #{linkUrl,jdbcType=VARCHAR}
         </if>
         <if test="parentId != null" >
-            and PARENT_ID = #{id,jdbcType=INTEGER}
+            and PARENT_ID = #{parentId,jdbcType=INTEGER}
         </if>
         <if test="iconName != null" >
-            and ICON_NAME = #{id,jdbcType=VARCHAR}
+            and ICON_NAME = #{iconName,jdbcType=VARCHAR}
         </if>
         <if test="sortid != null" >
-            and SORTID = #{id,jdbcType=INTEGER}
+            and SORTID = #{sortid,jdbcType=INTEGER}
         </if>
 
         limit  ${start},${pageSize}
@@ -37,22 +37,22 @@
             and ID = #{id,jdbcType=INTEGER}
         </if>
         <if test="menuId != null" >
-            and MENU_ID = #{id,jdbcType=VARCHAR}
+            and MENU_ID = #{menuId,jdbcType=VARCHAR}
         </if>
         <if test="menuName != null" >
-            and MENU_NAME = #{id,jdbcType=VARCHAR}
+            and MENU_NAME = #{menuName,jdbcType=VARCHAR}
         </if>
         <if test="linkUrl != null" >
-            and LINK_URL = #{id,jdbcType=VARCHAR}
+            and LINK_URL = #{linkUrl,jdbcType=VARCHAR}
         </if>
         <if test="parentId != null" >
-            and PARENT_ID = #{id,jdbcType=INTEGER}
+            and PARENT_ID = #{parentId,jdbcType=INTEGER}
         </if>
         <if test="iconName != null" >
-            and ICON_NAME = #{id,jdbcType=VARCHAR}
+            and ICON_NAME = #{iconName,jdbcType=VARCHAR}
         </if>
         <if test="sortid != null" >
-            and SORTID = #{id,jdbcType=INTEGER}
+            and SORTID = #{sortid,jdbcType=INTEGER}
         </if>
     </select>
     <!--批量查询-->
@@ -63,74 +63,68 @@
             and ID = #{id,jdbcType=INTEGER}
         </if>
         <if test="menuId != null" >
-            and MENU_ID = #{id,jdbcType=VARCHAR}
+            and MENU_ID = #{menuId,jdbcType=VARCHAR}
         </if>
         <if test="menuName != null" >
-            and MENU_NAME = #{id,jdbcType=VARCHAR}
+            and MENU_NAME = #{menuName,jdbcType=VARCHAR}
         </if>
         <if test="linkUrl != null" >
-            and LINK_URL = #{id,jdbcType=VARCHAR}
+            and LINK_URL = #{linkUrl,jdbcType=VARCHAR}
         </if>
         <if test="parentId != null" >
-            and PARENT_ID = #{id,jdbcType=INTEGER}
+            and PARENT_ID = #{parentId,jdbcType=INTEGER}
         </if>
         <if test="iconName != null" >
-            and ICON_NAME = #{id,jdbcType=VARCHAR}
+            and ICON_NAME = #{iconName,jdbcType=VARCHAR}
         </if>
         <if test="sortid != null" >
-            and SORTID = #{id,jdbcType=INTEGER}
+            and SORTID = #{sortid,jdbcType=INTEGER}
         </if>
     </select>
     <!--批量插入-->
     <insert id="insertList" parameterType="java.util.List">
-        insert into menu
-        <trim prefix="(" suffix=")" suffixOverrides="," >
-            <if test="id != null" >
-                ID,
-            </if>
-            <if test="menuId != null" >
-                MENU_ID,
-            </if>
-            <if test="menuName != null" >
-                MENU_NAME,
-            </if>
-            <if test="linkUrl != null" >
-                LINK_URL,
-            </if>
-            <if test="parentId != null" >
-                PARENT_ID,
-            </if>
-            <if test="iconName != null" >
-                ICON_NAME,
-            </if>
-            <if test="sortid != null" >
-                SORTID,
-            </if>( select</trim>
+      insert into menu
+        (MENU_ID,MENU_NAME, LINK_URL,
+        PARENT_ID, ICON_NAME, SORTID
+        )
         <foreach collection="list" item="item" index="index" separator="union all">
-            <trim prefix="values (" suffix=")" suffixOverrides="," >
-                <if test="id != null" >
-                    #{id,jdbcType=INTEGER},
-                </if>
-                <if test="menuId != null" >
-                    #{menuId,jdbcType=INTEGER},
-                </if>
-                <if test="menuName != null" >
-                    #{menuName,jdbcType=VARCHAR},
-                </if>
-                <if test="linkUrl != null" >
-                    #{linkUrl,jdbcType=VARCHAR},
-                </if>
-                <if test="parentId != null" >
-                    #{parentId,jdbcType=INTEGER},
-                </if>
-                <if test="iconName != null" >
-                    #{iconName,jdbcType=VARCHAR},
-                </if>
-                <if test="sortid != null" >
-                    #{sortid,jdbcType=INTEGER},
-                </if>
-            </trim>
-            )
+            (select
+            #{item.menuId,jdbcType=VARCHAR},#{item.menuName,jdbcType=VARCHAR}, #{item.linkUrl,jdbcType=VARCHAR},
+            #{item.parentId,jdbcType=INTEGER}, #{item.iconName,jdbcType=VARCHAR}, #{item.sortid,jdbcType=INTEGER}
+            from dual)
         </foreach>
     </insert>
+
+    <!--删除一条记录-->
+    <delete id="deleteOne" >
+        delete from menu
+        where id = #{id,jdbcType=INTEGER}
+
+    </delete>
+    <!--更新一条记录-->
+    <update id="updateOne">
+        update menu
+        <set >
+            <if test="menuName != null" >
+                MENU_NAME = #{menuName,jdbcType=VARCHAR},
+            </if>
+            <if test="menuId != null" >
+                MENU_ID = #{menuId,jdbcType=VARCHAR},
+            </if>
+            <if test="linkUrl != null" >
+                LINK_URL = #{linkUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="parentId != null" >
+                PARENT_ID = #{parentId,jdbcType=INTEGER},
+            </if>
+            <if test="iconName != null" >
+                ICON_NAME = #{iconName,jdbcType=VARCHAR},
+            </if>
+            <if test="sortid != null" >
+                SORTID = #{sortid,jdbcType=INTEGER},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=INTEGER}
+    </update>
+
 </mapper>

@@ -57,4 +57,17 @@ public interface IBaseToolsDao<T> {
      * @return
      */
     public int deleteList(List list);
+
+    /**
+     * 删除一条记录
+     * @param object
+     * @return
+     */
+    public int deleteOne(Object object);
+
+    /**
+     * 更新一条记录
+     * @return
+     */
+    public int updateOne(Object object);
 }

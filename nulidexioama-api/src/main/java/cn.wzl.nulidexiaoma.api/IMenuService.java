@@ -38,4 +38,18 @@ public interface IMenuService {
      * @return
      */
     public MessageInfo insertList(List list);
+
+    /**
+     * 删除一条记录
+     * @param menu
+     * @return
+     */
+    public MessageInfo deleteOne(Menu menu);
+
+    /**
+     * 更新一条记录
+     * @param menu
+     * @return
+     */
+    public MessageInfo updateOne(Menu menu);
 }

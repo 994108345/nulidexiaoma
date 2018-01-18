@@ -24,4 +24,27 @@
             and ROLE_NAME=#{roleName,jdbcType=VARCHAR}
         </if>
     </select>
+
+    <!--更新单条记录-->
+    <update id="updateOne">
+        update role
+        set ROLE_NAME = #{roleName,jdbcType=VARCHAR}
+        where ID = #{id,jdbcType=INTEGER}
+    </update>
+
+    <!--删除单条-->
+    <delete id="deleteOne">
+        delete from role
+        where ID = #{id,jdbcType=VARCHAR}
+    </delete>
+
+    <!--批量插入-->
+    <insert id="insertList" parameterType="com.mb.model.Role">
+        insert into role (ROLE_NAME)
+        <foreach collection="list" item="item" index="index" separator="union all">
+            ( select
+            (#{roleName,jdbcType=VARCHAR})
+            from dual)
+        </foreach>
+    </insert>
 </mapper>

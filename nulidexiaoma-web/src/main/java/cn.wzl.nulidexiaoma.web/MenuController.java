@@ -68,9 +68,33 @@ public class MenuController {
     @RequestMapping(value = "addMenu" ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE,
             method = RequestMethod.POST,consumes = "application/json")
     @ResponseBody
-    public MessageInfo addMenu(Menu menu){
+    public MessageInfo addMenu(@RequestBody Menu menu){
         List list = new ArrayList<>();
         list.add(menu);
         return iMenuService.insertList(list);
+    }
+
+    /**
+     * 删除菜单
+     * @param menu
+     * @return
+     */
+    @RequestMapping(value = "deleteMenu" ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE,
+            method = RequestMethod.POST,consumes = "application/json")
+    @ResponseBody
+    public MessageInfo deleteMenu(@RequestBody Menu menu){
+        return iMenuService.deleteOne(menu);
+    }
+
+    /**
+     * 更新菜单
+     * @param menu
+     * @return
+     */
+    @RequestMapping(value = "updateMenu" ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE,
+            method = RequestMethod.POST,consumes = "application/json")
+    @ResponseBody
+    public MessageInfo updateMenu(@RequestBody Menu menu){
+        return iMenuService.updateOne(menu);
     }
 }

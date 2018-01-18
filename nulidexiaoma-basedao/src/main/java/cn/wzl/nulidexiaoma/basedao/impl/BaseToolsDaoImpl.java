@@ -142,4 +142,24 @@ public abstract class BaseToolsDaoImpl<T> implements IBaseToolsDao<T>{
         }
         return 0;
     }
+
+    /**
+     * 删除一条记录
+     * @param object
+     * @return
+     */
+    @Override
+    public int deleteOne(Object object) {
+        return localSqlSession.delete(getNameSpace()+"deleteOne",object);
+    }
+
+    /**
+     * 更新一条记录
+     * @param object
+     * @return
+     */
+    @Override
+    public int updateOne(Object object) {
+        return localSqlSession.update(getNameSpace()+"updateOne",object);
+    }
 }

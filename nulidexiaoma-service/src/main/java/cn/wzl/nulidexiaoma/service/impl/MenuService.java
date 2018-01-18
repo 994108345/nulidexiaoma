@@ -120,6 +120,40 @@ public class MenuService implements IMenuService{
         }
         return messageInfo;
     }
+
+    /**
+     * 删除单条记录
+     * @param menu
+     * @return
+     */
+    @Override
+    public MessageInfo deleteOne(Menu menu) {
+        MessageInfo messageInfo = new MessageInfo();
+        try {
+            int returnNum = iMenuDao.deleteOne(menu);
+        } catch (Exception e) {
+            e.printStackTrace();
+            messageInfo.setMessageStatus(MessageStatus.ERROR.getStatus(),"删除菜单发生异常"+e.getMessage());
+        }
+        return messageInfo;
+    }
+
+    /**
+     * 更新一条菜单
+     * @param menu
+     * @return
+     */
+    @Override
+    public MessageInfo updateOne(Menu menu) {
+        MessageInfo messageInfo = new MessageInfo();
+        try {
+            int returnNum = iMenuDao.updateOne(menu);
+        } catch (Exception e) {
+            e.printStackTrace();
+            messageInfo.setMessageStatus(MessageStatus.ERROR.getStatus(),"更新菜单发生异常"+e.getMessage());
+        }
+        return messageInfo;
+    }
 }
 class Branch{
  public Data data;

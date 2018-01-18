@@ -12,6 +12,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by wenzailong on 2018/1/16.
@@ -33,6 +35,25 @@ public class MenuTreeTest {
             e.printStackTrace();
             logger.info("错了");
         }
+    }
+
+    @Test
+    public void addMenuTest(){
+        MessageInfo messageInfo = new MessageInfo();
+        Menu menu = new Menu();
+        menu.setMenuName("demo测试");
+        List list = new ArrayList<>();
+        list.add(menu);
+        list.add(menu);
+        list.add(menu);
+
+        try {
+            messageInfo = menuService.insertList(list);
+            messageInfo.getMessage();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 }
