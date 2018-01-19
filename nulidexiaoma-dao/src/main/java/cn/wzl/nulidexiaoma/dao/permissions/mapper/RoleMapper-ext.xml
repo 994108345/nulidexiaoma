@@ -39,7 +39,7 @@
     </delete>
 
     <!--批量插入-->
-    <insert id="insertList" parameterType="com.mb.model.Role">
+    <insert id="insertList" parameterType="cn.wzl.nulidexiaoma.model.Role">
         insert into role (ROLE_NAME)
         <foreach collection="list" item="item" index="index" separator="union all">
             ( select
