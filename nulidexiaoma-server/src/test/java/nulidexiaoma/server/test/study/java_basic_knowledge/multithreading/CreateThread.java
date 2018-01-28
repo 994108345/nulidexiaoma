@@ -8,6 +8,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by wenzailong on 2018/1/19.
  */
@@ -90,7 +96,6 @@ public class CreateThread {
             System.out.println(name+":子线程结束了");
         }
     }
-
     /**
      * 测试josin方法
      * @throws InterruptedException
@@ -200,6 +205,87 @@ public class CreateThread {
         thread3.start();
     }
 
+
+    /**
+     * 单锁
+     */
+    @Test
+    public void singleSynchronizedTest(){
+        DemoTest demoTest = new DemoTest();
+        ThreadTest threadTest1 = new ThreadTest(demoTest,"a");
+        ThreadTest threadTest2 = new ThreadTest(demoTest,"b");
+        Thread thread1 = new Thread(threadTest1);
+        Thread thread2 = new Thread(threadTest2);
+        thread1.start();
+        thread2.start();
+    }
+    class DemoTest{
+         public void add(String username){
+             int num = 0;
+            try{
+                if(username.equals("a")){
+                    num = 100;
+                    System.out.println("a set over");
+                    Thread.sleep(1000);
+                }else{
+                    num = 200;
+                    System.out.println("b set over!");
+                    Thread.sleep(1000);
+                }
+                System.out.println(username + " num=" + num);
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+
+    }
+    class ThreadTest implements Runnable{
+        DemoTest demoTest ;
+        String name;
+
+        public ThreadTest(DemoTest demoTest,String name){
+            this.name =name;
+            this.demoTest = demoTest;
+        }
+        @Override
+        public void run() {
+            demoTest.add(name);
+        }
+    }
+}
+
+class Test2 {
+    public static void main(String[] args){
+        /*ExecutorService exception = Executors.newCachedThreadPool();
+        exception.execute(new Thread2("A"));
+        exception.execute(new Thread2("B"));
+        exception.shutdown();*/
+        List list = new ArrayList<>();
+        Thread2 t1 = new Thread2("A",list);
+        Thread2 t2 = new Thread2("b",list);
+        Thread thread1 = new Thread(t1);
+        Thread thread2 = new Thread(t2);
+        thread1.start();
+        thread2.start();
+    }
+}
+class Thread2 implements Runnable{
+    String name;
+    List a ;
+
+    public Thread2(String name,List a) {
+        this.name = name;
+         this.a = a;
+    }
+
+    @Override
+    public void run() {
+        for(int i = 0; i < 1000; i++){
+            a.add(i);
+            System.out.println(name +":--i.size()="+a.size());
+            System.out.println(name +":"+i);
+        }
+    }
 }
 
 

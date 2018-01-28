@@ -1,6 +1,7 @@
 package nulidexiaoma.server.test;
 
 import cn.wzl.nulidexiaoma.model.User;
+import com.alibaba.dubbo.common.json.ParseException;
 import com.alibaba.fastjson.JSON;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by wenzailong on 2017/12/20.
@@ -20,6 +22,9 @@ import java.util.List;
 public class ToolsTest {
     private Logger logger = LoggerFactory.getLogger(LoginServiceTest.class);
 
+    /**
+     * 对象转json字符串
+     */
     @Test
     public void objectToJson(){
         User user = new User();
@@ -29,6 +34,10 @@ public class ToolsTest {
         System.out.println(str);
 
     }
+
+    /**
+     * 剪切数组
+     */
     @Test
     public void listTest(){
         List list = new ArrayList<>();
@@ -37,4 +46,64 @@ public class ToolsTest {
         List sublist = list.subList(0,16);
         System.out.println(sublist.toString());
     }
+
+    /**
+     * json字符串转object
+     */
+    @Test
+    public void  jsonStrToObject(){
+        String jsonStr = "{\n" +
+                "  'userCode': 'HQ01UB993',\n" +
+                "  'deviceId': '1111',\n" +
+                "  'ipAddress': '192.168.31.230',\n" +
+                "  'warhCode': 'HQ01W850',\n" +
+                "  'password':'test',\n" +
+                "  'token':'5fadaa5ceef109dacbb6625ceae409bc055c0bf956395f7755af9495e4b3f9ec',\n" +
+                "  'data':[{\n" +
+                "        'code': '102',\n" +
+                "        'id': '635879C63D29E7C0E050640A97146D82',\n" +
+                "        'menuName': '箱组盘收货',\n" +
+                "        'parentId': '1',\n" +
+                "        'sortId': 4\n" +
+                "      }],\n" +
+                "}";
+        Object object = JSON.parse(jsonStr);
+        System.out.println(object.toString());
+    }
+
+    @Test
+    public void objectToOther(){
+        User user = new User();
+        Object obj =user;
+        user = (User)obj;
+    }
+
+    /**
+     * 生成随机数
+     */
+    @Test
+    public void randowTest(){
+        Random random = new Random();
+        for(int i = 0 ; i<10;i++) {
+            System.out.println(random.nextInt(10));
+        }
+    }
+
+    /**
+     * 测试移位运算符（显示的都是补码，正数的原码的补码反码一样，负数的补码等于正数的补码取反加1）
+     */
+    @Test
+    public void shiftOperator(){
+        int count = 10;
+        int num = -4;
+        System.out.println("二进制为"+Integer.toBinaryString(4));
+        System.out.println("二进制为"+Integer.toBinaryString(-4));
+        while(count>1){
+            count--;
+            num = num>>1;
+            System.out.println("num:" + num);
+            System.out.println("二进制为"+Integer.toBinaryString(num));
+        }
+    }
+
 }
