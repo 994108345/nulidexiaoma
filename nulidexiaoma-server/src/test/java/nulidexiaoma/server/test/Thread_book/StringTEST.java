@@ -384,18 +384,19 @@ class A{
 
 class ServiceR{
     private boolean isContinueRun = true;
-    public  void runMethod(){
+    int i = 0;
+    public  void runMethod() throws InterruptedException {
         String anyThing = new String();
-        while(isContinueRun == true){
-            /*System.out.println("死循环了吗");*/
-           /* synchronized (anyThing){
-
-            }*/
+        System.out.println(ThraedB.currentThread().getName()+":"+isContinueRun);
+        while(i < 5 ){
+            System.out.println(i);
         }
+        System.out.println(ThraedB.currentThread().getName()+":"+isContinueRun);
         System.out.println("停下来了！");
     }
     public void stopMethod(){
         isContinueRun = false;
+        i++;
     }
 }
 
@@ -407,7 +408,11 @@ class ThreadA extends Thread{
 
     @Override
     public void run() {
-        service.runMethod();
+        try {
+            service.runMethod();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
 class ThraedB extends Thread{
@@ -417,8 +422,14 @@ class ThraedB extends Thread{
     }
     @Override
     public void run() {
-        super.run();
-        service.stopMethod();
+        for (int i = 0; i < 8 ; i++) {
+            service.stopMethod();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
 
@@ -427,10 +438,12 @@ class RunR{
         try{
             ServiceR service = new ServiceR();
             ThreadA a =new ThreadA(service);
+            a.setName("A");
             a.start();
-            Thread.sleep(1000);
             ThraedB b = new ThraedB(service);
+            b.setName("B");
             b.start();
+            a.interrupt();
             System.out.println("已经发起停止命令！");
         }catch (Exception e){
             e.printStackTrace();
