@@ -314,10 +314,10 @@ class WaitService{
     public void testMethod(Object lock){
         try {
             synchronized (lock){
-                System.out.println("begin wait()");
+                System.out.println(Thread.currentThread().getName()+"begin wait()");
                 /*lock.wait();*/
-                Thread.sleep(4000);
-                System.out.println("end wait()");
+                lock.wait(4000);
+                System.out.println(Thread.currentThread().getName()+"end wait()");
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -356,7 +356,10 @@ class WaitDemo{
         Object lock = new Object();
         ThreadA5 a  = new ThreadA5(lock);
         a.start();
-        ThreadB5 b = new ThreadB5(lock);
-        b.start();
+
+        /*ThreadB5 b = new ThreadB5(lock);
+        b.start();*/
+        ThreadA5 c  = new ThreadA5(lock);
+        c.start();
     }
 }

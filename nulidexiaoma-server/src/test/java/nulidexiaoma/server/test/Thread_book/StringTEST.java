@@ -362,7 +362,7 @@ class MyThread12 extends Thread{
         try{
 
             MyService1 myService1s = new MyService1();
-            MyThread12[] myThread12s = new MyThread12[20];
+            MyThread12[] myThread12s = new MyThread12[100];
             for(int i = 0; i< myThread12s.length;i++){
                 myThread12s[i] = new MyThread12(myService1s);
             }
