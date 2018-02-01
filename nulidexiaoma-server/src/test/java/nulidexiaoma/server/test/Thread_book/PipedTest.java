@@ -59,3 +59,37 @@ class ThreadWrite extends Thread{
         write.writeMethod(out);
     }
 }
+class ThreadReader extends Thread{
+    private ReadData read;
+    private PipedInputStream input;
+
+    public ThreadReader(ReadData read, PipedInputStream input) {
+        this.read = read;
+        this.input = input;
+    }
+
+    @Override
+    public void run() {
+        read.readMethod(input);
+    }
+}
+class Run111{
+    public static void main(String[] args){
+        try {
+            WriteData writeData = new WriteData();
+            ReadData readData = new ReadData();
+            PipedInputStream inputStream = new PipedInputStream();
+            PipedOutputStream outputStream = new PipedOutputStream();
+            /*outputStream.connect(inputStream);*/
+            inputStream.connect(outputStream);
+            ThreadReader threadReader = new ThreadReader(readData,inputStream);
+            threadReader.start();
+            Thread.sleep(2000);
+            ThreadWrite threadWrite = new ThreadWrite(writeData,outputStream);
+            threadWrite.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+}
