@@ -5,6 +5,8 @@ import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created by wenzailong on 2018/2/1.
@@ -101,5 +103,51 @@ class RunSort{
         a.start();
         b.start();
         c.start();
+    }
+}
+class ThreadCount extends Thread{
+    private ReentrantLock lock = new ReentrantLock();
+    private Condition condition = lock.newCondition();
+    private ThreadCount threadCount ;
+
+    public ThreadCount(ReentrantLock lock) {
+        this.lock = lock;
+    }
+
+    @Override
+    public void run() {
+
+        this.method();
+        this.unLock();
+    }
+    public void method(){
+        lock.lock();
+        lock.unlock();
+        lock.lock();
+        lock.lock();
+        lock.lock();
+        System.out.println(Thread.currentThread().getName() + ":" + lock.getHoldCount());
+    }
+    void unLock(){
+        lock.unlock();
+    }
+    public static void main(String[] args) {
+        ReentrantLock lock = new ReentrantLock();
+        ThreadCount a = new ThreadCount(lock);
+        ThreadCount b = new ThreadCount(lock);
+        ThreadCount c = new ThreadCount(lock);
+        ThreadCount d = new ThreadCount(lock);
+        ThreadCount e = new ThreadCount(lock);
+        a.setName("A");
+        b.setName("B");
+        c.setName("C");
+        d.setName("D");
+        e.setName("E");
+        a.start();
+        b.start();
+        c.start();
+        d.start();
+        e.start();
+
     }
 }
