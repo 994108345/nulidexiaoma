@@ -134,7 +134,7 @@ public class CreateThread {
         }
     }
     /**
-     * 测试josin方法
+     * 测试yield方法
      * @throws InterruptedException
      */
     @Test
