@@ -106,4 +106,37 @@ public class ToolsTest {
         }
     }
 
+    /**
+     * 测试引用传递（对象是引用传递、基本数据类型都是值传递,如果是new了，是不存在引用传递的！）
+     */
+    @Test
+    public void referenceTest(){
+        A node1 = new A("a","b",1,null);
+        A node2 = new A("a","b",2,node1);
+
+        A node = new A("213","123",1,null);
+        A node3 = node2.object;
+
+
+        node = node1;
+        node.a = "123123213";
+
+
+        System.out.println(node2.a);
+
+    }
+    class A{
+        String a;
+        String b;
+        int c;
+        A object;
+
+        public A(String a, String b, int c, A object) {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+            this.object = object;
+        }
+    }
+
 }
