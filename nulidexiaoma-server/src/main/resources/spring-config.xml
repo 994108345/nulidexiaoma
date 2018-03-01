@@ -17,6 +17,7 @@
         <property name="locations">
             <list>
                 <value>classpath:properties/jdbc.properties</value>
+                <value>classpath:properties/redis.properties</value>
             </list>
         </property>
         <property name="ignoreResourceNotFound" value="true"/>
@@ -24,6 +25,7 @@
 
    <!-- <import resource="classpath:dataSource/datasource.xml"/>-->
     <import resource="classpath:mybatis/spring-mybatis.xml"/>
+    <import resource="classpath:redis/redis-config.xml"/>
     <!--<import resource="classpath:mvc/spring-mvc.xml"/>-->
    <!-- <import resource="classpath:dubbo/spring-dubbo-server.xml"/>
     <import resource="classpath:dubbo/spring-dubbo-client.xml"/>

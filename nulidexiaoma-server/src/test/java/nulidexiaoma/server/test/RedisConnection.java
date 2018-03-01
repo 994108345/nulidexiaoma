@@ -1,6 +1,11 @@
 package nulidexiaoma.server.test;
 
+import cn.wzl.nulidexiaoma.common.redis.RedisUtil;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import redis.clients.jedis.Jedis;
 
 import java.util.Iterator;
@@ -11,10 +16,14 @@ import java.util.Set;
  * Created by wenzailong on 2018/2/27.
  * redis连接
  */
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:spring-config.xml")
 public class RedisConnection {
+    @Autowired
+    RedisUtil redisUtil;
 
     public static void main(String[] args) {
-        //连接本地的 Redis 服务
+        //连接本地的 redis 服务
         Jedis jedis = new Jedis("localhost");
         jedis.auth("bobobobo");
         System.out.println("连接成功");
@@ -27,7 +36,7 @@ public class RedisConnection {
      */
     @Test
     public void redisString() {
-        //连接本地的 Redis 服务
+        //连接本地的 redis 服务
         Jedis jedis = new Jedis("localhost");
         jedis.auth("bobobobo");
         System.out.println("连接成功");
@@ -42,7 +51,7 @@ public class RedisConnection {
      */
     @Test
     public void redisList() {
-        //连接本地的 Redis 服务
+        //连接本地的 redis 服务
         Jedis jedis = new Jedis("localhost");
         jedis.auth("bobobobo");
         System.out.println("连接成功");
@@ -62,7 +71,7 @@ public class RedisConnection {
      */
     @Test
     public void redisKey() {
-        //连接本地的 Redis 服务
+        //连接本地的 redis 服务
         Jedis jedis = new Jedis("localhost");
         jedis.auth("bobobobo");
         System.out.println("连接成功");
@@ -74,6 +83,13 @@ public class RedisConnection {
             String key = it.next();
             System.out.println(key);
         }
+    }
+
+    @Test
+    public void setKey(){
+        redisUtil.set("normal","我在这");
+        Object  o = redisUtil.get("normal");
+        System.out.println(o.toString());
     }
 
 }

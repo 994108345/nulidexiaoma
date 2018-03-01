@@ -25,6 +25,7 @@
     <orderEntry type="module" module-name="nulidexiaoma-model" />
     <orderEntry type="module" module-name="nulidexioama-api" />
     <orderEntry type="module" module-name="nulidexiaoma-common" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-redis:1.6.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:5.0.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:4.3.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:4.3.4.RELEASE" level="project" />

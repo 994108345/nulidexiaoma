@@ -27,10 +27,22 @@ public class ListSourceCode {
         System.out.println("0x00000600:"+0x00000600);
         System.out.println("b:"+(int)b);
     }
+    @Test
+    public void nullTest(){
+        String a = null;
+        Object o = new Object();
+        o = null;
+        if(o.hashCode() == 1111){
+            System.out.println("a = null");
+        }else{
+            System.out.println("a != null");
+        }
+    }
 }
 
 interface a {
     int a();
 }
 interface c extends a{
+
 }
