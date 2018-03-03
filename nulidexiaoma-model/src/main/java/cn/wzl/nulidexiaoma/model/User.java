@@ -1,6 +1,10 @@
 package cn.wzl.nulidexiaoma.model;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 3636911726700213541L;
     private Integer id;
 
     private String userName;

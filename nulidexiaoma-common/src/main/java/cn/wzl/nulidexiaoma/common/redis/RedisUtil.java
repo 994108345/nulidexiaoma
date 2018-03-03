@@ -1,6 +1,7 @@
 package cn.wzl.nulidexiaoma.common.redis;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -9,6 +10,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 
+/**
+ * 暂时废弃这个类
+ */
 public class RedisUtil {
     private Logger logger = LoggerFactory.getLogger(RedisUtil.class);
 
@@ -34,6 +38,27 @@ public class RedisUtil {
         Set<Serializable> keys = redisTemplate.keys(pattern);
         if (keys.size() > 0)
             redisTemplate.delete(keys);
+    }
+
+    /**
+     * 批量插入列表
+     * @param list
+     */
+    public void  addList(String key,List<String> list){
+        for (String str: list) {
+            redisTemplate.opsForList().rightPush(key,str);
+        }
+    }
+
+    /**
+     * 获得固定长度的集合
+     * @param key
+     * @param beginIndex
+     * @param endIndex
+     */
+    public List<String> getList(String key,long beginIndex,long endIndex){
+        List listList  = redisTemplate.opsForList().range(key,beginIndex,endIndex);
+        return  listList;
     }
 
     /**

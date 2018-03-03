@@ -1,7 +1,6 @@
 package nulidexiaoma.server.test;
 
 import cn.wzl.nulidexiaoma.model.User;
-import com.alibaba.dubbo.common.json.ParseException;
 import com.alibaba.fastjson.JSON;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -138,5 +137,6 @@ public class ToolsTest {
             this.object = object;
         }
     }
+
 
 }

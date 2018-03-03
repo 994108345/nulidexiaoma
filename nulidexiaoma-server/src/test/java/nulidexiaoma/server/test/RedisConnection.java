@@ -1,6 +1,8 @@
 package nulidexiaoma.server.test;
 
-import cn.wzl.nulidexiaoma.common.redis.RedisUtil;
+import cn.wzl.nulidexiaoma.api.IRedisService;
+import cn.wzl.nulidexiaoma.common.redis.CacheProxy;
+import cn.wzl.nulidexiaoma.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import redis.clients.jedis.Jedis;
 
-import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by wenzailong on 2018/2/27.
@@ -19,8 +19,11 @@ import java.util.Set;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring-config.xml")
 public class RedisConnection {
+
     @Autowired
-    RedisUtil redisUtil;
+    CacheProxy cacheProxy;
+    @Autowired
+    IRedisService redisService;
 
     public static void main(String[] args) {
         //连接本地的 redis 服务
@@ -66,30 +69,45 @@ public class RedisConnection {
         }
     }
 
+    @Test
+    public void redisAddList() {
+        //连接本地的 redis 服务
+        Jedis jedis = new Jedis("localhost");
+        System.out.println("连接成功");
+        User user = new User();
+        user.setUserName("张三");
+        user.setPassWord("123");
+        //存储数据到列表中
+        jedis.lpush("site-list", "11111");
+        jedis.lpush("site-list", "Google");
+        jedis.lpush("site-list", "Taobao");
+        // 获取存储的数据并输出
+        List<String> list = jedis.lrange("site-list", 0, 2);
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println("列表项为: " + list.get(i));
+        }
+    }
+
     /**
      * key
      */
     @Test
-    public void redisKey() {
-        //连接本地的 redis 服务
-        Jedis jedis = new Jedis("localhost");
-        jedis.auth("bobobobo");
-        System.out.println("连接成功");
+    public void getOne(){
+        cacheProxy.set("one","11111");
+        String a = cacheProxy.get("one");
+        System.out.println(a);
 
-        // 获取数据并输出
-        Set<String> keys = jedis.keys("*");
-        Iterator<String> it=keys.iterator() ;
-        while(it.hasNext()){
-            String key = it.next();
-            System.out.println(key);
+        try {
+            cacheProxy.lpush("a" ,"2123");
+            cacheProxy.lrange("a",1,2);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
     }
 
     @Test
-    public void setKey(){
-        redisUtil.set("normal","我在这");
-        Object  o = redisUtil.get("normal");
-        System.out.println(o.toString());
-    }
+    public void serLKey() throws Exception {
 
+    }
 }

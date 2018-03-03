@@ -8,35 +8,41 @@
      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
      http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-3.2.xsd"
        default-autowire="byName" default-lazy-init="true">
+        <description>REDIS缓存配置</description>
 
-    <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
-        <property name="maxIdle" value="${redis.maxIdle}" />
-        <property name="maxWaitMillis" value="${redis.maxWait}" />
-        <property name="testOnBorrow" value="${redis.testOnBorrow}" />
-    </bean>
-    <!-- redis服务器中心 -->
-    <bean id="connectionFactory"
-          class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
-        <property name="poolConfig" ref="poolConfig" />
-        <property name="port" value="${redis.port}" />
-        <property name="hostName" value="${redis.host}" />
-        <property name="password" value="${redis.password}" />
-        <property name="timeout" value="${redis.timeout}"></property>
-    </bean>
-    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
-        <property name="connectionFactory" ref="connectionFactory" />
-        <property name="keySerializer">
-            <bean
-                    class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+    <!-- 配置数据库相关参数properties的属性：${url} -->
+    <context:property-placeholder location="classpath:properties/redis.properties"/>
+
+        <!-- JEDIS SHARD 池配置 -->
+        <bean id="shardedJedisPool" class="redis.clients.jedis.ShardedJedisPool">
+            <constructor-arg index="0" ref="jedisPoolConfig" />
+            <constructor-arg index="1">
+                <list>
+                    <ref bean="jedis.shardInfo.default" />
+                </list>
+            </constructor-arg>
+        </bean>
+
+        <!-- JEDIS连接池配置 -->
+        <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+            <property name="maxTotal" value="100" />
+            <property name="maxIdle" value="${redis.maxIdle}" />
+            <property name="maxWaitMillis" value="${redis.maxWait}" />
+            <property name="testOnBorrow" value="${redis.testOnBorrow}" />
+        </bean>
+
+        <!-- JEDIS SHARD信息配置[START]      在此添加REDIS集群配置 -->
+        <bean id="jedis.shardInfo.default" class="redis.clients.jedis.JedisShardInfo">
+            <constructor-arg index="0" value="${redis.host}" />
+            <constructor-arg index="1" type="int" value="${redis.port}" />
+            <constructor-arg index="2" type="java.lang.String" value="${redis.host}" />
+        </bean>
+        <!-- JEDIS SHARD信息配置 [END] -->
+
+    <!-- 缓存代理，使用缓存内容请使用本代理进行操作 请使用接口进行注入 -->
+    <bean id="cacheProxy" class="cn.wzl.nulidexiaoma.common.redis.CacheProxy">
+        <property name="shardedJedisPool">
+            <ref bean="shardedJedisPool" />
         </property>
-        <property name="valueSerializer">
-            <bean
-                    class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer" />
-        </property>
     </bean>
-
-    <bean id="redisUtil" class="cn.wzl.nulidexiaoma.common.redis.RedisUtil">
-        <property name="redisTemplate" ref="redisTemplate" />
-    </bean>
-
 </beans>

@@ -2,8 +2,13 @@ E:\projects\home-project\nulidexiaoma\nulidexiaoma\nulidexiaoma-common\src\main\
 E:\projects\home-project\nulidexiaoma\nulidexiaoma\nulidexiaoma-common\src\main\java\cn\wzl\nulidexiaoma\common\exception\LoginException.java
 E:\projects\home-project\nulidexiaoma\nulidexiaoma\nulidexiaoma-common\src\main\java\cn\wzl\nulidexiaoma\common\pageBean\SearchResult.java
 E:\projects\home-project\nulidexiaoma\nulidexiaoma\nulidexiaoma-common\src\main\java\cn\wzl\nulidexiaoma\common\exception\JdbcException.java
-E:\projects\home-project\nulidexiaoma\nulidexiaoma\nulidexiaoma-common\src\main\java\cn\wzl\nulidexiaoma\common\redis\RedisUtil.java
-E:\projects\home-project\nulidexiaoma\nulidexiaoma\nulidexiaoma-common\src\main\java\cn\wzl\nulidexiaoma\common\pageBean\bean\RolePageBean.java
 E:\projects\home-project\nulidexiaoma\nulidexiaoma\nulidexiaoma-common\src\main\java\cn\wzl\nulidexiaoma\common\pageBean\bean\MenuPageBean.java
 E:\projects\home-project\nulidexiaoma\nulidexiaoma\nulidexiaoma-common\src\main\java\cn\wzl\nulidexiaoma\common\pageBean\PageBean.java
+E:\projects\home-project\nulidexiaoma\nulidexiaoma\nulidexiaoma-common\src\main\java\cn\wzl\nulidexiaoma\common\redis\IRedisProxy.java
 E:\projects\home-project\nulidexiaoma\nulidexiaoma\nulidexiaoma-common\src\main\java\cn\wzl\nulidexiaoma\common\MessageStatus.java
+E:\projects\home-project\nulidexiaoma\nulidexiaoma\nulidexiaoma-common\src\main\java\cn\wzl\nulidexiaoma\common\JSONutils.java
+E:\projects\home-project\nulidexiaoma\nulidexiaoma\nulidexiaoma-common\src\main\java\cn\wzl\nulidexiaoma\common\redis\ShardedRedisProxy.java
+E:\projects\home-project\nulidexiaoma\nulidexiaoma\nulidexiaoma-common\src\main\java\cn\wzl\nulidexiaoma\common\redis\RedisUtil.java
+E:\projects\home-project\nulidexiaoma\nulidexiaoma\nulidexiaoma-common\src\main\java\cn\wzl\nulidexiaoma\common\pageBean\bean\RolePageBean.java
+E:\projects\home-project\nulidexiaoma\nulidexiaoma\nulidexiaoma-common\src\main\java\cn\wzl\nulidexiaoma\common\SerializeUtil.java
+E:\projects\home-project\nulidexiaoma\nulidexiaoma\nulidexiaoma-common\src\main\java\cn\wzl\nulidexiaoma\common\redis\CacheProxy.java
