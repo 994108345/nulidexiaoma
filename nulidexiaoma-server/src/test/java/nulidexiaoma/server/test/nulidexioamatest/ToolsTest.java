@@ -1,4 +1,4 @@
-package nulidexiaoma.server.test;
+package nulidexiaoma.server.test.nulidexioamatest;
 
 import cn.wzl.nulidexiaoma.model.User;
 import com.alibaba.fastjson.JSON;
@@ -136,6 +136,20 @@ public class ToolsTest {
             this.c = c;
             this.object = object;
         }
+    }
+
+    @Test
+    public void testInteger(){
+
+        Integer a = null;
+        try {
+            a = null;
+            Integer b = null;
+            a = b;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 

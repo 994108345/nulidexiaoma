@@ -44,6 +44,4 @@ public class UserRangeController {
         messageInfo = iRedisService.getListTop10();
         return  messageInfo;
     }
-
-
 }

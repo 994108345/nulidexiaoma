@@ -1,4 +1,4 @@
-package nulidexiaoma.server.test;
+package nulidexiaoma.server.test.nulidexioamatest;
 
 import cn.wzl.nulidexiaoma.api.IRedisService;
 import cn.wzl.nulidexiaoma.common.redis.CacheProxy;

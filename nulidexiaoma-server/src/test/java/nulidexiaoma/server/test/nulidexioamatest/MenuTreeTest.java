@@ -1,4 +1,4 @@
-package nulidexiaoma.server.test;
+package nulidexiaoma.server.test.nulidexioamatest;
 
 import cn.wzl.nulidexiaoma.api.IMenuService;
 import cn.wzl.nulidexiaoma.common.MessageInfo;
@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.messaging.handler.MessagingAdviceBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -54,6 +53,12 @@ public class MenuTreeTest {
             e.printStackTrace();
         }
 
+    }
+
+    @Test
+    public void test12(){
+        int i = 0;
+        System.out.println((++i)+"");
     }
 
 }

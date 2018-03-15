@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wzl.nulidexiaoma.dao.multithreading.IMultiThreadingDao" >
+
+  <select id="selectAllDate" resultMap="BaseResultMap">
+    SELECT * FROM  multi_threading limit 1000;
+  </select>
+
+    <update id="updateMultiThreading" parameterType="java.util.List">
+      <foreach close="" collection="list" index="index" item="item" open="" separator=";">
+      update multi_threading
+        <set>
+          thread_name = #{item.threadName,jdbcType=VARCHAR},
+          last_modify_date = now(),
+          control_num = #{item.controlNum,jdbcType=VARCHAR}
+        </set>
+        WHERE id = #{item.id,jdbcType=INTEGER}
+      </foreach>
+    </update>
+</mapper>

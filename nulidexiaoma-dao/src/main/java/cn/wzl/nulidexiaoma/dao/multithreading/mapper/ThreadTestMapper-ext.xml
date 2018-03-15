@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wzl.nulidexiaoma.dao.multithreading.IThreadTestDao">
+
+  <update id="updateThreadInfo" parameterType="java.util.List">
+    <foreach collection="list" separator=";" item="item" open="" close="" index="index">
+      update thread_test
+          <set>
+            name = #{item.name,jdbcType=VARCHAR},
+            last_modify_date = now()
+          </set>
+        where thrad_id = #{item.thradId,jdbcType=INTEGER}
+    </foreach>
+  </update>
+
+    <update id="updateOne" parameterType="cn.wzl.nulidexiaoma.model.ThreadTest">
+        update thread_test
+        set name = #{name,jdbcType=VARCHAR},
+            last_modify_date = now()
+        where thrad_id = #{thradId,jdbcType=INTEGER}
+    </update>
+</mapper>

@@ -1,4 +1,4 @@
-package nulidexiaoma.server.test;
+package nulidexiaoma.server.test.nulidexioamatest;
 
 import cn.wzl.nulidexiaoma.api.IRoleService;
 import cn.wzl.nulidexiaoma.common.pageBean.SearchResult;

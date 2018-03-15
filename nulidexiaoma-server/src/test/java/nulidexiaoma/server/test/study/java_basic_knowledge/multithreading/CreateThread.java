@@ -1,6 +1,6 @@
 package nulidexiaoma.server.test.study.java_basic_knowledge.multithreading;
 
-import nulidexiaoma.server.test.LoginServiceTest;
+import nulidexiaoma.server.test.nulidexioamatest.LoginServiceTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -10,9 +10,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by wenzailong on 2018/1/19.
