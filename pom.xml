@@ -14,6 +14,7 @@
     <module>nulidexiaoma-basedao</module>
     <module>nulidexiaoma-server</module>
     <module>nulidexioama-api</module>
+      <module>nulidexiaoma-html</module>
   </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

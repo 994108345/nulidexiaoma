@@ -2,10 +2,10 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/nulidexiaoma-api" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/nulidexiaoma-basedao" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/nulidexiaoma-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/nulidexiaoma-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nulidexiaoma-html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/nulidexiaoma-model" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/nulidexiaoma-server" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/nulidexiaoma-service" charset="UTF-8" />
