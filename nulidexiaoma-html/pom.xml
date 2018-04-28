@@ -10,6 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>nulidexiaoma-html</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>nulidexiaoma-html-model</module>
+        <module>nulidexiaoma-html-dao</module>
+        <module>nulidexiaoma-html-service</module>
+        <module>nulidexiaoma-html-api</module>
+        <module>nulidexiaoma-html-server</module>
+    </modules>
 
 
 </project>

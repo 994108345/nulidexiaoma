@@ -13,7 +13,6 @@
     <!-- 扫描service包下所有使用注解的类型 -->
     <context:component-scan base-package="cn.wzl.nulidexiaoma.service"/>
 
-
     <!-- 配置数据库相关参数properties的属性：${url} -->
     <context:property-placeholder location="classpath:properties/jdbc.properties"/>
 
@@ -38,7 +37,16 @@
        <!-- <property name="typeAliasesPackage" value="cn.wzl.nulidexiaoma.model"/>-->
         <!-- 扫描sql配置文件:mapper需要的xml文件 -->
         <property name="mapperLocations" value="classpath*:cn/wzl/nulidexiaoma/dao/**/mapper/*.xml"/>
+        <!-- 配置mybatis配置文件的位置,为了拿到typeHandler -->
+        <property name="typeHandlers">
+            <bean class="org.apache.ibatis.type.EnumOrdinalTypeHandler">
+                <constructor-arg value="cn.wzl.nulidexiaoma.common.enums.SexEnum"></constructor-arg>
+            </bean>
+        </property>
+        <!--加载mybatis配置文件-->
+        <property name="configLocation" value="classpath:./mybatis/mybatis-config.xml"/>
     </bean>
+
 
     <!-- 配置扫描Dao接口包，动态实现Dao接口，注入到spring容器中 -->
 <!--    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

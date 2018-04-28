@@ -18,4 +18,19 @@ public class UserDaoImpl extends BaseToolsDaoImpl implements IUserDao {
     public List<User> selectUser(User user) {
         return localSqlSession.selectList(getNameSpace()+"selectUser",user);
     }
+
+    @Override
+    public int insertUserByTypeHandler(User user) {
+        return localSqlSession.insert(getNameSpace() + "insertUserByTypeHandler",user);
+    }
+
+    @Override
+    public int insertUserByRemarkTypeHandler(User user) {
+        return localSqlSession.insert(getNameSpace() + "insertUserByRemarkTypeHandler",user);
+    }
+
+    @Override
+    public List<User> selectRemarkTypeHandler(User user) {
+        return localSqlSession.selectList(getNameSpace() + "selectRemarkTypeHandler",user);
+    }
 }

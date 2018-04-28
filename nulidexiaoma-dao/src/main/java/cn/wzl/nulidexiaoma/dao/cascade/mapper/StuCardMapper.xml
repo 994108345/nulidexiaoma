@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wzl.nulidexiaoma.dao.cascade.IStuCardDao" >
+  <resultMap id="BaseResultMap" type="cn.wzl.nulidexiaoma.model.StuCard" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="stu_code" property="stuCode" jdbcType="VARCHAR" />
+    <result column="card_code" property="cardCode" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="begin_date" property="beginDate" jdbcType="TIMESTAMP" />
+    <result column="end_date" property="endDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, stu_code, card_code, address, begin_date, end_date
+  </sql>
+  <!--<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from stu_card
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from stu_card
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.wzl.nulidexiaoma.model.StuCard" >
+    insert into stu_card (id, stu_code, card_code, 
+      address, begin_date, end_date
+      )
+    values (#{id,jdbcType=INTEGER}, #{stuCode,jdbcType=VARCHAR}, #{cardCode,jdbcType=VARCHAR}, 
+      #{address,jdbcType=INTEGER}, #{beginDate,jdbcType=TIMESTAMP}, #{endDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.wzl.nulidexiaoma.model.StuCard" >
+    insert into stu_card
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="stuCode != null" >
+        stu_code,
+      </if>
+      <if test="cardCode != null" >
+        card_code,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="beginDate != null" >
+        begin_date,
+      </if>
+      <if test="endDate != null" >
+        end_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="stuCode != null" >
+        #{stuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cardCode != null" >
+        #{cardCode,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=INTEGER},
+      </if>
+      <if test="beginDate != null" >
+        #{beginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.wzl.nulidexiaoma.model.StuCard" >
+    update stu_card
+    <set >
+      <if test="stuCode != null" >
+        stu_code = #{stuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cardCode != null" >
+        card_code = #{cardCode,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=INTEGER},
+      </if>
+      <if test="beginDate != null" >
+        begin_date = #{beginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        end_date = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.wzl.nulidexiaoma.model.StuCard" >
+    update stu_card
+    set stu_code = #{stuCode,jdbcType=VARCHAR},
+      card_code = #{cardCode,jdbcType=VARCHAR},
+      address = #{address,jdbcType=INTEGER},
+      begin_date = #{beginDate,jdbcType=TIMESTAMP},
+      end_date = #{endDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>-->
+  <!--配置一对一-->
+  <resultMap id="associationMap" type="cn.wzl.nulidexiaoma.model.StuCard" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="stu_code" property="stuCode" jdbcType="VARCHAR" />
+    <result column="card_code" property="cardCode" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="INTEGER" />
+    <result column="begin_date" property="beginDate" jdbcType="TIMESTAMP" />
+    <result column="end_date" property="endDate" jdbcType="TIMESTAMP" />
+    <association property="student" column="id" select="cn.wzl.nulidexiaoma.dao.cascade.IStudentDao.getStudentById"/>
+  </resultMap>
+
+  <select id="getStuCardById" resultMap="associationMap">
+    select * from stu_card where id = #{id,jdbcType=INTEGER}
+  </select>
+
+</mapper>

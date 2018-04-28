@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wzl.nulidexiaoma.dao.cascade.IClassDao" >
+  <resultMap id="BaseResultMap" type="cn.wzl.nulidexiaoma.model.Class" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="cls_code" property="clsCode" jdbcType="VARCHAR" />
+    <result column="cls_name" property="clsName" jdbcType="VARCHAR" />
+    <result column="cls_gred" property="clsGred" jdbcType="INTEGER" />
+    <result column="cls_num" property="clsNum" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, cls_code, cls_name, cls_gred, cls_num
+  </sql>
+  <!--<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from class
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from class
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.wzl.nulidexiaoma.model.Class" >
+    insert into class (id, cls_code, cls_name, 
+      cls_gred, cls_num)
+    values (#{id,jdbcType=INTEGER}, #{clsCode,jdbcType=VARCHAR}, #{clsName,jdbcType=VARCHAR}, 
+      #{clsGred,jdbcType=INTEGER}, #{clsNum,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.wzl.nulidexiaoma.model.Class" >
+    insert into class
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="clsCode != null" >
+        cls_code,
+      </if>
+      <if test="clsName != null" >
+        cls_name,
+      </if>
+      <if test="clsGred != null" >
+        cls_gred,
+      </if>
+      <if test="clsNum != null" >
+        cls_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="clsCode != null" >
+        #{clsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="clsName != null" >
+        #{clsName,jdbcType=VARCHAR},
+      </if>
+      <if test="clsGred != null" >
+        #{clsGred,jdbcType=INTEGER},
+      </if>
+      <if test="clsNum != null" >
+        #{clsNum,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.wzl.nulidexiaoma.model.Class" >
+    update class
+    <set >
+      <if test="clsCode != null" >
+        cls_code = #{clsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="clsName != null" >
+        cls_name = #{clsName,jdbcType=VARCHAR},
+      </if>
+      <if test="clsGred != null" >
+        cls_gred = #{clsGred,jdbcType=INTEGER},
+      </if>
+      <if test="clsNum != null" >
+        cls_num = #{clsNum,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.wzl.nulidexiaoma.model.Class" >
+    update class
+    set cls_code = #{clsCode,jdbcType=VARCHAR},
+      cls_name = #{clsName,jdbcType=VARCHAR},
+      cls_gred = #{clsGred,jdbcType=INTEGER},
+      cls_num = #{clsNum,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>-->
+
+  <resultMap id="CollectionMap" type="cn.wzl.nulidexiaoma.model.Class" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="cls_code" property="clsCode" jdbcType="VARCHAR" />
+    <result column="cls_name" property="clsName" jdbcType="VARCHAR" />
+    <result column="cls_gred" property="clsGred" jdbcType="INTEGER" />
+    <result column="cls_num" property="clsNum" jdbcType="VARCHAR" />
+    <collection property="stuList" column="id" select="cn.wzl.nulidexiaoma.dao.cascade.IStudentDao.getStudentByStuId"></collection>
+  </resultMap>
+
+  <select id="getClassById" resultMap="CollectionMap">
+    select * from class where id = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <select id="getClassByFirLevelCache" resultMap="BaseResultMap">
+    select * from class where id=#{id,jdbcType=INTEGER}
+  </select>
+</mapper>

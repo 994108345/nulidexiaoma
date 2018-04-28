@@ -7,7 +7,13 @@
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-common/nulidexiaoma-common.iml" filepath="$PROJECT_DIR$/nulidexiaoma-common/nulidexiaoma-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-dao/nulidexiaoma-dao.iml" filepath="$PROJECT_DIR$/nulidexiaoma-dao/nulidexiaoma-dao.iml" />
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html.iml" filepath="$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html-api/nulidexiaoma-html-api.iml" filepath="$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html-api/nulidexiaoma-html-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html-dao/nulidexiaoma-html-dao.iml" filepath="$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html-dao/nulidexiaoma-html-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html-model/nulidexiaoma-html-model.iml" filepath="$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html-model/nulidexiaoma-html-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html-server/nulidexiaoma-html-server.iml" filepath="$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html-server/nulidexiaoma-html-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html-service/nulidexiaoma-html-service.iml" filepath="$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html-service/nulidexiaoma-html-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-model/nulidexiaoma-model.iml" filepath="$PROJECT_DIR$/nulidexiaoma-model/nulidexiaoma-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-mybatis/nulidexiaoma-mybatis.iml" filepath="$PROJECT_DIR$/nulidexiaoma-mybatis/nulidexiaoma-mybatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-server/nulidexiaoma-server.iml" filepath="$PROJECT_DIR$/nulidexiaoma-server/nulidexiaoma-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-service/nulidexiaoma-service.iml" filepath="$PROJECT_DIR$/nulidexiaoma-service/nulidexiaoma-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-web/nulidexiaoma-web.iml" filepath="$PROJECT_DIR$/nulidexiaoma-web/nulidexiaoma-web.iml" />

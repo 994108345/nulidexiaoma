@@ -1,5 +1,7 @@
 package cn.wzl.nulidexiaoma.model;
 
+import cn.wzl.nulidexiaoma.common.enums.SexEnum;
+
 import java.io.Serializable;
 
 public class User implements Serializable {
@@ -15,7 +17,17 @@ public class User implements Serializable {
 
     private Integer age;
 
+    private String sex;
+
     private String remark;
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
 
     public Integer getId() {
         return id;

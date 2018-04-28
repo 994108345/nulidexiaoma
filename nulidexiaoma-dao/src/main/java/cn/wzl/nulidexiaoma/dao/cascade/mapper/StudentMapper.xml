@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wzl.nulidexiaoma.dao.cascade.IStudentDao" >
+  <resultMap id="BaseResultMap" type="cn.wzl.nulidexiaoma.model.Student" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="stu_code" property="stuCode" jdbcType="VARCHAR" />
+    <result column="stu_name" property="stuName" jdbcType="VARCHAR" />
+    <result column="stu_age" property="stuAge" jdbcType="INTEGER" />
+    <result column="stu_sex" property="stuSex" jdbcType="VARCHAR" />
+    <result column="stu_class" property="stuClass" jdbcType="VARCHAR" />
+    <result column="card_code" property="cardCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, stu_code, stu_name, stu_age, stu_sex, stu_class
+  </sql>
+  <!--<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from student
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from student
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.wzl.nulidexiaoma.model.Student" >
+    insert into student (id, stu_code, stu_name, 
+      stu_age, stu_sex, stu_class
+      )
+    values (#{id,jdbcType=INTEGER}, #{stuCode,jdbcType=VARCHAR}, #{stuName,jdbcType=VARCHAR}, 
+      #{stuAge,jdbcType=INTEGER}, #{stuSex,jdbcType=VARCHAR}, #{stuClass,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.wzl.nulidexiaoma.model.Student" >
+    insert into student
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="stuCode != null" >
+        stu_code,
+      </if>
+      <if test="stuName != null" >
+        stu_name,
+      </if>
+      <if test="stuAge != null" >
+        stu_age,
+      </if>
+      <if test="stuSex != null" >
+        stu_sex,
+      </if>
+      <if test="stuClass != null" >
+        stu_class,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="stuCode != null" >
+        #{stuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stuName != null" >
+        #{stuName,jdbcType=VARCHAR},
+      </if>
+      <if test="stuAge != null" >
+        #{stuAge,jdbcType=INTEGER},
+      </if>
+      <if test="stuSex != null" >
+        #{stuSex,jdbcType=VARCHAR},
+      </if>
+      <if test="stuClass != null" >
+        #{stuClass,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.wzl.nulidexiaoma.model.Student" >
+    update student
+    <set >
+      <if test="stuCode != null" >
+        stu_code = #{stuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stuName != null" >
+        stu_name = #{stuName,jdbcType=VARCHAR},
+      </if>
+      <if test="stuAge != null" >
+        stu_age = #{stuAge,jdbcType=INTEGER},
+      </if>
+      <if test="stuSex != null" >
+        stu_sex = #{stuSex,jdbcType=VARCHAR},
+      </if>
+      <if test="stuClass != null" >
+        stu_class = #{stuClass,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.wzl.nulidexiaoma.model.Student" >
+    update student
+    set stu_code = #{stuCode,jdbcType=VARCHAR},
+      stu_name = #{stuName,jdbcType=VARCHAR},
+      stu_age = #{stuAge,jdbcType=INTEGER},
+      stu_sex = #{stuSex,jdbcType=VARCHAR},
+      stu_class = #{stuClass,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>-->
+  <select id="getStudentById" resultMap="BaseResultMap">
+    select * from student where card_code = #{cardCode,jdbcType=VARCHAR}
+  </select>
+
+  <select id="getStudentByStuId" resultMap="BaseResultMap">
+    select * from student where stu_class = #{stuClass,jdbcType=VARCHAR}
+  </select>
+
+  <resultMap id="DiscriminatorMap" type="cn.wzl.nulidexiaoma.model.Student" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="stu_code" property="stuCode" jdbcType="VARCHAR" />
+    <result column="stu_name" property="stuName" jdbcType="VARCHAR" />
+    <result column="stu_age" property="stuAge" jdbcType="INTEGER" />
+    <!--<result column="stu_sex" property="stuSex" jdbcType="VARCHAR" />-->
+    <result column="stu_class" property="stuClass" jdbcType="VARCHAR" />
+    <result column="card_code" property="cardCode" jdbcType="VARCHAR" />
+    <discriminator javaType="java.lang.String" column="stu_sex">
+      <case value="1" resultMap="maleStudentMap"></case>
+      <case value="0" resultMap="femaleStudentMap"></case>
+    </discriminator>
+  </resultMap>
+
+  <select id="getStudentByDiscriminator" resultMap="DiscriminatorMap">
+    select * from student where id in (1,2,3,4,5,6)
+  </select>
+
+  <resultMap id="maleStudentMap" type="cn.wzl.nulidexiaoma.model.MaleStudentBean" extends="DiscriminatorMap">
+      <collection property="maleStudents" select="cn.wzl.nulidexiaoma.dao.cascade.IMaleStudentDao.getMaleStudentById" column="id"/>
+  </resultMap>
+
+  <resultMap id="femaleStudentMap" type="cn.wzl.nulidexiaoma.model.FemaleStudentBean" extends="DiscriminatorMap">
+    <collection property="famaleStudents" select="cn.wzl.nulidexiaoma.dao.cascade.IFemaleStudentDao.getFemaleStudentById" column="id"/>
+  </resultMap>
+</mapper>

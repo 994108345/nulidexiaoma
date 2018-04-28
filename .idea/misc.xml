@@ -12,6 +12,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/nulidexiaoma-api/pom.xml" />
+        <option value="$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html-common/pom.xml" />
         <option value="$PROJECT_DIR$/nulidexioama-server/pom.xml" />
       </set>
     </option>
