@@ -18,4 +18,12 @@ public interface IMultiThreadingService {
      * @return
      */
     MessageInfo<String> threadMathod(int threadNum);
+
+    /**
+     * 返回几个随机数的和
+     * @return
+     */
+    MessageInfo returnRandom();
+
+
 }

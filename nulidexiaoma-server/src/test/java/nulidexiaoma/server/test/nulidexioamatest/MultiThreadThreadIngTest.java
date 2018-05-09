@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
@@ -22,7 +21,7 @@ import java.util.concurrent.*;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring-config.xml")
-public class MultiThreadIngTest {
+public class MultiThreadThreadIngTest {
     @Autowired
     IMultiThreadingDao iMultiThreadingDao;
 
@@ -128,7 +127,7 @@ class TaskWithResule implements Callable<String>{
 
     @Override
     public String call() throws Exception {
-        MultiThreadIngTest multiThreadIngTest = new MultiThreadIngTest();
+        MultiThreadThreadIngTest multiThreadIngTest = new MultiThreadThreadIngTest();
         multiThreadIngTest.sout();
         return "result of TaskWithReslt"+id;
     }

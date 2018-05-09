@@ -5,6 +5,7 @@ import cn.wzl.nulidexiaoma.common.MessageInfo;
 import cn.wzl.nulidexiaoma.common.MessageStatus;
 import cn.wzl.nulidexiaoma.dao.multithreading.IMultiThreadingDao;
 import cn.wzl.nulidexiaoma.model.MultiThreading;
+import cn.wzl.nulidexiaoma.service.impl.Thread.MultiThreadThread;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,8 @@ public class MultiThreadingService implements IMultiThreadingService{
 
     @Autowired
     IMultiThreadingDao multiThreadingDao;
+    @Autowired
+    IMultiThreadingService iMultiThreading;
 
     @Override
     public MessageInfo<String> normalMathod() {
@@ -62,40 +65,40 @@ public class MultiThreadingService implements IMultiThreadingService{
             MultiThreadingService multiThreadingService = new MultiThreadingService();
             multiThreadingService.list = multiThreadingDao.selectAllDate();
             multiThreadingService.size = this.list.size();
-            ExecutorService exec = Executors.newSingleThreadExecutor ();
+            ExecutorService exec = Executors.newFixedThreadPool (100);
             System.out.println("准备进入:");
-            for (int i = 0; i < 5; i++) {
-                exec.execute(new MultiThread(multiThreadingService));
-                System.out.println("启动线程:"+i);
-            }
-           exec.shutdown();
+            exec.execute(new MultiThread(multiThreadingService,"不清楚"));
+            System.out.println("启动线程:"+i);
+            exec.shutdown();
+            exec.awaitTermination(1, TimeUnit.HOURS);
             System.out.println("线程全部结束了吗");
-            if(CollectionUtils.isEmpty(resultList)){
+            if(CollectionUtils.isEmpty(multiThreadingService.resultList)){
                 messageInfo.setMessageStatus(MessageStatus.ERROR.getStatus(),"插入集合为空");
                 return messageInfo;
             }
-            multiThreadingDao.updateMultiThreading(resultList);
+            multiThreadingDao.updateMultiThreading(multiThreadingService.resultList);
             long endDate = System.currentTimeMillis();
             long resultDate = endDate - beginDate;
             messageInfo.setData(resultDate+"");
         }catch(Exception e){
             e.printStackTrace();
-
         }
         return  messageInfo;
     }
 
+
     public void multiThread(MultiThreadingService multiThreadingService){
-        int i = multiThreadingService.i;
-        int size = multiThreadingService.size;
-        List<MultiThreading> list = multiThreadingService.list;
         System.out.println("看i" + i);
-        while(i< 10) {
-            System.out.println("进入了run........" + i);
-            MultiThreading multiThreading = list.get(i);
-            multiThreading.setControlNum("多线程：" + i);
-            i++;
-            resultList.add(multiThreading);
+        int i = multiThreadingService.i;
+        List resultList = multiThreadingService.resultList;
+        synchronized (this){
+            while (i < 1000) {
+                System.out.println("进入了run........" + i);
+                MultiThreading multiThreading = list.get(i);
+                multiThreading.setControlNum("多线程继续啊：" + i);
+                i++;
+                resultList.add(multiThreading);
+            }
         }
     }
 
@@ -104,13 +107,37 @@ public class MultiThreadingService implements IMultiThreadingService{
      */
     class MultiThread implements Runnable{
         MultiThreadingService multiThreadingService;
-        public MultiThread(MultiThreadingService multiThreadingService) {
+        String threadName;
+
+        public MultiThread(MultiThreadingService multiThreadingService,String threadName) {
             this.multiThreadingService = multiThreadingService;
+            this.threadName = threadName;
         }
 
         @Override
         public void run() {
             multiThreadingService.multiThread(multiThreadingService);
         }
+    }
+
+    @Override
+    public MessageInfo returnRandom() {
+        MessageInfo messageInfo = new MessageInfo();
+        try {
+            ExecutorService exe = Executors.newFixedThreadPool(10);
+            List<Future> returnList = new ArrayList();
+            for (int i1 = 0; i1 < 10; i1++) {
+                Callable callable = new MultiThreadThread(String.valueOf(i1));
+                Future future = exe.submit(callable);
+                returnList.add(future);
+            }
+            exe.shutdown();
+            for (Future future : returnList) {
+                System.out.println("获得的随机数是"+String.valueOf(future.get()));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
