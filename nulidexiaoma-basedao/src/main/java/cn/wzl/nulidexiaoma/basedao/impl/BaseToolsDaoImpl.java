@@ -77,14 +77,14 @@ public abstract class BaseToolsDaoImpl<T> implements IBaseToolsDao<T>{
      * @return
      */
     @Override
-    public int insertList(List list) {
+    public int insertListBatch(List list, String tableName) {
         if(list.size()<=1000){
-            return localSqlSession.insert(getNameSpace()+"insertList",list);
+            return localSqlSession.insert(getNameSpace()+tableName,list);
         }else{
             List insertList = new ArrayList();
             for(int i =0; i < list.size();){
                 if(i+1000<list.size()) {
-                    insertList = list.subList(i, 1000);
+                    insertList = list.subList(i, i+1000);
                 }else{
                     insertList = list.subList(i, list.size());
                 }
@@ -101,19 +101,19 @@ public abstract class BaseToolsDaoImpl<T> implements IBaseToolsDao<T>{
      * @return
      */
     @Override
-    public int updateList(List list) {
+    public int updateListBatch(List list,String tableName) {
         if(list.size()<=1000){
-            return localSqlSession.update(getNameSpace()+"updateList",list);
+            return localSqlSession.update(getNameSpace()+tableName,list);
         }else{
             List insertList = new ArrayList();
             for(int i =0; i < list.size();){
                 if(i+1000<list.size()) {
-                    insertList = list.subList(i, 1000);
+                    insertList = list.subList(i, i+1000);
                 }else{
                     insertList = list.subList(i, list.size());
                 }
                 i = i + 1000;
-                localSqlSession.update(getNameSpace()+"updateList",insertList);
+                localSqlSession.update(getNameSpace()+tableName,insertList);
             }
         }
         return 0;

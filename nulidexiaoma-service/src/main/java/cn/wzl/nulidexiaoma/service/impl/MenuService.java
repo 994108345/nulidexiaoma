@@ -113,7 +113,7 @@ public class MenuService implements IMenuService{
     public MessageInfo insertList(List list) {
         MessageInfo messageInfo = new MessageInfo();
         try {
-            int returnNum = iMenuDao.insertList(list);
+            int returnNum = iMenuDao.insertListBatch(list,"insertList");
         } catch (Exception e) {
             e.printStackTrace();
             messageInfo.setMessageStatus(MessageStatus.ERROR.getStatus(),"插入菜单出错"+e.getMessage());

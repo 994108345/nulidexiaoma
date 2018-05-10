@@ -24,6 +24,6 @@ public class MultiThreadingImpl extends BaseToolsDaoImpl implements IMultiThread
 
     @Override
     public int updateMultiThreading(List<MultiThreading> multThreadList) {
-        return localSqlSession.update(getNameSpace()+"updateMultiThreading",multThreadList);
+        return this.updateListBatch(multThreadList,"updateMultiThreading");
     }
 }

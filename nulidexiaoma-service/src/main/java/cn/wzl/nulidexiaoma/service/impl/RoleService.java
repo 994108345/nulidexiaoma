@@ -65,7 +65,7 @@ public class RoleService implements IRoleService {
     public MessageInfo insertList(List list) {
         MessageInfo messageInfo = new MessageInfo();
         try {
-            int returnNUm = roleDao.insertList(list);
+            int returnNUm = roleDao.insertListBatch(list,"insertList");
         } catch (Exception e) {
             e.printStackTrace();
             messageInfo.setMessageStatus(MessageStatus.ERROR.getStatus(),"删除角色出错"+e.getMessage());

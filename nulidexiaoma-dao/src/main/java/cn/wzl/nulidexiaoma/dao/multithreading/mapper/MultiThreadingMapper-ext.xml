@@ -3,7 +3,7 @@
 <mapper namespace="cn.wzl.nulidexiaoma.dao.multithreading.IMultiThreadingDao" >
 
   <select id="selectAllDate" resultMap="BaseResultMap">
-    SELECT * FROM  multi_threading limit 1000;
+    SELECT * FROM  multi_threading limit 20000;
   </select>
 
     <update id="updateMultiThreading" parameterType="java.util.List">

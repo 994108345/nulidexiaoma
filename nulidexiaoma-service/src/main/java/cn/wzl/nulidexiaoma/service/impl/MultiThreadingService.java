@@ -94,11 +94,12 @@ public class MultiThreadingService implements IMultiThreadingService{
 
 
     public void multiThread(MultiThreadingService multiThreadingService){
-        System.out.println("看i" + i);
-        int i = multiThreadingService.i;
-        List resultList = multiThreadingService.resultList;
         synchronized (this){
-            while (i < 1000) {
+            System.out.println("看i" + i);
+            int i = multiThreadingService.i;
+            int size = multiThreadingService.list.size();
+            List resultList = multiThreadingService.resultList;
+            while (i < size) {
                 System.out.println("进入了run........" + i);
                 MultiThreading multiThreading = list.get(i);
                 multiThreading.setControlNum("多线程继续啊：" + i);

@@ -42,14 +42,14 @@ public interface IBaseToolsDao<T> {
      * @param list
      * @return
      */
-    public int insertList(List list);
+    public int insertListBatch(List list,String tableName);
 
     /**
      * 批量更新
      * @param list
      * @return
      */
-    public int updateList(List list);
+    public int updateListBatch(List list,String tableName);
 
     /**
      * 批量删除
