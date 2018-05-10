@@ -8,6 +8,8 @@ import cn.wzl.nulidexiaoma.model.MultiThreading;
 import cn.wzl.nulidexiaoma.service.impl.Thread.MultiThreadThread;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,6 +21,7 @@ import java.util.concurrent.*;
  * Created by wenzailong on 2018/3/4.
  */
 @Service("iMultiThreading")
+@PropertySource("classpath:app.properties")
 public class MultiThreadingService implements IMultiThreadingService{
     int i = 0;
     int size = 0;
@@ -29,6 +32,9 @@ public class MultiThreadingService implements IMultiThreadingService{
     IMultiThreadingDao multiThreadingDao;
     @Autowired
     IMultiThreadingService iMultiThreading;
+
+    @Value("${multiThreadgNum}")
+    private int multiThreadgNum;
 
     @Override
     public MessageInfo<String> normalMathod() {
@@ -65,7 +71,7 @@ public class MultiThreadingService implements IMultiThreadingService{
             MultiThreadingService multiThreadingService = new MultiThreadingService();
             multiThreadingService.list = multiThreadingDao.selectAllDate();
             multiThreadingService.size = this.list.size();
-            ExecutorService exec = Executors.newFixedThreadPool (100);
+            ExecutorService exec = Executors.newFixedThreadPool (multiThreadgNum);
             System.out.println("准备进入:");
             exec.execute(new MultiThread(multiThreadingService,"不清楚"));
             System.out.println("启动线程:"+i);
