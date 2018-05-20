@@ -19,7 +19,7 @@ import java.util.Random;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring-config.xml")
 public class ToolsTest {
-    private Logger logger = LoggerFactory.getLogger(LoginServiceTest.class);
+    private Logger logger = LoggerFactory.getLogger(ToolsTest.class);
 
     /**
      * 对象转json字符串
