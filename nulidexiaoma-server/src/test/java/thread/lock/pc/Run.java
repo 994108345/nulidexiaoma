@@ -15,8 +15,8 @@ public class Run {
 
           Thread threadA = new Thread(a);
           Thread threadB = new Thread(b);
-          threadA.setName("A");
-          threadB.setName("B");
+          threadA.setName("Soap");
+          threadB.setName("Bath");
           threadA.start();
           threadB.start();
         } catch (Exception e) {
