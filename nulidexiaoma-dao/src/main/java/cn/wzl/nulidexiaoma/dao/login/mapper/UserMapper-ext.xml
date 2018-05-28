@@ -32,7 +32,8 @@
     <result column="PASS_WORD" property="passWord" jdbcType="VARCHAR" />
     <result column="NAME" property="name" jdbcType="VARCHAR" />
     <result column="AGE" property="age" jdbcType="INTEGER" />
-    <result column="SEX" property="sex" javaType="cn.wzl.nulidexiaoma.common.enums.SexEnum" jdbcType="VARCHAR" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
+    <result column="SEX" property="sex" javaType="cn.wzl.nulidexiaoma.common.enums.SexEnum"
+    jdbcType="VARCHAR" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
     <result column="REMARK" property="remark" jdbcType="VARCHAR" />
   </resultMap>-->
  <!-- <insert id="insertUserByTypeHandler" parameterType="cn.wzl.nulidexiaoma.model.User">

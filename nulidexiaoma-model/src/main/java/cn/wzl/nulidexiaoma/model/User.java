@@ -1,9 +1,11 @@
 package cn.wzl.nulidexiaoma.model;
 
 import cn.wzl.nulidexiaoma.common.enums.SexEnum;
+import org.apache.ibatis.type.Alias;
 
 import java.io.Serializable;
 
+@Alias("user")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 3636911726700213541L;

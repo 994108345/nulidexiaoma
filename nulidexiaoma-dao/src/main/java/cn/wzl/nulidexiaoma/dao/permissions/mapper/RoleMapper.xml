@@ -62,13 +62,13 @@
   <sql id="Base_Column_List">
     ID, ROLE_NAME
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lstringring" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from role
     where ID = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lstringring">
     delete from role
     where ID = #{id,jdbcType=VARCHAR}
   </delete>

@@ -29,7 +29,7 @@ public interface IRedisProxy {
      * 假如key储存的值不是字符串类型，返回一个错误，因为GET只能用于处理字符串值
      *
      * @param key key
-     * @return String
+     * @return string
      */
     public String get(String key);
 
@@ -46,7 +46,7 @@ public interface IRedisProxy {
      * 返回key所储存的值的类型
      *
      * @param key key
-     * @return String
+     * @return string
      */
     public String type(String key);
 
@@ -334,7 +334,7 @@ public interface IRedisProxy {
      * @param key key
      * @param start start
      * @param end end
-     * @return String
+     * @return string
      */
     public String ltrim(String key, long start, long end);
 
@@ -343,7 +343,7 @@ public interface IRedisProxy {
      *
      * @param key key
      * @param index index
-     * @return String
+     * @return string
      */
     public String lindex(String key, long index);
 
@@ -353,7 +353,7 @@ public interface IRedisProxy {
      * @param key key
      * @param index index
      * @param value value
-     * @return String
+     * @return string
      */
     public String lset(String key, long index, String value);
 
@@ -379,7 +379,7 @@ public interface IRedisProxy {
      * 移除并返回列表key的头元素。
      *
      * @param key key
-     * @return String
+     * @return string
      */
     public String lpop(String key);
 
@@ -387,7 +387,7 @@ public interface IRedisProxy {
      * 移除并返回列表key的尾元素。
      *
      * @param key key
-     * @return String
+     * @return string
      */
     public String rpop(String key);
 
@@ -421,7 +421,7 @@ public interface IRedisProxy {
      * 移除并返回集合中的一个随机元素。
      *
      * @param key key
-     * @return String
+     * @return string
      */
     public String spop(String key);
 
@@ -446,7 +446,7 @@ public interface IRedisProxy {
      * 返回集合中的一个随机元素。
      *
      * @param key key
-     * @return String
+     * @return string
      */
     public String srandmember(String key);
 
