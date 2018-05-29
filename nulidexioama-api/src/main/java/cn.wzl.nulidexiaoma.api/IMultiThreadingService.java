@@ -25,5 +25,11 @@ public interface IMultiThreadingService {
      */
     MessageInfo returnRandom();
 
+    /**
+     * 测试limit分批查询数据并处理的功能
+     * @return
+     */
+    MessageInfo limitTest();
+
 
 }

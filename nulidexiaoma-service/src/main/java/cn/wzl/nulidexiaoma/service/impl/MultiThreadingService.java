@@ -6,12 +6,16 @@ import cn.wzl.nulidexiaoma.common.MessageStatus;
 import cn.wzl.nulidexiaoma.dao.multithreading.IMultiThreadingDao;
 import cn.wzl.nulidexiaoma.model.MultiThreading;
 import cn.wzl.nulidexiaoma.service.impl.Thread.MultiThreadThread;
+import com.sun.org.apache.xerces.internal.parsers.CachingParserPool;
 import org.apache.commons.collections4.CollectionUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
+import javax.security.auth.callback.Callback;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -23,10 +27,15 @@ import java.util.concurrent.*;
 @Service("iMultiThreading")
 @PropertySource("classpath:app.properties")
 public class MultiThreadingService implements IMultiThreadingService{
+    private static final Logger logger = LoggerFactory.getLogger(MultiThreadingService.class);
     int i = 0;
     int size = 0;
     List <MultiThreading> resultList = new ArrayList<>();
     List<MultiThreading> list = new ArrayList();
+
+    private volatile int beginLimit = 0;
+    private int countNum = 1000;
+    private List updateList = new ArrayList();
 
     @Autowired
     IMultiThreadingDao multiThreadingDao;
@@ -146,5 +155,77 @@ public class MultiThreadingService implements IMultiThreadingService{
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public MessageInfo limitTest() {
+        try{
+            ExecutorService exe = Executors.newFixedThreadPool(multiThreadgNum);
+            List<Future> returnList = new ArrayList();
+            for (int i1 = 0; i1 < 10; i1++) {
+                Callable callable = new MultiThreadThread(String.valueOf(i1));
+                Future future = exe.submit(callable);
+                returnList.add(future);
+            }
+            exe.shutdown();
+            for (Future future : returnList) {
+                MessageInfo messageInfo = (MessageInfo)future.get();
+                System.out.println("有出错吗"+messageInfo.getMessage());
+            }
+        }catch (Exception e){
+            logger.error(e.getMessage());
+        }
+        return null;
+    }
+
+    /**
+     * 测试ilimit的内部类
+     */
+    class limitThread implements Callable{
+        @Override
+        public Object call() throws Exception {
+            MessageInfo messageInfo = new MessageInfo();
+            try {
+                List<MultiThreading> result = new ArrayList();
+                synchronized (this) {
+                    while (true) {
+                        result = multiThreadingDao.listMultiThreadByLimit(beginLimit, countNum);
+                        beginLimit = beginLimit + countNum;
+                        for (MultiThreading multiThreading : result) {
+                            int id = multiThreading.getId();
+                            if (id % 11 == 3) {
+                                multiThreading.setThreadName("除十一余数是3");
+                                System.out.println(multiThreading.getId() + ":除十一余数是3");
+                            } else {
+                                System.out.println(multiThreading.getId() + ":除十一余数不是3");
+                            }
+                            updateList.add(multiThreading);
+                        }
+                        if (result.size() != 1000) {
+                            break;
+                        }
+                    }
+                }
+            }catch (Exception e){
+                logger.error(e.getMessage(),e);
+                messageInfo.setMessageStatus(MessageStatus.ERROR.getStatus(),e.getMessage());
+            }
+            return messageInfo;
+        }
+
+        /**
+         * 更新
+         * @return
+         */
+        public MessageInfo updateMultiThread(){
+            MessageInfo messageInfo = new MessageInfo();
+            try{
+                int a = multiThreadingDao.updateMultiThreading(updateList);
+            }catch (Exception e){
+                logger.error(e.getMessage(),e);
+                messageInfo.setMessageStatus(MessageStatus.ERROR.getStatus(),e.getMessage());
+            }
+            return messageInfo;
+        }
     }
 }

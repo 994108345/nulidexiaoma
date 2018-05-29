@@ -19,4 +19,12 @@ public interface IMultiThreadingDao extends IBaseToolsDao {
      * @return
      */
     int updateMultiThreading(List<MultiThreading> list);
+
+    /**
+     * 根据limit条件查询多线程表记录
+     * @param begin
+     * @param countNum
+     * @return
+     */
+    List<MultiThreading> listMultiThreadByLimit(int begin,int countNum);
 }

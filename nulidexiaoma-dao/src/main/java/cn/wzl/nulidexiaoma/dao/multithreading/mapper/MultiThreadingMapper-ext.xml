@@ -6,6 +6,11 @@
     SELECT * FROM  multi_threading limit 20000;
   </select>
 
+  <!--根据limit条件查询数据-->
+  <select id="listMultiThreadByLimit" resultMap="BaseResultMap">
+    select * from multi_threading limit #{1},#{2}
+  </select>
+
     <update id="updateMultiThreading" parameterType="java.util.List">
       <foreach close="" collection="list" index="index" item="item" open="" separator=";">
       update multi_threading
