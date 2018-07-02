@@ -1,0 +1,25 @@
+package generic;/**
+ * Created by wenzailong on 2018/6/4.
+ */
+
+/**
+ * @author wenzailong
+ * @create 2018-06-04 14:53
+ **/
+public enum WaterColors {
+    ZINC,
+    LEMON_YELLOW,MEDIUM_YELLOW,
+    DEEP_YELLOW,IRANGE,
+    BRILLIANT_RED,CRIMSON,
+    MAGENTA,
+    ROSE_MADDER,
+    VIOLET,
+    CERULEAN_BLUE_HUE,
+    PHTHALO_BLUE,
+    ULTRAMARINE,
+    COBALT_BLUE_HUE,
+    PERMANENT_GREEN,
+    VIRIDIAN_HUE,
+    SAP_GREEN,YELLOW_OCHRE,BURNT_SIENNA,RAW_UMBER,
+    BURNT_UMBER,PAYNES_GRAY,IVORY_BLACK
+}

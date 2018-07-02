@@ -26,4 +26,9 @@ public class MultiThreadingImpl extends BaseToolsDaoImpl implements IMultiThread
     public int updateMultiThreading(List<MultiThreading> multThreadList) {
         return this.updateListBatch(multThreadList,"updateMultiThreading");
     }
+
+    @Override
+    public List<MultiThreading> listMultiThreadByLimit(int begin, int countNum) {
+        return null;
+    }
 }
