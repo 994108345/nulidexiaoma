@@ -272,31 +272,55 @@
             <artifactId>mchange-commons-java</artifactId>
             <version>0.2.14</version>
         </dependency>
+        <!--mongoDB-->
+        <!-- mongodb java driver -->
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>3.4.3</version>
+        </dependency>
+        <!-- spring data mongodb -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-commons</artifactId>
+            <version>1.11.1.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-mongodb</artifactId>
+            <version>1.8.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-commons-core</artifactId>
+            <version>1.4.1.RELEASE</version>
+        </dependency>
+
     </dependencies>
 
 
 
-    <properties>
-        <server.port>8079</server.port>
-        <server.path>/nulidexiaoma</server.path>
-    </properties>
+     <properties>
+         <server.port>8079</server.port>
+         <server.path>/nulidexiaoma</server.path>
+     </properties>
 
-    <build>
-        <finalName>nulidexiaoma</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.2</version>
-                <configuration>
-                    <port>${server.port}</port>
-                    <path>${server.path}</path>
-                    <uriEncoding>UTF-8</uriEncoding>
-                    <url>http://localhost:${server.port}/manager/text</url>
-                    <username>admin</username>
-                    <password>admin</password>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-</project>
+     <build>
+         <finalName>nulidexiaoma</finalName>
+         <plugins>
+             <plugin>
+                 <groupId>org.apache.tomcat.maven</groupId>
+                 <artifactId>tomcat7-maven-plugin</artifactId>
+                 <version>2.2</version>
+                 <configuration>
+                     <port>${server.port}</port>
+                     <path>${server.path}</path>
+                     <uriEncoding>UTF-8</uriEncoding>
+                     <url>http://localhost:${server.port}/manager/text</url>
+                     <username>admin</username>
+                     <password>admin</password>
+                 </configuration>
+             </plugin>
+         </plugins>
+     </build>
+ </project>

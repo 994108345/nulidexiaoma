@@ -31,7 +31,6 @@ public class ToolsTest {
         user.setPassWord("123");
         String str=JSON.toJSONString(user);
         System.out.println(str);
-
     }
 
     /**
