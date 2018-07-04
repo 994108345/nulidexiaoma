@@ -75,7 +75,7 @@
             <element id="module-output" name="nulidexiaoma-model" />
           </element>
           <element id="library" level="project" name="Maven: com.mchange:mchange-commons-java:0.2.14" />
-          <element id="library" level="project" name="Maven: org.mongodb:mongo-java-driver:3.1.0" />
+          <element id="library" level="project" name="Maven: org.mongodb:mongo-java-driver:3.4.3" />
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-mongodb:1.8.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-commons-core:1.4.1.RELEASE" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.7" />
@@ -91,6 +91,7 @@
           <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.9.3" />
           <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.2" />
           <element id="library" level="project" name="Maven: redis.clients:jedis:2.9.0" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:activemq-all:5.14.5" />
         </element>
       </element>
       <element id="directory" name="META-INF">

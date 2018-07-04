@@ -5,8 +5,7 @@ import cn.wzl.nulidexiaoma.common.MessageInfo;
 import cn.wzl.nulidexiaoma.common.MessageStatus;
 import cn.wzl.nulidexiaoma.dao.multithreading.IMultiThreadingDao;
 import cn.wzl.nulidexiaoma.model.MultiThreading;
-import cn.wzl.nulidexiaoma.service.impl.Thread.MultiThreadThread;
-import com.sun.org.apache.xerces.internal.parsers.CachingParserPool;
+import cn.wzl.nulidexiaoma.service.impl.thread.MultiThreadThread;
 import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,9 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
-import javax.security.auth.callback.Callback;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.*;
 

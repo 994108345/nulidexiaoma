@@ -19,6 +19,7 @@
                 <value>classpath:properties/jdbc.properties</value>
                 <value>classpath:properties/redis.properties</value>
                 <value>classpath:properties/mongoDB.properties</value>
+                <value>classpath:properties/mq.properties</value>
                 <value>classpath:app.properties</value>
             </list>
         </property>
@@ -29,6 +30,7 @@
     <import resource="classpath:mybatis/spring-mybatis.xml"/>
     <import resource="classpath:redis/redis-config.xml"/>
     <import resource="classpath:mongoDB/mongoDB-config.xml"/>
+    <import resource="classpath:mq/activemq-config.xml"/>
     <!--<import resource="classpath:mvc/spring-mvc.xml"/>-->
    <!-- <import resource="classpath:dubbo/spring-dubbo-server.xml"/>
     <import resource="classpath:dubbo/spring-dubbo-client.xml"/>

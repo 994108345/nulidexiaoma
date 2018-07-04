@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- B2B入库回调队列 -->
+    <!--<bean id="wmsQueueB2BGrnCallback" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg value="${wms.mq.GrnCallback.queue}"/>
+    </bean>-->
+    <!--测试队列 -->
+    <bean id="testQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg value="${nulidexioama.mq.test.queue}"/>
+    </bean>
+</beans>

@@ -1,4 +1,4 @@
-package cn.wzl.nulidexiaoma.service.impl.Thread;/**
+package cn.wzl.nulidexiaoma.service.impl.thread;/**
  * Created by wenzailong on 2018/5/9.
  */
 

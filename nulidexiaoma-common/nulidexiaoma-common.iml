@@ -47,5 +47,6 @@
     <orderEntry type="library" name="Maven: cglib:cglib:2.2" level="project" />
     <orderEntry type="library" name="Maven: asm:asm:3.3.1" level="project" />
     <orderEntry type="library" name="Maven: redis.clients:jedis:2.9.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.activemq:activemq-all:5.14.5" level="project" />
   </component>
 </module>
