@@ -60,7 +60,7 @@ public class MQTest {
     public void sendToMq(){
         try {
             MessageInfo messageInfo = new MessageInfo();
-            mqService.sendTestMq("");
+            mqService.sendTestMq("123");
             System.out.println("ok");
         } catch (Exception e) {
             System.out.println(e.getMessage());

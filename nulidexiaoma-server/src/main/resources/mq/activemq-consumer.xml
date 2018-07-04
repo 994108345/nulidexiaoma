@@ -3,18 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--入库单到中间库指令消费者声明 -->
-    <!--<bean id="grnToMiddleDirectiveConsumer" class="com.mtsbw.ma.wms.middle.service.consumer.GrnToMiddleDirectiveConsumer"/>
-    <bean class="org.springframework.jms.listener.DefaultMessageListenerContainer">
-        <property name="connectionFactory" ref="targetConnectionFactory"/>
-        <property name="destination" ref="grnToMiddleDirectiveDestination"/>
-        <property name="messageListener" ref="grnToMiddleDirectiveConsumer"/>
-        <property name="taskExecutor" ref="myRegisterMessageExecutor"/>
-        <property name="sessionTransacted" value="true"/>
-        <property name="concurrentConsumers" value="${wms.grn.to.middle.queue.concurrentConsumers}"/>
-        <property name="maxConcurrentConsumers" value="${wms.grn.to.middle.queue.maxConcurrentConsumers}"/>
-        <property name="autoStartup" value="${wms.mq.autoStart}"/>
-    </bean>-->
     <bean id="testMqConsumer" class="cn.wzl.nulidexiaoma.service.impl.consumer.TestMqConsumer"/>
     <bean class="org.springframework.jms.listener.DefaultMessageListenerContainer">
         <property name="connectionFactory" ref="tagertConnectionFactory"/>
