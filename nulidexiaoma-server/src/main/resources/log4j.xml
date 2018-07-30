@@ -2,79 +2,79 @@
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 <log4j:configuration debug="false" xmlns:log4j="http://jakarta.apache.org/log4j/">
 
-    <appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+    <appender num="stdout" class="org.apache.log4j.ConsoleAppender">
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %c [%t] %m%n"/>
+            <param num="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %c [%t] %m%n"/>
         </layout>
         <filter class="org.apache.log4j.varia.LevelRangeFilter">
-            <param name="LevelMax" value="ERROR"/>
-            <param name="LevelMin" value="DEBUG"/>
+            <param num="LevelMax" value="ERROR"/>
+            <param num="LevelMin" value="DEBUG"/>
         </filter>
     </appender>
 
-    <appender name="logfile" class="org.apache.log4j.RollingFileAppender">
-        <param name="File" value="${catalina.base}/logs/nulidexiaoma/nulidexiaoma-server.log"/>
-        <param name="ImmediateFlush" value="true"/>
-        <param name="MaxFileSize" value="10MB"/>
-        <param name="MaxBackupIndex" value="10"/>
+    <appender num="logfile" class="org.apache.log4j.RollingFileAppender">
+        <param num="File" value="${catalina.base}/logs/nulidexiaoma/nulidexiaoma-server.log"/>
+        <param num="ImmediateFlush" value="true"/>
+        <param num="MaxFileSize" value="10MB"/>
+        <param num="MaxBackupIndex" value="10"/>
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %c [%t] %m%n"/>
+            <param num="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %c [%t] %m%n"/>
         </layout>
         <filter class="org.apache.log4j.varia.LevelRangeFilter">
-            <param name="LevelMax" value="ERROR"/>
-            <param name="LevelMin" value="DEBUG"/>
+            <param num="LevelMax" value="ERROR"/>
+            <param num="LevelMin" value="DEBUG"/>
         </filter>
     </appender>
 
-    <appender name="error" class="org.apache.log4j.RollingFileAppender">
-        <param name="File" value="${catalina.base}/logs/nulidexiaoma/nulidexiaoma-server-error.log"/>
-        <param name="ImmediateFlush" value="true"/>
-        <param name="MaxFileSize" value="10MB"/>
-        <param name="MaxBackupIndex" value="10"/>
+    <appender num="error" class="org.apache.log4j.RollingFileAppender">
+        <param num="File" value="${catalina.base}/logs/nulidexiaoma/nulidexiaoma-server-error.log"/>
+        <param num="ImmediateFlush" value="true"/>
+        <param num="MaxFileSize" value="10MB"/>
+        <param num="MaxBackupIndex" value="10"/>
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %c [%t] %m%n"/>
+            <param num="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %c [%t] %m%n"/>
         </layout>
         <filter class="org.apache.log4j.varia.LevelRangeFilter">
-            <param name="LevelMax" value="ERROR"/>
-            <param name="LevelMin" value="ERROR"/>
+            <param num="LevelMax" value="ERROR"/>
+            <param num="LevelMin" value="ERROR"/>
         </filter>
     </appender>
 
-    <appender name="ASYNC" class="org.apache.log4j.AsyncAppender">
-        <param name="BufferSize" value="100000"/>
-        <param name="blocking" value="true"/>
+    <appender num="ASYNC" class="org.apache.log4j.AsyncAppender">
+        <param num="BufferSize" value="100000"/>
+        <param num="blocking" value="true"/>
         <appender-ref ref="logfile"/>
         <appender-ref ref="error"/>
     </appender>
 
-    <logger name="atomikos" additivity="false">
+    <logger num="atomikos" additivity="false">
         <level value="off"/>
     </logger>
-    <logger name="org.apache.activemq" additivity="false">
+    <logger num="org.apache.activemq" additivity="false">
         <level value="info"/>
     </logger>
-    <logger name="org.apache.zookeeper.ClientCnxn" additivity="false">
+    <logger num="org.apache.zookeeper.ClientCnxn" additivity="false">
         <level value="info"/>
     </logger>
-    <logger name="com.alibaba.dubbo.remoting.exchange.support.header.HeartBeatTask" additivity="false">
+    <logger num="com.alibaba.dubbo.remoting.exchange.support.header.HeartBeatTask" additivity="false">
         <level value="info"/>
     </logger>
-    <logger name="com.alibaba.dubbo.remoting.exchange.support.header.HeartbeatHandler" additivity="false">
+    <logger num="com.alibaba.dubbo.remoting.exchange.support.header.HeartbeatHandler" additivity="false">
         <level value="info"/>
     </logger>
-    <logger name="org.springframework.data.redis" additivity="false">
+    <logger num="org.springframework.data.redis" additivity="false">
         <level value="info"/>
     </logger>
-    <logger name="org.springframework.scheduling" additivity="false">
+    <logger num="org.springframework.scheduling" additivity="false">
         <level value="info"/>
     </logger>
-    <logger name="org.springframework.session.web.http.SessionRepositoryFilter" additivity="false">
+    <logger num="org.springframework.session.web.http.SessionRepositoryFilter" additivity="false">
         <level value="info"/>
     </logger>
-    <logger name="org.mongodb.driver.cluster" additivity="false">
+    <logger num="org.mongodb.driver.cluster" additivity="false">
         <level value="info"/>
     </logger>
-    <logger name="org.springframework.remoting.rmi.RmiServiceExporter" additivity="false">
+    <logger num="org.springframework.remoting.rmi.RmiServiceExporter" additivity="false">
         <level value="info"/>
     </logger>
 
@@ -86,7 +86,7 @@
 </log4j:configuration>
 <!--
 <configuration debug="true">
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <appennumname="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>

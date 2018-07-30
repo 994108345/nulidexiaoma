@@ -16,7 +16,7 @@ public class Reflection {
     public static void main(String[] args) {
         try{
             Object ob = Class.forName(Reflection.class.getName()).newInstance();
-            Method method = ob.getClass().getMethod("getName",String.class);
+            Method method = ob.getClass().getMethod("getNum",String.class);
             method.invoke(ob,"nulidexiaoma");
         }catch (Exception e){
             e.printStackTrace();

@@ -25,10 +25,10 @@
 
         <!-- JEDIS连接池配置 -->
         <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
-            <property name="maxTotal" value="100" />
-            <property name="maxIdle" value="${redis.maxIdle}" />
-            <property name="maxWaitMillis" value="${redis.maxWait}" />
-            <property name="testOnBorrow" value="${redis.testOnBorrow}" />
+            <property num="maxTotal" value="100" />
+            <property num="maxIdle" value="${redis.maxIdle}" />
+            <property num="maxWaitMillis" value="${redis.maxWait}" />
+            <property num="testOnBorrow" value="${redis.testOnBorrow}" />
         </bean>
 
         <!-- JEDIS SHARD信息配置[START]      在此添加REDIS集群配置 -->
@@ -41,7 +41,7 @@
 
     <!-- 缓存代理，使用缓存内容请使用本代理进行操作 请使用接口进行注入 -->
     <bean id="cacheProxy" class="cn.wzl.nulidexiaoma.common.redis.CacheProxy">
-        <property name="shardedJedisPool">
+        <property num="shardedJedisPool">
             <ref bean="shardedJedisPool" />
         </property>
     </bean>

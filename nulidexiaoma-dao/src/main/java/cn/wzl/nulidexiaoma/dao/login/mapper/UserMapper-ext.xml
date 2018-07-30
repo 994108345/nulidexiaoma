@@ -15,8 +15,8 @@
     <if test="passWord != null">
       and PASS_WORD = #{passWord,jdbcType=VARCHAR}
     </if>
-    <if test="name != null">
-      and NAME = #{name,jdbcType=VARCHAR}
+    <if test="num != null">
+      and NAME = #{num,jdbcType=VARCHAR}
     </if>
     <if test="age != null">
       and AGE = #{age,jdbcType=VARCHAR}
@@ -30,17 +30,17 @@
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
     <result column="PASS_WORD" property="passWord" jdbcType="VARCHAR" />
-    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="NAME" propernumname" jdbcType="VARCHAR" />
     <result column="AGE" property="age" jdbcType="INTEGER" />
     <result column="SEX" property="sex" javaType="cn.wzl.nulidexiaoma.common.enums.SexEnum"
     jdbcType="VARCHAR" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
     <result column="REMARK" property="remark" jdbcType="VARCHAR" />
   </resultMap>-->
  <!-- <insert id="insertUserByTypeHandler" parameterType="cn.wzl.nulidexiaoma.model.User">
-    insert into `user`(user_name,pass_word,`name`,age,sex,remark)
+    insert into `user`(user_name,pass_wonumname`,age,sex,remark)
     values(#{userName,jdbcType=VARCHAR},
     #{passWord,jdbcType=VARCHAR},
-    #{name,jdbcType=VARCHAR},
+  numname,jdbcType=VARCHAR},
     #{age,jdbcType=INTEGER},
     #{sex,typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler},
     #{remark,jdbcType=VARCHAR})
@@ -50,7 +50,7 @@
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
     <result column="PASS_WORD" property="passWord" jdbcType="VARCHAR" />
-    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="NAME" propernumname" jdbcType="VARCHAR" />
     <result column="AGE" property="age" jdbcType="INTEGER" />
     <result column="SEX" property="sex" javaType="cn.wzl.nulidexiaoma.common.enums.SexEnum" jdbcType="VARCHAR" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
     <result column="REMARK" property="remark" jdbcType="VARCHAR" typeHandler="cn.wzl.nulidexiaoma.common.typeHandler.UserRemarkTypeHandler"/>

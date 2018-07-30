@@ -29,5 +29,9 @@ public class RoleServiceTest {
         SearchResult searchResult = roleService.getPageBean(rolePageBean);
         logger.info(searchResult.toString());
     }
+    @Test
+    public void objectTest(){
+        Object object = new Object();
+    }
 
 }

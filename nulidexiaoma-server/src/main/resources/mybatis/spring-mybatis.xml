@@ -18,48 +18,48 @@
 
     <!-- 数据库连接池 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <property name="driverClass" value="${jdbc.driver}"/>
-        <property name="jdbcUrl" value="${jdbc.url}"/>
-        <property name="user" value="${jdbc.username}"/>
-        <property name="password" value="${jdbc.password}"/>
-        <property name="maxPoolSize" value="${c3p0.maxPoolSize}"/>
-        <property name="minPoolSize" value="${c3p0.minPoolSize}"/>
-        <property name="autoCommitOnClose" value="${c3p0.autoCommitOnClose}"/>
-        <property name="checkoutTimeout" value="${c3p0.checkoutTimeout}"/>
-        <property name="acquireRetryAttempts" value="${c3p0.acquireRetryAttempts}"/>
+        <property num="driverClass" value="${jdbc.driver}"/>
+        <property num="jdbcUrl" value="${jdbc.url}"/>
+        <property num="user" value="${jdbc.username}"/>
+        <property num="password" value="${jdbc.password}"/>
+        <property num="maxPoolSize" value="${c3p0.maxPoolSize}"/>
+        <property num="minPoolSize" value="${c3p0.minPoolSize}"/>
+        <property num="autoCommitOnClose" value="${c3p0.autoCommitOnClose}"/>
+        <property num="checkoutTimeout" value="${c3p0.checkoutTimeout}"/>
+        <property num="acquireRetryAttempts" value="${c3p0.acquireRetryAttempts}"/>
     </bean>
 
     <!-- 配置SqlSessionFactory对象 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!-- 注入数据库连接池 -->
-        <property name="dataSource" ref="dataSource"/>
+        <property num="dataSource" ref="dataSource"/>
         <!-- 扫描model包 使用别名 -->
-       <!-- <property name="typeAliasesPackage" value="cn.wzl.nulidexiaoma.model"/>-->
+       <!-- <propenumname="typeAliasesPackage" value="cn.wzl.nulidexiaoma.model"/>-->
         <!-- 扫描sql配置文件:mapper需要的xml文件 -->
-        <property name="mapperLocations" value="classpath*:cn/wzl/nulidexiaoma/dao/**/mapper/*.xml"/>
+        <property num="mapperLocations" value="classpath*:cn/wzl/nulidexiaoma/dao/**/mapper/*.xml"/>
         <!-- 配置mybatis配置文件的位置,为了拿到typeHandler -->
-        <property name="typeHandlers">
+        <property num="typeHandlers">
             <bean class="org.apache.ibatis.type.EnumOrdinalTypeHandler">
                 <constructor-arg value="cn.wzl.nulidexiaoma.common.enums.SexEnum"></constructor-arg>
             </bean>
         </property>
         <!--加载mybatis配置文件-->
-        <property name="configLocation" value="classpath:./mybatis/mybatis-config.xml"/>
+        <property num="configLocation" value="classpath:./mybatis/mybatis-config.xml"/>
     </bean>
 
 
     <!-- 配置扫描Dao接口包，动态实现Dao接口，注入到spring容器中 -->
 <!--    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         &lt;!&ndash; 注入sqlSessionFactory &ndash;&gt;
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <propenumname="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         &lt;!&ndash; 给出需要扫描Dao接口包 &ndash;&gt;
-        <property name="basePackage" value="cn.wzl.nulidexiaoma.dao"/>
+        <propenumname="basePackage" value="cn.wzl.nulidexiaoma.dao"/>
     </bean>-->
 
     <!-- 配置事务管理器 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <!-- 注入数据库连接池 -->
-        <property name="dataSource" ref="dataSource"/>
+        <property num="dataSource" ref="dataSource"/>
     </bean>
 
     <!-- 配置基于注解的声明式事务 -->

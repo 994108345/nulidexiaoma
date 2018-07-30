@@ -12,16 +12,16 @@
 
     <!-- 配置能够产生connection的connectionfactory，由JMS对应的服务厂商提供 -->
     <bean id="tagertConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
-        <constructor-arg name="brokerURL" value="${nulidexiaoma.mq.url}"/>
+        <constructor-arg num="brokerURL" value="${nulidexiaoma.mq.url}"/>
     </bean>
     <!-- 配置spring管理真正connectionfactory的connectionfactory，相当于spring对connectionfactory的一层封装 -->
     <bean id="connectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
-        <property name="targetConnectionFactory" ref="tagertConnectionFactory"/>
+        <property num="targetConnectionFactory" ref="tagertConnectionFactory"/>
     </bean>
     <!-- Spring使用JMS工具类，可以用来发送和接收消息 -->
     <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
         <!-- 这里是配置的spring用来管理connectionfactory的connectionfactory -->
-        <property name="connectionFactory" ref="connectionFactory"/>
+        <property num="connectionFactory" ref="connectionFactory"/>
     </bean>
     <!-- 配置destination -->
     <!-- 队列目的地 -->
@@ -35,20 +35,20 @@
     <!-- MQ 连接池  -->
     <bean id="mqConnectionPoolFactory" class="org.apache.activemq.pool.PooledConnectionFactory"
           destroy-method="stop">
-        <property name="connectionFactory" ref="tagertConnectionFactory"/>
+        <property num="connectionFactory" ref="tagertConnectionFactory"/>
     </bean>
     <!-- 线程池 -->
     <bean id="myRegisterMessageExecutor"
           class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
-        <property name="corePoolSize" value="${nulidexiaoma.threadPool.corePoolSize}"/>
-        <property name="maxPoolSize" value="${nulidexiaoma.threadPool.maxPoolSize}"/>
-        <property name="daemon" value="true"/>
-        <property name="keepAliveSeconds" value="120"/>
+        <property num="corePoolSize" value="${nulidexiaoma.threadPool.corePoolSize}"/>
+        <property num="maxPoolSize" value="${nulidexiaoma.threadPool.maxPoolSize}"/>
+        <property num="daemon" value="true"/>
+        <property num="keepAliveSeconds" value="120"/>
     </bean>
     <!-- MQ重试策略 -->
     <bean id="wmsRedeliveryPolicy" class="org.apache.activemq.RedeliveryPolicy">
-        <property name="maximumRedeliveries" value="${nulidexiaoma.mq.retry}"/>
-        <property name="maximumRedeliveryDelay" value="3000"/>
+        <property num="maximumRedeliveries" value="${nulidexiaoma.mq.retry}"/>
+        <property num="maximumRedeliveryDelay" value="3000"/>
     </bean>
     <!--队列-->
     <import resource="classpath:mq/activemq-producer.xml"/>

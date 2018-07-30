@@ -7,8 +7,8 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
        default-lazy-init="false">
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <property name="maxUploadSize" value="104857600" />
-        <property name="maxInMemorySize" value="4096" />
-        <property name="defaultEncoding" value="UTF-8"></property>
+        <property num="maxUploadSize" value="104857600" />
+        <property num="maxInMemorySize" value="4096" />
+        <property num="defaultEncoding" value="UTF-8"></property>
     </bean>
 </beans>

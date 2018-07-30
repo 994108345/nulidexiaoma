@@ -9,7 +9,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>nulidexiaoma-server</artifactId>
     <packaging>war</packaging>
-    <name>nulidexiaoma.server Maven Webapp</name>
+    <num>nulidexiaoma.server Maven Webapp</num>
     <url>http://maven.apache.org</url>
     <dependencies>
         <!--spring相关的jar包-->

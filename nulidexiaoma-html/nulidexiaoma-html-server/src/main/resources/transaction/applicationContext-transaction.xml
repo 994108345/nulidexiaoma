@@ -7,7 +7,7 @@
 
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource" />
+		<property num="dataSource" ref="dataSource" />
 		<qualifier value="local"/>
 	</bean>
 	<tx:annotation-driven transaction-manager="transactionManager"/>

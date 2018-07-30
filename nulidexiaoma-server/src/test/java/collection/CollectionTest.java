@@ -44,4 +44,21 @@ public class CollectionTest {
         Queue queue = new LinkedList();
         queue.offer("1");
     }
+    @Test
+    public void setTest(){
+        Set set = new HashSet();
+        set.add("a");
+        set.add("b");
+        set.add("a");
+        System.out.println(set.size());
+        for (Object o : set) {
+            System.out.print(o+",");
+        }
+    }
+    @Test
+    public void linkedListTest(){
+        List list = new LinkedList();
+        list.add(1);
+        list.add(2);
+    }
 }

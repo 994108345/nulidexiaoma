@@ -3,12 +3,12 @@
 <mapper namespace="cn.wzl.nulidexiaoma.dao.multithreading.IThreadTestDao">
   <resultMap id="BaseResultMap" type="cn.wzl.nulidexiaoma.model.ThreadTest">
     <id column="thrad_id" jdbcType="INTEGER" property="thradId" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="num" jdbcType="VARCHAR" property="num" />
     <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
     <result column="last_modify_date" jdbcType="TIMESTAMP" property="lastModifyDate" />
   </resultMap>
   <sql id="Base_Column_List">
-    thrad_id, name, create_date, last_modify_date
+    thrad_id, num, create_date, last_modify_date
   </sql>
   <!--<select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -21,9 +21,9 @@
     where thrad_id = #{thradId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.mtsbw.bpms.model.ThreadTest">
-    insert into thread_test (thrad_id, name, create_date, 
+    insert into thread_test (thrad_numname, create_date,
       last_modify_date)
-    values (#{thradId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+    values (#{thradId,jdbcType=INTEGER}numname,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
       #{lastModifyDate,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.mtsbw.bpms.model.ThreadTest">
@@ -32,8 +32,8 @@
       <if test="thradId != null">
         thrad_id,
       </if>
-      <if test="name != null">
-        name,
+      <if tenumname != null">
+    numname,
       </if>
       <if test="createDate != null">
         create_date,
@@ -46,8 +46,8 @@
       <if test="thradId != null">
         #{thradId,jdbcType=INTEGER},
       </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
+      <if tenumname != null">
+      numname,jdbcType=VARCHAR},
       </if>
       <if test="createDate != null">
         #{createDate,jdbcType=TIMESTAMP},
@@ -60,8 +60,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.mtsbw.bpms.model.ThreadTest">
     update thread_test
     <set>
-      <if test="name != null">
-        name = #{name,jdbcType=VARCHAR},
+      <if tenumname != null">
+    numname numname,jdbcType=VARCHAR},
       </if>
       <if test="createDate != null">
         create_date = #{createDate,jdbcType=TIMESTAMP},
@@ -74,7 +74,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.mtsbw.bpms.model.ThreadTest">
     update thread_test
-    set name = #{name,jdbcType=VARCHAR},
+    numname numname,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=TIMESTAMP},
       last_modify_date = #{lastModifyDate,jdbcType=TIMESTAMP}
     where thrad_id = #{thradId,jdbcType=INTEGER}
