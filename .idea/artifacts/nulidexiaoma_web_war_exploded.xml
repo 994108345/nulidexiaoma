@@ -31,7 +31,7 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/nulidexiaoma-web/target/nulidexiaoma-web/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/nulidexiaoma-original/nulidexiaoma-web/target/nulidexiaoma-web/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="nulidexiaoma-web/web/Web" />
     </root>

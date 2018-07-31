@@ -7,10 +7,10 @@
         <environment id="development">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
-                <property num="driver" value="com.mysql.jdbc.Driver"/>
-                <property num="url" value="jdbc:mysql://localhost:3306/nulidexiaoma?allowMultiQueries=true:useUnicode=true:characterEncoding=utf8"/>
-                <property num="username" value="root"/>
-                <property num="password" value="bobo"/>
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/nulidexiaoma?allowMultiQueries=true:useUnicode=true:characterEncoding=utf8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="bobo"/>
             </dataSource>
         </environment>
     </environments>

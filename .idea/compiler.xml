@@ -27,6 +27,7 @@
     <bytecodeTargetLevel>
       <module name="nulidexiaoma" target="1.7" />
       <module name="nulidexiaoma-api" target="1.7" />
+      <module name="nulidexiaoma-base" target="1.7" />
       <module name="nulidexiaoma-basedao" target="1.7" />
       <module name="nulidexiaoma-cn.wzl.nulidexiaoma.dao.login.api" target="1.5" />
       <module name="nulidexiaoma-common" target="1.7" />
@@ -40,6 +41,7 @@
       <module name="nulidexiaoma-html-service" target="1.7" />
       <module name="nulidexiaoma-model" target="1.7" />
       <module name="nulidexiaoma-mybatis" target="1.7" />
+      <module name="nulidexiaoma-original" target="1.7" />
       <module name="nulidexiaoma-server" target="1.7" />
       <module name="nulidexiaoma-service" target="1.7" />
       <module name="nulidexiaoma-web" target="1.7" />

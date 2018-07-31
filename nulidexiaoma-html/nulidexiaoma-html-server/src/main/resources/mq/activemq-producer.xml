@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--测试队列 -->
+    <!--<bean id="testQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg value="${nulidexioama.mq.test.queue}"/>
+    </bean>-->
+</beans>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        ">
+
+    <dubbo:application name="nulidexiaoma-original"/>
+    <dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" id="originalZookeeper"/>
+    <dubbo:provider timeout="1000000" protocol="dubbo" port="20902"
+                    threads="500" payload="134217728" registry="originalZookeeper" id="originalProvider"/>
+
+    <dubbo:service interface="cn.wzl.nulidexiaoma.api.DubboConsumerTestService" ref="dubboConsumerTestServiceImpl" provider="originalProvider" protocol="dubbo"/>
+</beans>

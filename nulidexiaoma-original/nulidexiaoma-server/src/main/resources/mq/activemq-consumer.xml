@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="testMqConsumer" class="cn.wzl.nulidexiaoma.service.impl.consumer.TestMqConsumer"/>
+    <bean class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <property name="connectionFactory" ref="tagertConnectionFactory"/>
+        <property name="destination" ref="testQueue"/>
+        <property name="messageListener" ref="testMqConsumer"/>
+        <property name="taskExecutor" ref="myRegisterMessageExecutor"/>
+        <property name="sessionTransacted" value="true"/>
+        <property name="concurrentConsumers" value="${nulidexiaoma.grn.to.middle.queue.concurrentConsumers}"/>
+        <property name="maxConcurrentConsumers" value="${nulidexiaoma.grn.to.middle.queue.maxConcurrentConsumers}"/>
+        <property name="autoStartup" value="${nulidexiaoma.mq.autoStart}"/>
+    </bean>
+</beans>
