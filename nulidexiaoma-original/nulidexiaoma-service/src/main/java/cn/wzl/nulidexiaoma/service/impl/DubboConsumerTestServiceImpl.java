@@ -4,6 +4,9 @@ package cn.wzl.nulidexiaoma.service.impl;/**
 
 import cn.wzl.nulidexiaoma.api.DubboConsumerTestService;
 import cn.wzl.nulidexiaoma.common.MessageInfo;
+import cn.wzl.nulidexiaoma.html.api.BarService;
+import cn.wzl.nulidexiaoma.html.api.DubboProviderService;
+import com.alibaba.dubbo.rpc.service.GenericService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +21,9 @@ import org.springframework.stereotype.Service;
 public class DubboConsumerTestServiceImpl implements DubboConsumerTestService {
     private final static  Logger logger = LoggerFactory.getLogger(DubboConsumerTestServiceImpl.class);
     @Autowired
-    private DubboProviderServiceImpl dubboProvider;
+    private DubboProviderService dubboProvider;
+    @Autowired
+    private BarService barService;
     @Override
     public MessageInfo consumerTest(String name) {
         System.out.println(name+"提供服务");
@@ -31,11 +36,28 @@ public class DubboConsumerTestServiceImpl implements DubboConsumerTestService {
             System.setProperty("java.net.preferIPv4Stack", "true");
             ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"dubbo/dubbo-original-consumer.xml"});
             context.start();
-            DubboProviderServiceImpl dubboProviderService = (DubboProviderServiceImpl)context.getBean("dubboProviderService");
+            DubboProviderService dubboProviderService = (DubboProviderService)context.getBean("dubboProviderService");
             dubboProviderService.providerTest("boob");
         }catch (Exception e){
             logger.error(e.getMessage(),e);
         }
 
+    }
+
+    /*泛化调用*/
+    @Override
+    public MessageInfo genericServiceTest() {
+        MessageInfo messageInfo = new MessageInfo();
+        String[] strArr = new String[2];
+        Object[] objArr = new Object[2];
+        try {
+            barService.genericInvoke();
+//            barService.genericInvoke();
+            System.out.println("");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+        return messageInfo;
     }
 }

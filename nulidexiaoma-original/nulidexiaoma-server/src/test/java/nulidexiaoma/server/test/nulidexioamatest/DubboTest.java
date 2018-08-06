@@ -4,12 +4,20 @@ package nulidexiaoma.server.test.nulidexioamatest;/**
 
 import cn.wzl.nulidexiaoma.api.DubboConsumerTestService;
 import cn.wzl.nulidexiaoma.common.MessageInfo;
+import cn.wzl.nulidexiaoma.html.api.BarService;
 import cn.wzl.nulidexiaoma.html.api.DubboProviderService;
+import com.alibaba.dubbo.rpc.service.EchoService;
+import com.alibaba.dubbo.rpc.service.GenericService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 
 /**
  * @author wenzailong
@@ -17,20 +25,97 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  **/
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring-config.xml")
-public class DubboTest {
+public class DubboTest implements ApplicationContextAware {
+
+    private ApplicationContext context;
     @Autowired
     DubboProviderService dubboProviderServiceImpl;
     @Autowired
     DubboConsumerTestService dubboConsumerTestServiceImpl;
+    @Autowired
+    private DubboProviderService dubboProvider;
     @Test
     public void provider(){
         try {
             MessageInfo messageInfo = new MessageInfo();
+            for (int i = 0; i < 1; i++) {
+                Thread thread1 = new Thread(new DubboThread("wenzailong"+i));
+                thread1.start();
+            }
             messageInfo = dubboConsumerTestServiceImpl.consumerTest("wenzailong");
             System.out.println(messageInfo.getMessage());
+            Thread.sleep(1000*3);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
 
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.context = applicationContext;
+    }
+
+    class DubboThread implements  Runnable{
+
+        String name;
+
+        public DubboThread(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public void run() {
+          MessageInfo messageInfo = dubboConsumerTestServiceImpl.consumerTest(name + Thread.currentThread().getName());
+            System.out.println("线程返回值"+messageInfo.getMessage());
+        }
+    }
+
+    @Test
+    public void aggregationTest(){
+        MessageInfo messageInfo = dubboConsumerTestServiceImpl.consumerTest("wenzailong");
+        System.out.println("分组聚合："+messageInfo.getMessage());
+    }
+
+    /*泛化调用*/
+    @Test
+    public void genericTest(){
+        try {
+            MessageInfo messageInfo = dubboConsumerTestServiceImpl.genericServiceTest();
+            System.out.println(messageInfo.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+    }
+    @Test
+    public void genericTestByConfig(){
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
+        context.start();
+        System.out.println("consumer start");
+        GenericService demoService = (GenericService) context.getBean("barService");
+        System.out.println("consumer");
+        Object result = demoService.$invoke("genericInvoke", null, null);
+        System.out.println(result);
+    }
+    @Test
+    public void genericTestBySpring(){
+        try {
+            GenericService genericService = (GenericService)context.getBean("barService");
+            genericService.$invoke("genericInvoke", null, null);
+            System.out.println("");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @Test
+    public void echoServiceTest(){
+        try {
+//            EchoService service = (EchoService)context.getBean("dubboProvider");
+            EchoService service = (EchoService)dubboProvider;
+            String status = (String) service.$echo("OK");
+            System.out.println(status);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

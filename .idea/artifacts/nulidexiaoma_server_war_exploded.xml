@@ -70,6 +70,9 @@
           <element id="archive" name="nulidexioama-api-1.0-SNAPSHOT.jar">
             <element id="module-output" name="nulidexioama-api" />
           </element>
+          <element id="archive" name="nulidexiaoma-html-api-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="nulidexiaoma-html-api" />
+          </element>
           <element id="archive" name="nulidexiaoma-model-1.0-SNAPSHOT.jar">
             <element id="module-output" name="nulidexiaoma-model" />
           </element>
@@ -79,9 +82,6 @@
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-commons-core:1.4.1.RELEASE" />
           <element id="archive" name="nulidexiaoma-html-service-1.0-SNAPSHOT.jar">
             <element id="module-output" name="nulidexiaoma-html-service" />
-          </element>
-          <element id="archive" name="nulidexiaoma-html-api-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="nulidexiaoma-html-api" />
           </element>
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.7" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.7.7" />

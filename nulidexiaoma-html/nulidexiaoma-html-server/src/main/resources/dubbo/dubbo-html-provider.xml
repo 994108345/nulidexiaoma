@@ -11,6 +11,12 @@
     <dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" id="htmlZookeeper"/>
     <dubbo:provider timeout="${dubbo.server.timeout}" protocol="dubbo" port="${dubbo.protocol.port}"
                     threads="500" payload="${dubbo.protocol.maxPayLoad}" registry="htmlZookeeper" id="htmlProvider"/>
+    <!-- html测试服务提供者-->
     <dubbo:service interface="cn.wzl.nulidexiaoma.html.api.DubboProviderService" ref="dubboProviderServiceImpl"
-                   provider="htmlProvider" protocol="dubbo"/>
+                   provider="htmlProvider" protocol="dubbo" group="${dubbo.group}"/>
+
+    <!-- html泛化调用服务-->
+    <bean id="genericService" class="cn.wzl.nulidexiaoma.service.impl.MyGenericServiceImpl" />
+    <dubbo:service interface="cn.wzl.nulidexiaoma.html.api.BarService" ref="genericService"
+                   provider="htmlProvider" protocol="dubbo" group="${dubbo.group}"/>
 </beans>

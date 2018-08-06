@@ -14,4 +14,10 @@ public interface DubboConsumerTestService {
      * @return
      */
     MessageInfo consumerTest(String name);
+
+    /**
+     * 泛型调用测试
+     * @return
+     */
+    MessageInfo genericServiceTest();
 }

@@ -9,6 +9,10 @@
 
     <dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" id="htmlZookeeper"/>
     <dubbo:consumer id="htmlConsumer" registry="htmlZookeeper" check="false"/>
-
-    <dubbo:reference id="dubboProvider" check="false" interface="cn.wzl.nulidexiaoma.html.api.DubboProviderService" consumer="htmlConsumer"/>
+    <!--消费html的消息测试 -->
+    <dubbo:reference id="dubboProvider" check="false" interface="cn.wzl.nulidexiaoma.html.api.DubboProviderService"
+                     consumer="htmlConsumer"  group="${dubbo.group}" />
+    <!--消费html的泛型调用 -->
+    <dubbo:reference id="barService" check="false" interface="cn.wzl.nulidexiaoma.html.api.BarService"
+                     consumer="htmlConsumer"  group="${dubbo.group}" generic="true"/>
 </beans>

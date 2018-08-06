@@ -11,6 +11,9 @@
     <dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" id="originalZookeeper"/>
     <dubbo:provider timeout="1000000" protocol="dubbo" port="20902"
                     threads="500" payload="134217728" registry="originalZookeeper" id="originalProvider"/>
+    <!-- original消息服务提供者-->
+    <dubbo:service interface="cn.wzl.nulidexiaoma.api.DubboConsumerTestService" ref="dubboConsumerTestServiceImpl"
+                   provider="originalProvider" protocol="dubbo" group="${dubbo.group}"/>
 
-    <dubbo:service interface="cn.wzl.nulidexiaoma.api.DubboConsumerTestService" ref="dubboConsumerTestServiceImpl" provider="originalProvider" protocol="dubbo"/>
+
 </beans>

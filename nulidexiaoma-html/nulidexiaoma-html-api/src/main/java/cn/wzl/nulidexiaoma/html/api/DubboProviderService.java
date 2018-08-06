@@ -16,4 +16,6 @@ public interface DubboProviderService {
      * @return
      */
     MessageInfo providerTest(String str);
+
+
 }
