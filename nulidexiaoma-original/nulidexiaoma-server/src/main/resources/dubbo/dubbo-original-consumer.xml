@@ -15,4 +15,10 @@
     <!--消费html的泛型调用 -->
     <dubbo:reference id="barService" check="false" interface="cn.wzl.nulidexiaoma.html.api.BarService"
                      consumer="htmlConsumer"  group="${dubbo.group}" generic="true"/>
+    <!--消费html的异步调用 -->
+    <dubbo:reference id="asyncA" check="false" interface="cn.wzl.nulidexiaoma.html.api.NIoDubboOfAsyncAService"
+                     consumer="htmlConsumer"  group="${dubbo.group}" />
+    <dubbo:reference id="asyncB" check="false" interface="cn.wzl.nulidexiaoma.html.api.NIoDubboOfAsyncBService"
+                     consumer="htmlConsumer"  group="${dubbo.group}" />
+
 </beans>

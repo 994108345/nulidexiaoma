@@ -6,8 +6,12 @@ import cn.wzl.nulidexiaoma.api.DubboConsumerTestService;
 import cn.wzl.nulidexiaoma.common.MessageInfo;
 import cn.wzl.nulidexiaoma.html.api.BarService;
 import cn.wzl.nulidexiaoma.html.api.DubboProviderService;
+import cn.wzl.nulidexiaoma.html.api.NIoDubboOfAsyncAService;
+import cn.wzl.nulidexiaoma.html.api.NIoDubboOfAsyncBService;
+import com.alibaba.dubbo.rpc.RpcContext;
 import com.alibaba.dubbo.rpc.service.EchoService;
 import com.alibaba.dubbo.rpc.service.GenericService;
+import com.mysql.fabric.xmlrpc.base.Data;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.BeansException;
@@ -17,6 +21,10 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.Date;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 
 /**
@@ -34,6 +42,11 @@ public class DubboTest implements ApplicationContextAware {
     DubboConsumerTestService dubboConsumerTestServiceImpl;
     @Autowired
     private DubboProviderService dubboProvider;
+    @Autowired
+    private NIoDubboOfAsyncAService asyncA;
+    @Autowired
+    private NIoDubboOfAsyncBService asyncB;
+
     @Test
     public void provider(){
         try {
@@ -107,6 +120,7 @@ public class DubboTest implements ApplicationContextAware {
             e.printStackTrace();
         }
     }
+    /*回声测试*/
     @Test
     public void echoServiceTest(){
         try {
@@ -118,4 +132,37 @@ public class DubboTest implements ApplicationContextAware {
             e.printStackTrace();
         }
     }
+    /*上下文信息*/
+    @Test
+    public void rpcContextTest(){
+        /*本端是否问提供端*/
+        boolean isProcider = RpcContext.getContext().isProviderSide();
+        String clientIp = RpcContext.getContext().getRemoteHost();
+        String application = RpcContext.getContext().getUrl().getParameter("application");
+    }
+    /*异步调用*/
+    @Test
+    public void asyncTest(){
+        Date date = new Date();
+        System.out.println("beginDate"+date);
+        try {
+            asyncB.asyncB();
+            Future<String> futureA = RpcContext.getContext().getFuture();
+            asyncA.asyncA();
+            Future<String> futureB = RpcContext.getContext().getFuture();
+            String a = futureA.get();
+            String b = futureB.get();
+            System.out.println("A返回的是" +a);
+            System.out.println("B返回的是" +b);
+            Date endDate = new Date();
+            System.out.println("endDate" + endDate.compareTo(date));
+            Thread.sleep(1000*7);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
