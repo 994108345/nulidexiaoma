@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
  * @author wenzailong
  * @create 2018-08-06 19:29
  **/
-@Service("nIoDubboOfAsyncAServiceImpl")
+@Service
 public class NIoDubboOfAsyncAServiceImpl implements NIoDubboOfAsyncAService {
     @Override
     public Object asyncA() throws InterruptedException {

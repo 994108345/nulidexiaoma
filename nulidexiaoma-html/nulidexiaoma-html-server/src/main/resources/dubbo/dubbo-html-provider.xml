@@ -20,11 +20,11 @@
     <dubbo:service interface="cn.wzl.nulidexiaoma.html.api.BarService" ref="genericService"
                    provider="htmlProvider" protocol="dubbo" group="${dubbo.group}"/>
     <!-- html异步NIO调用服务-->
-    <dubbo:service interface="cn.wzl.nulidexiaoma.html.api.NIoDubboOfAsyncAService" ref="nIoDubboOfAsyncAService"
+    <dubbo:service interface="cn.wzl.nulidexiaoma.html.api.NIoDubboOfAsyncAService" ref="NIoDubboOfAsyncAServiceImpl"
                    provider="htmlProvider" protocol="dubbo" group="${dubbo.group}">
         <dubbo:method name="asyncA"  async="true"/>
     </dubbo:service>
-    <dubbo:service interface="cn.wzl.nulidexiaoma.html.api.NIoDubboOfAsyncBService" ref="nIoDubboOfAsyncBService"
+    <dubbo:service interface="cn.wzl.nulidexiaoma.html.api.NIoDubboOfAsyncBService" ref="NIoDubboOfAsyncBServiceImpl"
                    provider="htmlProvider" protocol="dubbo" group="${dubbo.group}">
         <dubbo:method name="asyncB" async="true"/>
     </dubbo:service>
