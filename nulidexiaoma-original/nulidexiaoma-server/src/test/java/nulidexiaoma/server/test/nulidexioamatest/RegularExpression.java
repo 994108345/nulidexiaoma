@@ -7,7 +7,9 @@ import org.apache.xmlbeans.impl.regex.Match;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -131,5 +133,29 @@ public class RegularExpression {
             s.replace(0,1,"11");
             System.out.println(list.get(i).toString());
         }
+    }
+
+    @Test
+    public void referenceTest(){
+        int b = 1;
+        List list = new ArrayList();
+        list.add(b);
+        b = 2;
+        System.out.println(list.toString());
+    }
+    @Test
+    public void referenceTest2(){
+        List list = new ArrayList();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        list.add("4");
+        Map map  = new HashMap<>();
+        map.put("list",list);
+
+        List firstList = (List)map.get("list");
+        List updateList = firstList.subList(0,2);
+        map.put("list",updateList);
+        System.out.println(firstList);
     }
 }

@@ -28,4 +28,13 @@
                    provider="htmlProvider" protocol="dubbo" group="${dubbo.group}">
         <dubbo:method name="asyncB" async="true"/>
     </dubbo:service>
+    <!-- html参数回调服务-->
+    <dubbo:service interface="cn.wzl.nulidexiaoma.html.api.CallBackService" ref="callBackServiceImpl" provider="htmlProvider"
+                   protocol="dubbo" group="${dubbo.group}" callbacks="1000">
+        <dubbo:method name="addListener">
+            <dubbo:argument index="1" callback="true" />
+            <!--也可以通过指定类型的方式-->
+            <!--<dubbo:argument type="com.demo.CallbackListener" callback="true" />-->
+        </dubbo:method>
+    </dubbo:service>
 </beans>

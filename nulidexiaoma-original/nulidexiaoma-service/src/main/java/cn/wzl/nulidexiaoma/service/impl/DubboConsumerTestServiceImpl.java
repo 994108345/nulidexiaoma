@@ -5,8 +5,9 @@ package cn.wzl.nulidexiaoma.service.impl;/**
 import cn.wzl.nulidexiaoma.api.DubboConsumerTestService;
 import cn.wzl.nulidexiaoma.common.MessageInfo;
 import cn.wzl.nulidexiaoma.html.api.BarService;
+import cn.wzl.nulidexiaoma.html.api.CallBackService;
+import cn.wzl.nulidexiaoma.html.api.CallbackListener;
 import cn.wzl.nulidexiaoma.html.api.DubboProviderService;
-import com.alibaba.dubbo.rpc.service.GenericService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ public class DubboConsumerTestServiceImpl implements DubboConsumerTestService {
     private DubboProviderService dubboProvider;
     @Autowired
     private BarService barService;
+    @Autowired
+    private CallBackService callbackService;
     @Override
     public MessageInfo consumerTest(String name) {
         System.out.println(name+"提供服务");
@@ -59,5 +62,14 @@ public class DubboConsumerTestServiceImpl implements DubboConsumerTestService {
             System.out.println(e.getMessage());
         }
         return messageInfo;
+    }
+
+    @Override
+    public void callBackTest() {
+        callbackService.addListener("http://10.20.160.198/wiki/display/dubbo/foo.bar", new CallbackListener(){
+            public void changed(String msg) {
+                System.out.println("callback1:" + msg);
+            }
+        });
     }
 }

@@ -20,5 +20,7 @@
                      consumer="htmlConsumer"  group="${dubbo.group}" />
     <dubbo:reference id="asyncB" check="false" interface="cn.wzl.nulidexiaoma.html.api.NIoDubboOfAsyncBService"
                      consumer="htmlConsumer"  group="${dubbo.group}" />
-
+    <!--消费html的参数回调 -->
+    <dubbo:reference id="callbackService" interface="cn.wzl.nulidexiaoma.html.api.CallBackService" check="false"
+                     consumer="htmlConsumer"  group="${dubbo.group}"/>
 </beans>

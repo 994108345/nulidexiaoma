@@ -20,4 +20,9 @@ public interface DubboConsumerTestService {
      * @return
      */
     MessageInfo genericServiceTest();
+
+    /**
+     * 参数回调
+     */
+    void callBackTest();
 }

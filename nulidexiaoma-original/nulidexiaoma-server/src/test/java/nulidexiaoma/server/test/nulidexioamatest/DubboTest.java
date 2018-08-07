@@ -164,5 +164,14 @@ public class DubboTest implements ApplicationContextAware {
         }
     }
 
+    /**
+     * 参数回调
+     */
+    @Test
+    public void callBackTest(){
+        dubboConsumerTestServiceImpl.callBackTest();
+        System.out.println();
+    }
+
 
 }
