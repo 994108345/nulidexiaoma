@@ -48,6 +48,8 @@ public class DubboTest implements ApplicationContextAware {
     private EventNotifyService eventNotifyService;
     @Autowired
     private NotifyService notifyServiceImpl;
+    @Autowired
+    private SubService subService;
 
     @Test
     public void provider(){
@@ -182,6 +184,16 @@ public class DubboTest implements ApplicationContextAware {
             System.out.println("坑了");
             Thread.currentThread().sleep(1000*5);
             /*throw new NulidexiaomaException("我就是想阿报错");*/
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    /*本地存根*/
+    @Test
+    public void localTest(){
+        try {
+            subService.sayHello("本地存根");
+            System.out.println();
         } catch (Exception e) {
             e.printStackTrace();
         }

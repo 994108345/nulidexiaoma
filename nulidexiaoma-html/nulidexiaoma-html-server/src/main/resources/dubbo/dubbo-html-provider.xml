@@ -40,4 +40,11 @@
     <!-- html事件通知服务-->
     <dubbo:service interface="cn.wzl.nulidexiaoma.html.api.EventNotifyService" ref="eventNotifyServiceImpl" group="${dubbo.group}" provider="htmlProvider"
                    protocol="dubbo"/>
+
+    <!-- html本地存根服务-->
+    <dubbo:service interface="cn.wzl.nulidexiaoma.html.api.SubService" ref="subServiceImpl"
+                   group="${dubbo.group}" provider="htmlProvider" protocol="dubbo"
+                   stub="cn.wzl.nulidexiaoma.service.impl.SubServiceStub"/>
+    <!--<dubbo:service interface="cn.wzl.nulidexiaoma.html.api.SubService" stub="cn.wzl.nulidexiaoma.service.impl.SubServiceStub"
+                   group="${dubbo.group}" provider="htmlProvider" protocol="dubbo"/>-->
 </beans>
