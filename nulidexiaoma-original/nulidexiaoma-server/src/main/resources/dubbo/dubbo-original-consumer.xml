@@ -23,4 +23,10 @@
     <!--消费html的参数回调 -->
     <dubbo:reference id="callbackService" interface="cn.wzl.nulidexiaoma.html.api.CallBackService" check="false"
                      consumer="htmlConsumer"  group="${dubbo.group}"/>
+    <!--消费html的事件通知 -->
+    <bean id ="notifyServiceImpl" class = "cn.wzl.nulidexiaoma.service.impl.NotifyServiceImpl"/>
+    <dubbo:reference id="eventNotifyService" interface="cn.wzl.nulidexiaoma.html.api.EventNotifyService"
+                     group="${dubbo.group}" consumer="htmlConsumer" check="false">
+        <dubbo:method name="notifyEvent" async="false" onreturn="notifyServiceImpl.onreturn" onthrow="notifyServiceImpl.onthrow"  />
+    </dubbo:reference>
 </beans>

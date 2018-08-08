@@ -14,6 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author wenzailong
  * @create 2018-07-30 13:43
@@ -21,6 +24,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class DubboConsumerTestServiceImpl implements DubboConsumerTestService {
     private final static  Logger logger = LoggerFactory.getLogger(DubboConsumerTestServiceImpl.class);
+    public Map<Integer, String> ret    = new HashMap<Integer, String>();
+    public Map<Integer, Throwable> errors = new HashMap<Integer, Throwable>();
     @Autowired
     private DubboProviderService dubboProvider;
     @Autowired
@@ -71,5 +76,18 @@ public class DubboConsumerTestServiceImpl implements DubboConsumerTestService {
                 System.out.println("callback1:" + msg);
             }
         });
+    }
+
+    @Override
+    public void onreturn(String msg, Integer id) {
+        System.out.println("onreturn:" + msg);
+        ret.put(id, msg);
+        System.out.println("事件通知-服务被调用时");
+    }
+
+    @Override
+    public void onthrow(Throwable ex, Integer id) {
+        errors.put(id, ex);
+        System.out.println("事件通知-服务报错时");
     }
 }

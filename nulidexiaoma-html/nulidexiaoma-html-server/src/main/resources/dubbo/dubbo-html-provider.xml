@@ -37,4 +37,7 @@
             <!--<dubbo:argument type="com.demo.CallbackListener" callback="true" />-->
         </dubbo:method>
     </dubbo:service>
+    <!-- html事件通知服务-->
+    <dubbo:service interface="cn.wzl.nulidexiaoma.html.api.EventNotifyService" ref="eventNotifyServiceImpl" group="${dubbo.group}" provider="htmlProvider"
+                   protocol="dubbo"/>
 </beans>

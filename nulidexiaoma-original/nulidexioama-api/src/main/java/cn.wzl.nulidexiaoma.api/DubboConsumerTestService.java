@@ -25,4 +25,18 @@ public interface DubboConsumerTestService {
      * 参数回调
      */
     void callBackTest();
+
+    /**
+     * 事件通知
+     * @param msg
+     * @param id
+     */
+    void onreturn(String msg, Integer id);
+
+    /**
+     * 事件通知
+     * @param ex
+     * @param id
+     */
+    void onthrow(Throwable ex, Integer id);
 }

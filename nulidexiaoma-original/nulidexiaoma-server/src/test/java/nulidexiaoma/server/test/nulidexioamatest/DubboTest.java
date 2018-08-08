@@ -3,15 +3,13 @@ package nulidexiaoma.server.test.nulidexioamatest;/**
  */
 
 import cn.wzl.nulidexiaoma.api.DubboConsumerTestService;
+import cn.wzl.nulidexiaoma.api.NotifyService;
 import cn.wzl.nulidexiaoma.common.MessageInfo;
-import cn.wzl.nulidexiaoma.html.api.BarService;
-import cn.wzl.nulidexiaoma.html.api.DubboProviderService;
-import cn.wzl.nulidexiaoma.html.api.NIoDubboOfAsyncAService;
-import cn.wzl.nulidexiaoma.html.api.NIoDubboOfAsyncBService;
+import cn.wzl.nulidexiaoma.common.exception.NulidexiaomaException;
+import cn.wzl.nulidexiaoma.html.api.*;
 import com.alibaba.dubbo.rpc.RpcContext;
 import com.alibaba.dubbo.rpc.service.EchoService;
 import com.alibaba.dubbo.rpc.service.GenericService;
-import com.mysql.fabric.xmlrpc.base.Data;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.BeansException;
@@ -46,6 +44,10 @@ public class DubboTest implements ApplicationContextAware {
     private NIoDubboOfAsyncAService asyncA;
     @Autowired
     private NIoDubboOfAsyncBService asyncB;
+    @Autowired
+    private EventNotifyService eventNotifyService;
+    @Autowired
+    private NotifyService notifyServiceImpl;
 
     @Test
     public void provider(){
@@ -171,6 +173,18 @@ public class DubboTest implements ApplicationContextAware {
     public void callBackTest(){
         dubboConsumerTestServiceImpl.callBackTest();
         System.out.println();
+    }
+
+    @Test
+    public void eventNotifyTest() throws InterruptedException, NulidexiaomaException {
+        try {
+            eventNotifyService.notifyEvent("wenzailong");
+            System.out.println("坑了");
+            Thread.currentThread().sleep(1000*5);
+            /*throw new NulidexiaomaException("我就是想阿报错");*/
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
