@@ -4,14 +4,14 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="nulidexiaoma-web" />
+          <element id="module-output" name="nulidexiaoma-original-web" />
         </element>
         <element id="directory" name="lib">
           <element id="archive" name="nulidexiaoma-service-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="nulidexiaoma-service" />
+            <element id="module-output" name="nulidexiaoma-original-service" />
           </element>
           <element id="archive" name="nulidexiaoma-dao-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="nulidexiaoma-dao" />
+            <element id="module-output" name="nulidexiaoma-original-dao" />
           </element>
           <element id="library" level="project" name="Maven: cn.wzl:nulidexiaoma-api:1.0-SNAPSHOT" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context:5.0.1.RELEASE" />
@@ -26,12 +26,12 @@
           </element>
           <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:1.3.1" />
           <element id="archive" name="nulidexiaoma-model-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="nulidexiaoma-model" />
+            <element id="module-output" name="nulidexiaoma-original-model" />
           </element>
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/nulidexiaoma-original/nulidexiaoma-web/target/nulidexiaoma-web/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/nulidexiaoma-original/nulidexiaoma-original-web/target/nulidexiaoma-web/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="nulidexiaoma-web/web/Web" />
     </root>

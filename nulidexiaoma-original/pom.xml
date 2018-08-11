@@ -12,12 +12,12 @@
     <artifactId>nulidexiaoma-original</artifactId>
 
     <modules>
-        <module>nulidexiaoma-web</module>
-        <module>nulidexiaoma-service</module>
-        <module>nulidexiaoma-dao</module>
-        <module>nulidexiaoma-model</module>
-        <module>nulidexiaoma-server</module>
-        <module>nulidexioama-api</module>
+        <module>nulidexiaoma-original-web</module>
+        <module>nulidexiaoma-original-service</module>
+        <module>nulidexiaoma-original-dao</module>
+        <module>nulidexiaoma-original-model</module>
+        <module>nulidexiaoma-original-server</module>
+        <module>nulidexioama-original-api</module>
     </modules>
 
 </project>

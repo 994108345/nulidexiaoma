@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        ">
+
+    <dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" id="htmlZookeeper"/>
+    <dubbo:consumer id="htmlConsumer" registry="htmlZookeeper" check="false"/>
+    <!--消费html的消息测试 -->
+    <dubbo:reference id="dubboProvider" check="false" interface="cn.wzl.nulidexiaoma.html.api.DubboProviderService"
+                     consumer="htmlConsumer"  group="${dubbo.group}" />
+ <!--   &lt;!&ndash;消费html的泛型调用 &ndash;&gt;
+    <dubbo:reference id="barService" check="false" interface="cn.wzl.nulidexiaoma.html.api.BarService"
+                     consumer="htmlConsumer"  group="${dubbo.group}" />
+    &lt;!&ndash;消费html的异步调用 &ndash;&gt;
+    <dubbo:reference id="asyncA" check="false" interface="cn.wzl.nulidexiaoma.html.api.NIoDubboOfAsyncAService"
+                     consumer="htmlConsumer"  group="${dubbo.group}" />
+    <dubbo:reference id="asyncB" check="false" interface="cn.wzl.nulidexiaoma.html.api.NIoDubboOfAsyncBService"
+                     consumer="htmlConsumer"  group="${dubbo.group}" />
+    &lt;!&ndash;消费html的参数回调 &ndash;&gt;
+    <dubbo:reference id="callbackService" interface="cn.wzl.nulidexiaoma.html.api.CallBackService" check="false"
+                     consumer="htmlConsumer"  group="${dubbo.group}"/>
+    &lt;!&ndash;消费html的事件通知 &ndash;&gt;
+    <bean id ="notifyServiceImpl" class = "cn.wzl.nulidexiaoma.service.impl.NotifyServiceImpl"/>
+    <dubbo:reference id="eventNotifyService" interface="cn.wzl.nulidexiaoma.html.api.EventNotifyService"
+                     group="${dubbo.group}" consumer="htmlConsumer" check="false">
+        <dubbo:method name="notifyEvent" async="false" onreturn="notifyServiceImpl.onreturn" onthrow="notifyServiceImpl.onthrow"  />
+    </dubbo:reference>
+    &lt;!&ndash;消费html的本地存根 &ndash;&gt;
+    <dubbo:reference id="subService" interface="cn.wzl.nulidexiaoma.html.api.SubService" check="false"
+                      consumer="htmlConsumer"  group="${dubbo.group}"/>-->
+    <!--消费html的本地伪装 -->
+    <dubbo:reference id="mockService" interface="cn.wzl.nulidexiaoma.html.api.MockService" check="false"
+                     consumer="htmlConsumer"  group="${dubbo.group}" mock="cn.wzl.nulidexiaoma.service.impl.MockServiceMock"/>
+</beans>

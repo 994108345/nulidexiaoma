@@ -14,12 +14,12 @@
     <!-- html测试服务提供者-->
     <dubbo:service interface="cn.wzl.nulidexiaoma.html.api.DubboProviderService" ref="dubboProviderServiceImpl"
                    provider="htmlProvider" protocol="dubbo" group="${dubbo.group}"/>
-
-    <!-- html泛化调用服务-->
+<!--
+    &lt;!&ndash; html泛化调用服务&ndash;&gt;
     <bean id="genericService" class="cn.wzl.nulidexiaoma.service.impl.MyGenericServiceImpl" />
     <dubbo:service interface="cn.wzl.nulidexiaoma.html.api.BarService" ref="genericService"
                    provider="htmlProvider" protocol="dubbo" group="${dubbo.group}"/>
-    <!-- html异步NIO调用服务-->
+    &lt;!&ndash; html异步NIO调用服务&ndash;&gt;
     <dubbo:service interface="cn.wzl.nulidexiaoma.html.api.NIoDubboOfAsyncAService" ref="NIoDubboOfAsyncAServiceImpl"
                    provider="htmlProvider" protocol="dubbo" group="${dubbo.group}">
         <dubbo:method name="asyncA"  async="true"/>
@@ -28,23 +28,24 @@
                    provider="htmlProvider" protocol="dubbo" group="${dubbo.group}">
         <dubbo:method name="asyncB" async="true"/>
     </dubbo:service>
-    <!-- html参数回调服务-->
+    &lt;!&ndash; html参数回调服务&ndash;&gt;
     <dubbo:service interface="cn.wzl.nulidexiaoma.html.api.CallBackService" ref="callBackServiceImpl" provider="htmlProvider"
                    protocol="dubbo" group="${dubbo.group}" callbacks="1000">
         <dubbo:method name="addListener">
             <dubbo:argument index="1" callback="true" />
-            <!--也可以通过指定类型的方式-->
-            <!--<dubbo:argument type="com.demo.CallbackListener" callback="true" />-->
+            &lt;!&ndash;也可以通过指定类型的方式&ndash;&gt;
+            &lt;!&ndash;<dubbo:argument type="com.demo.CallbackListener" callback="true" />&ndash;&gt;
         </dubbo:method>
     </dubbo:service>
-    <!-- html事件通知服务-->
+    &lt;!&ndash; html事件通知服务&ndash;&gt;
     <dubbo:service interface="cn.wzl.nulidexiaoma.html.api.EventNotifyService" ref="eventNotifyServiceImpl" group="${dubbo.group}" provider="htmlProvider"
                    protocol="dubbo"/>
 
-    <!-- html本地存根服务-->
+    &lt;!&ndash; html本地存根服务&ndash;&gt;
     <dubbo:service interface="cn.wzl.nulidexiaoma.html.api.SubService" ref="subServiceImpl"
                    group="${dubbo.group}" provider="htmlProvider" protocol="dubbo"
-                   stub="cn.wzl.nulidexiaoma.service.impl.SubServiceStub"/>
-    <!--<dubbo:service interface="cn.wzl.nulidexiaoma.html.api.SubService" stub="cn.wzl.nulidexiaoma.service.impl.SubServiceStub"
-                   group="${dubbo.group}" provider="htmlProvider" protocol="dubbo"/>-->
+                   stub="cn.wzl.nulidexiaoma.service.impl.SubServiceStub"/>-->
+    <!--html本地伪装服务-->
+    <dubbo:service interface="cn.wzl.nulidexiaoma.html.api.MockService" ref="mockServiceImpl"
+                   group="${dubbo.group}" provider="htmlProvider" protocol="dubbo"/>
 </beans>

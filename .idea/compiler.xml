@@ -17,11 +17,17 @@
         <module name="nulidexiaoma-html-service" />
         <module name="nulidexiaoma-model" />
         <module name="nulidexiaoma-mybatis" />
+        <module name="nulidexiaoma-original-dao" />
+        <module name="nulidexiaoma-original-model" />
+        <module name="nulidexiaoma-original-server" />
+        <module name="nulidexiaoma-original-service" />
+        <module name="nulidexiaoma-original-web" />
         <module name="nulidexiaoma-server" />
         <module name="nulidexiaoma-service" />
         <module name="nulidexiaoma-web" />
         <module name="nulidexiaoma.server" />
         <module name="nulidexioama-api" />
+        <module name="nulidexioama-original-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -42,11 +48,17 @@
       <module name="nulidexiaoma-model" target="1.7" />
       <module name="nulidexiaoma-mybatis" target="1.7" />
       <module name="nulidexiaoma-original" target="1.7" />
+      <module name="nulidexiaoma-original-dao" target="1.7" />
+      <module name="nulidexiaoma-original-model" target="1.7" />
+      <module name="nulidexiaoma-original-server" target="1.7" />
+      <module name="nulidexiaoma-original-service" target="1.7" />
+      <module name="nulidexiaoma-original-web" target="1.7" />
       <module name="nulidexiaoma-server" target="1.7" />
       <module name="nulidexiaoma-service" target="1.7" />
       <module name="nulidexiaoma-web" target="1.7" />
       <module name="nulidexiaoma.server" target="1.7" />
       <module name="nulidexioama-api" target="1.7" />
+      <module name="nulidexioama-original-api" target="1.7" />
       <module name="nulidexioama-server" target="1.7" />
     </bytecodeTargetLevel>
   </component>

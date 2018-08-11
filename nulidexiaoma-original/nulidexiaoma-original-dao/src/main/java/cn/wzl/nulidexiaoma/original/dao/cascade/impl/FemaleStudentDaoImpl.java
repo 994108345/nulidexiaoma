@@ -1,0 +1,24 @@
+package cn.wzl.nulidexiaoma.original.dao.cascade.impl;/**
+ * Created by wenzailong on 2018/4/26.
+ */
+
+import cn.wzl.nulidexiaoma.basedao.impl.BaseToolsDaoImpl;
+import cn.wzl.nulidexiaoma.original.dao.cascade.IFemaleStudentDao;
+
+import java.util.List;
+
+/**
+ * @author wenzailong
+ * @create 2018-04-26 10:26
+ **/
+public class FemaleStudentDaoImpl extends BaseToolsDaoImpl implements IFemaleStudentDao {
+    @Override
+    public String getNameSpace() {
+        return "IFemaleStudentDao.";
+    }
+
+    @Override
+    public List getFemaleStudentById(int stuId) {
+        return localSqlSession.selectList(getNameSpace()+"getFemaleStudentById",stuId);
+    }
+}

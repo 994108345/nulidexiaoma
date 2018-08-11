@@ -258,11 +258,6 @@
             <artifactId>mchange-commons-java</artifactId>
             <version>0.2.14</version>
         </dependency>
-        <dependency>
-            <groupId>cn.wzl</groupId>
-            <artifactId>nulidexiaoma-html-service</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
         <!--mongoDB-->
         <!-- mongodb java driver -->
         <dependency>
@@ -285,11 +280,6 @@
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-commons-core</artifactId>
             <version>1.4.1.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.wzl</groupId>
-            <artifactId>nulidexiaoma-html-service</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

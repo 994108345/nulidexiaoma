@@ -2,7 +2,6 @@ package cn.wzl.nulidexiaoma.basedao.impl;
 
 import cn.wzl.nulidexiaoma.basedao.IBaseToolsDao;
 import cn.wzl.nulidexiaoma.common.MessageStatus;
-import cn.wzl.nulidexiaoma.common.exception.JdbcException;
 import cn.wzl.nulidexiaoma.common.pageBean.SearchResult;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;

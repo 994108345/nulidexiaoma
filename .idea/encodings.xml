@@ -13,11 +13,11 @@
     <file url="file://$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/nulidexiaoma-mybatis" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/nulidexiaoma-original" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/nulidexiaoma-original/nulidexiaoma-dao" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/nulidexiaoma-original/nulidexiaoma-model" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/nulidexiaoma-original/nulidexiaoma-server" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/nulidexiaoma-original/nulidexiaoma-service" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/nulidexiaoma-original/nulidexiaoma-web" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/nulidexiaoma-original/nulidexioama-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nulidexiaoma-original/nulidexiaoma-original-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nulidexiaoma-original/nulidexiaoma-original-model" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nulidexiaoma-original/nulidexiaoma-original-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nulidexiaoma-original/nulidexiaoma-original-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nulidexiaoma-original/nulidexiaoma-original-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nulidexiaoma-original/nulidexioama-original-api" charset="UTF-8" />
   </component>
 </project>
