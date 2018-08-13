@@ -14,7 +14,7 @@ import java.util.List;
 public class ThreadTestDaoImpl extends BaseToolsDaoImpl implements IThreadTestDao {
     @Override
     public String getNameSpace() {
-        return "IThreadTestDao.";
+        return "cn.wzl.nulidexiaoma.original.dao.multithreading.IThreadTestDao.";
     }
 
     @Override

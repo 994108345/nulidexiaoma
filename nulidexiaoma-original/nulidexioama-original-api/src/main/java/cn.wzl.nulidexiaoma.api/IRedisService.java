@@ -21,4 +21,16 @@ public interface IRedisService {
      * @throws Exception
      */
     MessageInfo getListTop10();
+
+    /**
+     * 网站的点击次数+1
+     * @return
+     */
+    MessageInfo addClickTimes();
+
+    /**
+     * 获取网站的点击次数
+     * @return
+     */
+    MessageInfo getClickTimes();
 }

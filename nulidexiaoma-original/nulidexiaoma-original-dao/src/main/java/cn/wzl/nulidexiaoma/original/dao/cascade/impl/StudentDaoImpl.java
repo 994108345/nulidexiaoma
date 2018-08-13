@@ -18,7 +18,7 @@ import java.util.List;
 public class StudentDaoImpl extends BaseToolsDaoImpl implements IStudentDao {
     @Override
     public String getNameSpace() {
-        return "IStudentDao.";
+        return "cn.wzl.nulidexiaoma.original.dao.cascade.IStudentDao.";
     }
 
     @Override

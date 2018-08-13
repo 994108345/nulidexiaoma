@@ -17,7 +17,7 @@ import java.util.List;
 public class ClassDaoImpl extends BaseToolsDaoImpl implements IClassDao {
     @Override
     public String getNameSpace() {
-        return "IClassDao.";
+        return "cn.wzl.nulidexiaoma.original.dao.cascade.IClassDao.";
     }
 
     @Override

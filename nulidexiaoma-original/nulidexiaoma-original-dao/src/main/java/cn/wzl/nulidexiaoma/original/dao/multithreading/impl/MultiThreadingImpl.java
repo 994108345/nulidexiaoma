@@ -14,7 +14,7 @@ import java.util.List;
 public class MultiThreadingImpl extends BaseToolsDaoImpl implements IMultiThreadingDao {
     @Override
     public String getNameSpace() {
-        return "IMultiThreadingDao.";
+        return "cn.wzl.nulidexiaoma.original.dao.multithreading.IMultiThreadingDao.";
     }
 
     @Override

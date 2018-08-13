@@ -12,6 +12,6 @@ import org.springframework.stereotype.Repository;
 public class RoleUserDaoImpl extends BaseToolsDaoImpl<RoleUser> implements IRoleUserDao {
     @Override
     public String getNameSpace() {
-        return "RoleUserDaoImpl.";
+        return "cn.wzl.nulidexiaoma.original.dao.permissions.impl.RoleUserDaoImpl.";
     }
 }

@@ -17,7 +17,7 @@ import java.util.List;
 public class StuCardDaoImpl extends BaseToolsDaoImpl implements IStuCardDao {
     @Override
     public String getNameSpace() {
-        return "IStuCardDao.";
+        return "cn.wzl.nulidexiaoma.original.dao.cascade.IStuCardDao.";
     }
 
     @Override

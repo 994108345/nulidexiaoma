@@ -12,7 +12,7 @@ import java.util.List;
 public class UserDaoImpl extends BaseToolsDaoImpl implements IUserDao {
 
     public String getNameSpace() {
-        return "IUserDao.";
+        return "cn.wzl.nulidexiaoma.original.dao.login.IUserDao.";
     }
     @Override
     public List<User> selectUser(User user) {

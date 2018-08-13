@@ -50,4 +50,12 @@ public class MessageInfo<E> implements Serializable {
         this.data = data;
     }
 
+    public boolean isSuccess(){
+        if(status == 10000){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

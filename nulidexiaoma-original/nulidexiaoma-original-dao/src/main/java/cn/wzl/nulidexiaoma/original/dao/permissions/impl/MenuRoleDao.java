@@ -12,6 +12,6 @@ import org.springframework.stereotype.Repository;
 public class MenuRoleDao extends BaseToolsDaoImpl<MenuRole> implements IMenuRoleDao {
     @Override
     public String getNameSpace() {
-        return "cn.wzl.nulidexiaoma.dao.permissions.impl.MenuRoleDaoImpl.";
+        return "cn.wzl.nulidexiaoma.original.dao.permissions.impl.MenuRoleDao.";
     }
 }

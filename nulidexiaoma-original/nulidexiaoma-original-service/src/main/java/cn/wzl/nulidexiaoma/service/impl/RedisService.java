@@ -6,6 +6,8 @@ import cn.wzl.nulidexiaoma.common.MessageInfo;
 import cn.wzl.nulidexiaoma.common.MessageStatus;
 import cn.wzl.nulidexiaoma.common.redis.CacheProxy;
 import cn.wzl.nulidexiaoma.model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,8 @@ import java.util.List;
 public class RedisService implements  IRedisService{
     @Autowired
     CacheProxy cacheProxy;
+    private static final Logger logger = LoggerFactory.getLogger(RedisService.class);
+    public static final String clickTimes = "clickTimes";//记录点击次数的key
 
     @Override
     public MessageInfo addListKey(User user) {
@@ -49,6 +53,41 @@ public class RedisService implements  IRedisService{
         } catch (Exception e) {
             e.printStackTrace();
             messageInfo.setMessageStatus(MessageStatus.ERROR.getStatus(),"获取最近用户登录信息出错" + e.getMessage());
+        }
+        return messageInfo;
+    }
+
+    @Override
+    public MessageInfo addClickTimes() {
+        MessageInfo messageInfo = new MessageInfo();
+        try {
+            isFirstAddClickTimes();
+            /*点击次数加1*/
+            cacheProxy.incrBy(clickTimes,1L);
+        } catch (Exception e) {
+            logger.error("累加网站点击数失败" + e.getMessage(),e);
+            messageInfo.setMessageStatus(MessageStatus.ERROR.getStatus(),"累加网站点击数失败" + e.getMessage());
+        }
+        return messageInfo;
+    }
+
+    /*判断是否为初次加载，是初次加载则创建记录点击数的key*/
+    public  void isFirstAddClickTimes(){
+        boolean isExit = cacheProxy.exists(clickTimes);
+        if(!isExit){
+            cacheProxy.set(clickTimes,"0");
+        }
+    }
+
+    @Override
+    public MessageInfo getClickTimes() {
+        MessageInfo messageInfo  = new MessageInfo();
+        try {
+            String clickTimesStr = cacheProxy.get(clickTimes);
+            messageInfo.setData(clickTimesStr);
+        } catch (Exception e) {
+            logger.error("获取网站点击数失败" + e.getMessage(),e);
+            messageInfo.setMessageStatus(MessageStatus.ERROR.getStatus(),"获取网站点击数失败" + e.getMessage());
         }
         return messageInfo;
     }
