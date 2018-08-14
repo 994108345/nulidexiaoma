@@ -1,4 +1,4 @@
-package cn.wzl.nulidexiaoma.web;
+package cn.wzl.nulidexiaoma.original.web;
 
 import cn.wzl.nulidexiaoma.api.IMenuService;
 import cn.wzl.nulidexiaoma.common.MessageInfo;

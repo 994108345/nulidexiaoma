@@ -3,18 +3,18 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p" xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
        default-lazy-init="false">
 
+    <context:annotation-config/>
     <!-- mvc 扫描包的路径 -->
-    <context:component-scan base-package="cn.wzl.nulidexiaoma.original"/>
+    <context:component-scan base-package="cn.wzl.nulidexiaoma"/>
 
-    <!--<mvc:interceptors>-->
-    <!--<mvc:interceptor>-->
-    <!--<mvc:mapping path="/**" />-->
-    <!--<bean class="com.mtsbw.platform.web.rest.interceptor.CommonInterceptor"></bean>-->
-    <!--</mvc:interceptor>-->
-    <!--</mvc:interceptors>-->
+    <!-- Spring Aop -->
+    <aop:aspectj-autoproxy/>
+    <!-- 开启事务注解 -->
+    <tx:annotation-driven/>
 
     <mvc:annotation-driven>
         <mvc:message-converters register-defaults="true">
@@ -30,9 +30,9 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
     <!-- freemarker的配置 -->
-    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+    <!--<bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
 
-    </bean>
+    </bean>-->
 
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">

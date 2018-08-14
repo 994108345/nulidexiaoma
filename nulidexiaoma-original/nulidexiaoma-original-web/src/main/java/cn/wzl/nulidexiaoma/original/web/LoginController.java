@@ -1,7 +1,8 @@
-package cn.wzl.nulidexiaoma.web;
+package cn.wzl.nulidexiaoma.original.web;
 
 import cn.wzl.nulidexiaoma.api.ILoginService;
 import cn.wzl.nulidexiaoma.common.MessageInfo;
+import cn.wzl.nulidexiaoma.common.annotation.Action;
 import cn.wzl.nulidexiaoma.model.User;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,7 @@ public class LoginController {
 
     @RequestMapping(value = "login" ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE,method = RequestMethod.POST,consumes = "application/json")
     @ResponseBody
+    @Action(name = "登录")
     public MessageInfo login(@RequestBody User user){
         MessageInfo messageInfo = new MessageInfo();
         messageInfo = loginService.selectUser(user);

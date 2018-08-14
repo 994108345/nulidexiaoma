@@ -1,7 +1,8 @@
-package cn.wzl.nulidexiaoma.web;
+package cn.wzl.nulidexiaoma.original.web;
 
 import cn.wzl.nulidexiaoma.api.IRedisService;
 import cn.wzl.nulidexiaoma.common.MessageInfo;
+import cn.wzl.nulidexiaoma.common.annotation.Action;
 import cn.wzl.nulidexiaoma.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -27,6 +28,7 @@ public class UserRangeController {
      */
     @RequestMapping(value = "addUserToList" ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE,method = RequestMethod.POST,consumes = "application/json")
     @ResponseBody
+    @Action(name = "缓存登录信息")
     public MessageInfo addUserToList(@RequestBody User user){
         MessageInfo messageInfo = new MessageInfo();
         messageInfo = iRedisService.addListKey(user);
@@ -39,6 +41,7 @@ public class UserRangeController {
      */
     @RequestMapping(value = "getTop10" ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE,method = RequestMethod.POST,consumes = "application/json")
     @ResponseBody
+    @Action(name = "获取最近前十的登录信息")
     public MessageInfo getTop10(){
         MessageInfo messageInfo = new MessageInfo();
         messageInfo = iRedisService.getListTop10();
