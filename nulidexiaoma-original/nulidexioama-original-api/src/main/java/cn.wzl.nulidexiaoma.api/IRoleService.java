@@ -3,7 +3,9 @@ package cn.wzl.nulidexiaoma.api;
 import cn.wzl.nulidexiaoma.common.MessageInfo;
 import cn.wzl.nulidexiaoma.common.pageBean.SearchResult;
 import cn.wzl.nulidexiaoma.common.pageBean.bean.RolePageBean;
+import cn.wzl.nulidexiaoma.model.Menu;
 import cn.wzl.nulidexiaoma.model.Role;
+import cn.wzl.nulidexiaoma.model.RoleUser;
 
 import java.util.List;
 
@@ -38,4 +40,26 @@ public interface IRoleService {
      * @return
      */
     public MessageInfo insertList(List list);
+
+    /**
+     * 添加一个角色
+     * @param menu
+     * @param role
+     * @return
+     */
+    MessageInfo addOneRole(List menu,Role role);
+
+
+    /**
+     * 添加角色-事务操作
+     * @param menu
+     * @param role
+     */
+    void addRoleTrans(List menu,Role role);
+
+    /**
+     * 删除角色
+     * @return
+     */
+    MessageInfo deleteRole(RoleUser roleUser);
 }

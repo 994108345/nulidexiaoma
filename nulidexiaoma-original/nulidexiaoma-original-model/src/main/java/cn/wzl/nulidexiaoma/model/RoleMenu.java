@@ -1,11 +1,11 @@
 package cn.wzl.nulidexiaoma.model;
 
-public class MenuRole {
+public class RoleMenu {
     private Integer id;
 
-    private Integer menuId;
+    private String menuId;
 
-    private Integer roleId;
+    private String roleId;
 
     private String roleName;
 
@@ -19,19 +19,19 @@ public class MenuRole {
         this.id = id;
     }
 
-    public Integer getMenuId() {
+    public String getMenuId() {
         return menuId;
     }
 
-    public void setMenuId(Integer menuId) {
+    public void setMenuId(String menuId) {
         this.menuId = menuId;
     }
 
-    public Integer getRoleId() {
+    public String getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(Integer roleId) {
+    public void setRoleId(String roleId) {
         this.roleId = roleId;
     }
 

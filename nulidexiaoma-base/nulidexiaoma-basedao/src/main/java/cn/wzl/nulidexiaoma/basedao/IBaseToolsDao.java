@@ -10,6 +10,23 @@ import java.util.List;
 public interface IBaseToolsDao<T> {
 
     /**
+     * 根据id查询一条记录
+     * @return
+     */
+    T getById(Object id);
+
+    /**
+     * 根据id查询集合
+     * @param id
+     * @return
+     */
+    List<T> listById(Object id);
+
+
+
+
+
+    /**
      * 查询分页记录
      * @param t
      * @return
@@ -45,6 +62,13 @@ public interface IBaseToolsDao<T> {
     public int insertListBatch(List list,String tableName);
 
     /**
+     * 插入一条记录
+     * @param object
+     * @return
+     */
+    public int insertOne(Object object);
+
+    /**
      * 批量更新
      * @param list
      * @return
@@ -70,4 +94,7 @@ public interface IBaseToolsDao<T> {
      * @return
      */
     public int updateOne(Object object);
+
+
+
 }

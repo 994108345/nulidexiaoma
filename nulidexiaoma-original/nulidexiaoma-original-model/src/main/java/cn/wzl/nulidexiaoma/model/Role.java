@@ -5,6 +5,10 @@ public class Role {
 
     private String roleName;
 
+    private String roleId;
+
+    private String remark;
+
     public Integer getId() {
         return id;
     }
@@ -19,5 +23,21 @@ public class Role {
 
     public void setRoleName(String roleName) {
         this.roleName = roleName == null ? null : roleName.trim();
+    }
+
+    public String getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(String roleId) {
+        this.roleId = roleId == null ? null : roleId.trim();
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
     }
 }

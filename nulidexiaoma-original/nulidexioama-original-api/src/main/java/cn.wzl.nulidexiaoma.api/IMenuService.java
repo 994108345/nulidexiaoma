@@ -52,4 +52,18 @@ public interface IMenuService {
      * @return
      */
     public MessageInfo updateOne(Menu menu);
+
+    /**
+     * 根据用户名查询菜单
+     * @param code
+     * @return
+     */
+    MessageInfo getMenuByUserName(String code);
+
+    /**
+     * 查询menuId是否已经存在
+     * @param menuId
+     * @return
+     */
+    MessageInfo isMenuIdIsExist(Menu menu);
 }

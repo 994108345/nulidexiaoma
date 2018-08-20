@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wzl.nulidexiaoma.original.dao.permissions.IRoleDeptDao">
+  <resultMap id="BaseResultMap" type="cn.wzl.nulidexiaoma.model.RoleDept">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="role_id" jdbcType="VARCHAR" property="roleId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, dept_id, role_id
+  </sql>
+  <!--<select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from role_dept
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from role_dept
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.wzl.nulidexiaoma.original.RoleDept">
+    insert into role_dept (id, dept_id, role_id
+      )
+    values (#{id,jdbcType=INTEGER}, #{deptId,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.wzl.nulidexiaoma.original.RoleDept">
+    insert into role_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="roleId != null">
+        role_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.wzl.nulidexiaoma.original.RoleDept">
+    update role_dept
+    <set>
+      <if test="deptId != null">
+        dept_id = #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        role_id = #{roleId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.wzl.nulidexiaoma.original.RoleDept">
+    update role_dept
+    set dept_id = #{deptId,jdbcType=VARCHAR},
+      role_id = #{roleId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.wzl.nulidexiaoma.original.RoleDept">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="role_id" jdbcType="VARCHAR" property="roleId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, dept_id, role_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from role_dept
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from role_dept
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.wzl.nulidexiaoma.original.RoleDept">
+    insert into role_dept (id, dept_id, role_id
+      )
+    values (#{id,jdbcType=INTEGER}, #{deptId,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.wzl.nulidexiaoma.original.RoleDept">
+    insert into role_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="roleId != null">
+        role_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.wzl.nulidexiaoma.original.RoleDept">
+    update role_dept
+    <set>
+      <if test="deptId != null">
+        dept_id = #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        role_id = #{roleId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.wzl.nulidexiaoma.original.RoleDept">
+    update role_dept
+    set dept_id = #{deptId,jdbcType=VARCHAR},
+      role_id = #{roleId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>-->
+
+</mapper>

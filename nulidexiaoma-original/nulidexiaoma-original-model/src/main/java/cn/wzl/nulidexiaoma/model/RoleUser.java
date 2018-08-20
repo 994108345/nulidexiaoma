@@ -3,9 +3,9 @@ package cn.wzl.nulidexiaoma.model;
 public class RoleUser {
     private Integer id;
 
-    private Integer roleId;
+    private String roleId;
 
-    private Integer userId;
+    private String userId;
 
     private String userName;
 
@@ -19,19 +19,19 @@ public class RoleUser {
         this.id = id;
     }
 
-    public Integer getRoleId() {
+    public String getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(Integer roleId) {
+    public void setRoleId(String roleId) {
         this.roleId = roleId;
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

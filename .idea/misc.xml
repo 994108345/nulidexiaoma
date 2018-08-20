@@ -13,6 +13,9 @@
       <set>
         <option value="$PROJECT_DIR$/nulidexiaoma-api/pom.xml" />
         <option value="$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html-common/pom.xml" />
+        <option value="$PROJECT_DIR$/nulidexiaoma-html/pom.xml" />
+        <option value="$PROJECT_DIR$/nulidexiaoma-mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/nulidexiaoma-original/pom.xml" />
         <option value="$PROJECT_DIR$/nulidexioama-server/pom.xml" />
       </set>
     </option>

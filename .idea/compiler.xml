@@ -10,13 +10,13 @@
         <module name="nulidexiaoma-cn.wzl.nulidexiaoma.dao.login.api" />
         <module name="nulidexiaoma-common" />
         <module name="nulidexiaoma-dao" />
+        <module name="nulidexiaoma-generator" />
         <module name="nulidexiaoma-html-api" />
         <module name="nulidexiaoma-html-dao" />
         <module name="nulidexiaoma-html-model" />
         <module name="nulidexiaoma-html-server" />
         <module name="nulidexiaoma-html-service" />
         <module name="nulidexiaoma-model" />
-        <module name="nulidexiaoma-mybatis" />
         <module name="nulidexiaoma-original-dao" />
         <module name="nulidexiaoma-original-model" />
         <module name="nulidexiaoma-original-server" />
@@ -38,6 +38,7 @@
       <module name="nulidexiaoma-cn.wzl.nulidexiaoma.dao.login.api" target="1.5" />
       <module name="nulidexiaoma-common" target="1.7" />
       <module name="nulidexiaoma-dao" target="1.7" />
+      <module name="nulidexiaoma-generator" target="1.7" />
       <module name="nulidexiaoma-html" target="1.7" />
       <module name="nulidexiaoma-html-api" target="1.7" />
       <module name="nulidexiaoma-html-common" target="1.7" />
@@ -47,6 +48,7 @@
       <module name="nulidexiaoma-html-service" target="1.7" />
       <module name="nulidexiaoma-model" target="1.7" />
       <module name="nulidexiaoma-mybatis" target="1.7" />
+      <module name="nulidexiaoma-new" target="1.7" />
       <module name="nulidexiaoma-original" target="1.7" />
       <module name="nulidexiaoma-original-dao" target="1.7" />
       <module name="nulidexiaoma-original-model" target="1.7" />

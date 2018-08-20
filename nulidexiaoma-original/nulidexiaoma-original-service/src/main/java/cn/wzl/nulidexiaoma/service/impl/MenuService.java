@@ -7,6 +7,7 @@ import cn.wzl.nulidexiaoma.common.pageBean.SearchResult;
 import cn.wzl.nulidexiaoma.common.pageBean.bean.MenuPageBean;
 import cn.wzl.nulidexiaoma.original.dao.permissions.IMenuDao;
 import cn.wzl.nulidexiaoma.model.Menu;
+import cn.wzl.nulidexiaoma.service.impl.bean.BranchBean;
 import org.apache.commons.codec.binary.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +26,7 @@ public class MenuService implements IMenuService{
     private Logger logger = LoggerFactory.getLogger(MenuService.class);
     @Resource
     IMenuDao iMenuDao;
+
 
 
     /**
@@ -77,32 +79,37 @@ public class MenuService implements IMenuService{
 
     /**
      * 递归菜单
+     * @param menuList 数据源，即需要递归的数组
+     * @param menuId 父菜单的id
+     * @param n 递归的次数
      * @return
      */
     public List getMenuTree(List<Menu> menuList,String menuId,int n){
-        List<Branch> resultList = new ArrayList();
+        List<BranchBean> resultList = new ArrayList();
 
-        List<Branch> children = new ArrayList();
+        List<BranchBean> children = new ArrayList();
         for(Menu menu:menuList){
             String parentId = menu.getParentId()+"";
             if(StringUtils.equals(parentId,menuId)){
-                Branch branch = new Branch();
-                Data data = new Data();
-                data.menuId = menu.getMenuId();
-                data.menuName = menu.getMenuName();
-                branch.data = data;
+                BranchBean branch = new BranchBean();
+                branch.setLabel(menu.getMenuName());
+                branch.setData(menu.getMenuId());
+                branch.setMenu(menu);
                 resultList.add(branch);
             }
-
         }
-        for(Branch child:resultList){
-            child.children = getMenuTree(menuList,child.data.menuId,n-1);
+        for(BranchBean child:resultList){
+            child.setChildren(getMenuTree(menuList,child.getData(),n-1));
         }
         if(n == 0){
             return resultList;
         }
         return resultList;
     }
+    /*class BranchBean{
+        public Menu data;
+        public List<BranchBean> children = new ArrayList();
+    }*/
 
     /**
      * 批量插入菜单
@@ -130,7 +137,7 @@ public class MenuService implements IMenuService{
     public MessageInfo deleteOne(Menu menu) {
         MessageInfo messageInfo = new MessageInfo();
         try {
-            int returnNum = iMenuDao.deleteOne(menu);
+            int returnNum = iMenuDao.deleteOne(menu.getMenuId());
         } catch (Exception e) {
             e.printStackTrace();
             messageInfo.setMessageStatus(MessageStatus.ERROR.getStatus(),"删除菜单发生异常"+e.getMessage());
@@ -154,13 +161,34 @@ public class MenuService implements IMenuService{
         }
         return messageInfo;
     }
-}
-class Branch{
- public Data data;
- public List<Branch> children = new ArrayList();
-}
-class Data{
-    public String menuName;
-    public String menuId;
 
+    @Override
+    public MessageInfo getMenuByUserName(String code) {
+        MessageInfo messageInfo = new MessageInfo();
+        try {
+            List<Menu> menuList = iMenuDao.listById(code);
+            List menuTree = getMenuTree(menuList,"0",menuList.size());
+            messageInfo.setData(menuTree);
+        } catch (Exception e) {
+            logger.error("查询菜单列表出错："+e.getMessage(),e);
+            messageInfo.setMessageStatus(MessageStatus.ERROR.getStatus(),"查询菜单列表出错："+e.getMessage());
+        }
+        return messageInfo;
+    }
+
+    @Override
+    public MessageInfo isMenuIdIsExist(Menu menu) {
+        MessageInfo messageInfo = new MessageInfo();
+        try {
+            List list = iMenuDao.selectList(menu);
+            if(list.size()>0){
+                messageInfo.setMessageStatus(MessageStatus.ERROR.getStatus(),"menuId已存在，请重新填写");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            messageInfo.setMessageStatus(MessageStatus.ERROR.getStatus(),"查询菜单信息出错");
+        }
+        return messageInfo;
+    }
 }
+

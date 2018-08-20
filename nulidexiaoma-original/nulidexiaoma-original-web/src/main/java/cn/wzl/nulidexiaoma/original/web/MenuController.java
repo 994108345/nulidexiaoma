@@ -5,8 +5,10 @@ import cn.wzl.nulidexiaoma.common.MessageInfo;
 import cn.wzl.nulidexiaoma.common.pageBean.SearchResult;
 import cn.wzl.nulidexiaoma.common.pageBean.bean.MenuPageBean;
 import cn.wzl.nulidexiaoma.model.Menu;
+import cn.wzl.nulidexiaoma.model.User;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -96,5 +98,24 @@ public class MenuController {
     @ResponseBody
     public MessageInfo updateMenu(@RequestBody Menu menu){
         return iMenuService.updateOne(menu);
+    }
+
+    /**
+     * 根据用户名获取菜单列表
+     * @param user
+     * @return
+     */
+    @RequestMapping(value = "getMenuListByUserName",produces = MediaType.APPLICATION_JSON_UTF8_VALUE,
+            method = RequestMethod.POST)
+    @ResponseBody
+    public MessageInfo getMenuListByCode(@RequestBody User user){
+        return iMenuService.getMenuByUserName(user.getUserName());
+    }
+
+    @RequestMapping(value = "isMenuIdIsExist",produces = MediaType.APPLICATION_JSON_UTF8_VALUE,
+            method = RequestMethod.POST)
+    @ResponseBody
+    public MessageInfo isMenuIdIsExist(@RequestBody Menu menu){
+        return iMenuService.isMenuIdIsExist(menu);
     }
 }

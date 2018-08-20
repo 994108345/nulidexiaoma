@@ -22,6 +22,25 @@ public abstract class BaseToolsDaoImpl<T> implements IBaseToolsDao<T>{
     protected SqlSessionTemplate localSqlSession;
 
     /**
+     * 根据id查询一条数据
+     * @param object
+     * @return
+     */
+    @Override
+    public T getById(Object object) {
+        return localSqlSession.selectOne(getNameSpace()+"getById",object);
+    }
+    /**
+     * 根据id查询集合
+     * @param object
+     * @return
+     */
+    @Override
+    public List<T> listById(Object object) {
+        return localSqlSession.selectList(getNameSpace()+"listById",object);
+    }
+
+    /**
      * 查询数据
      * @param object
      * @return
@@ -88,7 +107,7 @@ public abstract class BaseToolsDaoImpl<T> implements IBaseToolsDao<T>{
                     insertList = list.subList(i, list.size());
                 }
                 i = i + 1000;
-                localSqlSession.insert(getNameSpace()+"insertList",insertList);
+                localSqlSession.insert(getNameSpace()+tableName,insertList);
             }
         }
         return 0;
@@ -140,6 +159,11 @@ public abstract class BaseToolsDaoImpl<T> implements IBaseToolsDao<T>{
             }
         }
         return 0;
+    }
+
+    @Override
+    public int insertOne(Object object) {
+        return localSqlSession.insert(getNameSpace() +"insertOne",object);
     }
 
     /**

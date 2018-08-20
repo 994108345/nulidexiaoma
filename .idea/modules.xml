@@ -6,15 +6,13 @@
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-base/nulidexiaoma-base.iml" filepath="$PROJECT_DIR$/nulidexiaoma-base/nulidexiaoma-base.iml" />
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-base/nulidexiaoma-basedao/nulidexiaoma-basedao.iml" filepath="$PROJECT_DIR$/nulidexiaoma-base/nulidexiaoma-basedao/nulidexiaoma-basedao.iml" />
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-base/nulidexiaoma-common/nulidexiaoma-common.iml" filepath="$PROJECT_DIR$/nulidexiaoma-base/nulidexiaoma-common/nulidexiaoma-common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html.iml" filepath="$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-generator/nulidexiaoma-generator.iml" filepath="$PROJECT_DIR$/nulidexiaoma-generator/nulidexiaoma-generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html-api/nulidexiaoma-html-api.iml" filepath="$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html-api/nulidexiaoma-html-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html-dao/nulidexiaoma-html-dao.iml" filepath="$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html-dao/nulidexiaoma-html-dao.iml" />
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html-model/nulidexiaoma-html-model.iml" filepath="$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html-model/nulidexiaoma-html-model.iml" />
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html-server/nulidexiaoma-html-server.iml" filepath="$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html-server/nulidexiaoma-html-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html-service/nulidexiaoma-html-service.iml" filepath="$PROJECT_DIR$/nulidexiaoma-html/nulidexiaoma-html-service/nulidexiaoma-html-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-mybatis/nulidexiaoma-mybatis.iml" filepath="$PROJECT_DIR$/nulidexiaoma-mybatis/nulidexiaoma-mybatis.iml" />
       <module fileurl="file://E:\projects\home-project\nulidexiaoma\nulidexiaoma\nulidexiaoma-original\nulidexiaoma-original-model\nulidexiaoma-oridinal-model.iml" filepath="E:\projects\home-project\nulidexiaoma\nulidexiaoma\nulidexiaoma-original\nulidexiaoma-original-model\nulidexiaoma-oridinal-model.iml" />
-      <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-original/nulidexiaoma-original.iml" filepath="$PROJECT_DIR$/nulidexiaoma-original/nulidexiaoma-original.iml" />
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-original/nulidexiaoma-original-dao/nulidexiaoma-original-dao.iml" filepath="$PROJECT_DIR$/nulidexiaoma-original/nulidexiaoma-original-dao/nulidexiaoma-original-dao.iml" />
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-original/nulidexiaoma-original-model/nulidexiaoma-original-model.iml" filepath="$PROJECT_DIR$/nulidexiaoma-original/nulidexiaoma-original-model/nulidexiaoma-original-model.iml" />
       <module fileurl="file://$PROJECT_DIR$/nulidexiaoma-original/nulidexiaoma-original-server/nulidexiaoma-original-server.iml" filepath="$PROJECT_DIR$/nulidexiaoma-original/nulidexiaoma-original-server/nulidexiaoma-original-server.iml" />

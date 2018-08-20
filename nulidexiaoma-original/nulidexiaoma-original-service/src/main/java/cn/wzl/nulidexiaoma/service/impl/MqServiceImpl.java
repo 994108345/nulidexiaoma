@@ -32,7 +32,7 @@ public class MqServiceImpl implements MqService {
         try {
             MessageCreator mqMsg = MqUtils.createMsg(mqStr);
             jmsTemplate.send(testQueue,mqMsg);
-            logger.error("推入TEXT_MQ成功:");
+            logger.info("推入TEXT_MQ成功:");
         } catch (Exception e) {
             logger.error("推入testQueue出错:"+e.getMessage());
             messageInfo.setMessageStatus(MessageStatus.ERROR.getStatus(),"推入testQueue出错:"+e.getMessage());

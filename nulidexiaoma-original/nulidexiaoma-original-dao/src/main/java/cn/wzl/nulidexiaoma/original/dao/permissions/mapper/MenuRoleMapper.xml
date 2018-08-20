@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.wzl.nulidexiaoma.original.dao.permissions.impl.MenuRoleDao" >
-  <resultMap id="BaseResultMap" type="cn.wzl.nulidexiaoma.model.MenuRole" >
+  <resultMap id="BaseResultMap" type="cn.wzl.nulidexiaoma.model.RoleMenu" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="MENU_ID" property="menuId" jdbcType="INTEGER" />
     <result column="ROLE_ID" property="roleId" jdbcType="INTEGER" />
-    <result column="ROLE_NAME" property="roleName" jdbcType="VARCHAR" />
-    <result column="MENU__NAME" property="menuName" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     ID, MENU_ID, USER_ID, USER_NAME, MENU__NAME
@@ -90,4 +88,15 @@
       MENU__NAME = #{menuName,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>-->
+
+  <insert id="insertListBatch" parameterType="java.util.List">
+    insert into role_menu(role_id,menu_id)
+    values
+    <foreach collection="list" separator="," item="item" open="" close="" index="index">
+      (
+      #{item.roleId,jdbcType=VARCHAR},
+      #{item.menuId,jdbcType=VARCHAR}
+      )
+    </foreach>
+  </insert>
 </mapper>

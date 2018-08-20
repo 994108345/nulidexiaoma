@@ -3,10 +3,8 @@
 <mapper namespace="cn.wzl.nulidexiaoma.original.dao.permissions.impl.RoleUserDaoImpl" >
   <resultMap id="BaseResultMap" type="cn.wzl.nulidexiaoma.model.RoleUser" >
     <id column="ID" property="id" jdbcType="INTEGER" />
-    <result column="ROLE_ID" property="roleId" jdbcType="INTEGER" />
-    <result column="USER_ID" property="userId" jdbcType="INTEGER" />
-    <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
-    <result column="ROLE_NAME" property="roleName" jdbcType="VARCHAR" />
+    <result column="ROLE_ID" property="roleId" jdbcType="VARCHAR" />
+    <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     ID, ROLE_ID, USER_ID, USER_NAME, ROLE_NAME
@@ -90,4 +88,14 @@
       ROLE_NAME = #{roleName,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>-->
+  <select id="listRoleUserBycondition" resultMap="BaseResultMap">
+    select * from Role_user
+    where 1=1
+    <if test="id != null">
+      and ID = #{id,jdbcType=INTEGER}
+    </if>
+    <if test="roleId != null">
+      and role_id = #{roleId,jdbcType=VARCHAR}
+    </if>
+  </select>
 </mapper>

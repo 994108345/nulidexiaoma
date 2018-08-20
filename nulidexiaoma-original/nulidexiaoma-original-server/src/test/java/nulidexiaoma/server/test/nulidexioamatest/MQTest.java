@@ -5,8 +5,10 @@ package nulidexiaoma.server.test.nulidexioamatest;/**
 import cn.wzl.nulidexiaoma.api.MqService;
 import cn.wzl.nulidexiaoma.common.MessageInfo;
 import cn.wzl.nulidexiaoma.common.mq.NormalMqDemo;
+import cn.wzl.nulidexiaoma.service.impl.consumer.TestMqConsumer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 import org.springframework.test.context.ContextConfiguration;
@@ -65,6 +67,31 @@ public class MQTest {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
+        }
+    }
+
+
+    @Test
+    public void mqBuMultiThread(){
+
+        for (int i = 0; i < 10; i++) {
+            MqThread mqThread = new MqThread("demo"+i);
+            Thread thread = new Thread(mqThread);
+            thread.start();
+            System.out.println("线程"+i);
+        }
+    }
+
+    class MqThread implements Runnable{
+        String name;
+
+        public MqThread(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public void run() {
+            mqService.sendTestMq(name);
         }
     }
 }

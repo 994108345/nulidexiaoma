@@ -7,10 +7,14 @@ import jvm.Demo1;
 import org.apache.xmlbeans.impl.regex.Match;
 import org.junit.Test;
 
+import java.io.BufferedOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -238,5 +242,11 @@ public class RegularExpression {
         return method;
     }
 
+    @Test
+    public void bufferTest() throws FileNotFoundException {
+        String path = "E:\\学习\\项目测试文件\\bufferOutputStream.txt";
+        FileOutputStream out = new FileOutputStream(path);
+        BufferedOutputStream bf = new BufferedOutputStream(out);
+    }
 
 }

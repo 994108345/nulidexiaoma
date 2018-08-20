@@ -1,9 +1,8 @@
 package cn.wzl.nulidexiaoma.original.dao.permissions;
 
-
 import cn.wzl.nulidexiaoma.basedao.IBaseToolsDao;
-import cn.wzl.nulidexiaoma.model.Role;
+import cn.wzl.nulidexiaoma.model.RoleDept;
 
-public interface IRoleDao extends IBaseToolsDao<Role>{
+public interface IRoleDeptDao extends IBaseToolsDao<RoleDept> {
 
 }

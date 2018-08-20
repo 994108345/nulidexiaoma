@@ -29,7 +29,7 @@ public class UserRangeController {
     @RequestMapping(value = "addUserToList" ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE,method = RequestMethod.POST,consumes = "application/json")
     @ResponseBody
     @Action(name = "缓存登录信息")
-    public MessageInfo addUserToList(@RequestBody User user){
+    public MessageInfo addUserToList(User user){
         MessageInfo messageInfo = new MessageInfo();
         messageInfo = iRedisService.addListKey(user);
         return  messageInfo;
