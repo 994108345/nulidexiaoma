@@ -138,13 +138,6 @@
     </if>
   </select>
 
-  <!--更新单条记录-->
-  <update id="updateOne">
-    update role
-    set ROLE_NAME = #{roleName,jdbcType=VARCHAR}
-    where ID = #{id,jdbcType=INTEGER}
-  </update>
-
   <!--删除单条-->
   <delete id="deleteOne">
     delete from role
@@ -166,5 +159,38 @@
     values
     (#{roleName,jdbcType=VARCHAR},#{roleId,jdbcType=VARCHAR},#{remark,jdbcType=VARCHAR})
   </insert>
+
+  <resultMap id="MenuMap" type="cn.wzl.nulidexiaoma.model.Menu" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="MENU_ID" property="menuId" jdbcType="VARCHAR" />
+    <result column="MENU_NAME" property="menuName" jdbcType="VARCHAR" />
+    <result column="LINK_URL" property="linkUrl" jdbcType="VARCHAR" />
+    <result column="PARENT_ID" property="parentId" jdbcType="INTEGER" />
+    <result column="ICON_NAME" property="iconName" jdbcType="VARCHAR" />
+    <result column="SORTID" property="sortid" jdbcType="INTEGER" />
+  </resultMap>
+
+  <select id="listMenuByRoleId" resultMap="MenuMap">
+    select u.* from role r
+      left join role_menu m on r.role_id = m.ROLE_ID
+      left join menu u on m.MENU_ID = u.MENU_ID
+      where r.role_id = #{roleId,jdbcType=VARCHAR}
+  </select>
+
+  <update id="updateOne">
+    update role
+    SET
+    <if test="roleName != null">
+      ROLE_NAME = #{roleName,jdbcType=VARCHAR},
+    </if>
+    <if test="remark != null">
+      remark = #{remark,jdbcType=VARCHAR},
+    </if>
+
+  </update>
+
+  <select id="getById" resultMap="BaseResultMap">
+    select *from role where role_id = #{roleId,jdbcType=VARCHAR}
+  </select>
 
 </mapper>

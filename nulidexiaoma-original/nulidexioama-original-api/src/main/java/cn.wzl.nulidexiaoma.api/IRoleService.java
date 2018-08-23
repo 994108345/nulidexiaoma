@@ -5,9 +5,11 @@ import cn.wzl.nulidexiaoma.common.pageBean.SearchResult;
 import cn.wzl.nulidexiaoma.common.pageBean.bean.RolePageBean;
 import cn.wzl.nulidexiaoma.model.Menu;
 import cn.wzl.nulidexiaoma.model.Role;
+import cn.wzl.nulidexiaoma.model.RoleMenu;
 import cn.wzl.nulidexiaoma.model.RoleUser;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by wenzailong on 2018/1/8.
@@ -62,4 +64,33 @@ public interface IRoleService {
      * @return
      */
     MessageInfo deleteRole(RoleUser roleUser);
+
+    /**
+     * 开始编辑角色
+     * @param role
+     * @return
+     */
+    MessageInfo  beginEditRole(Role role);
+
+    /**
+     * 添加一个角色
+     * @param paramMap
+     * @return
+     */
+    MessageInfo saveOneRole(Map<String,Object> paramMap);
+
+    /**
+     * 添加一个角色（事务）
+     * @param role
+     * @param menuList
+     */
+    void saveOneRoleByTransaction(Role role,List<RoleMenu> menuList);
+
+    /**
+     * 获取一个角色
+     * @param role
+     * @return
+     */
+    MessageInfo getOneRole(Role role);
+
 }

@@ -22,6 +22,7 @@ public class TestMqConsumer implements MessageListener {
         TextMessage msg = (TextMessage) message;
         try {
             String text = msg.getText();
+            Thread.currentThread().sleep(1000*10);
             logger.error("测试队列消费者消费TEXT_MQ成功，内容为：" + text);
         } catch (JMSException e) {
             e.printStackTrace();

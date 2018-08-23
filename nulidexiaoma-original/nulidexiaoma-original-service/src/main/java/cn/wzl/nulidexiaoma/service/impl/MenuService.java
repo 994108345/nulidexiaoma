@@ -95,6 +95,8 @@ public class MenuService implements IMenuService{
                 branch.setLabel(menu.getMenuName());
                 branch.setData(menu.getMenuId());
                 branch.setMenu(menu);
+                branch.setSelectable(true);
+                branch.setExpanded(true);
                 resultList.add(branch);
             }
         }

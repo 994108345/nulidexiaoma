@@ -99,4 +99,9 @@
       )
     </foreach>
   </insert>
+
+  <delete id="deleteRoleMenuByRoleId">
+    delete form role_menu
+    where role_id = #{roleId,jdbcType=VARCHAR}
+  </delete>
 </mapper>

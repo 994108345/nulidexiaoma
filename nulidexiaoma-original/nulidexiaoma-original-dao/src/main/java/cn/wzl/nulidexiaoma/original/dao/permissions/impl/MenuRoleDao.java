@@ -14,4 +14,9 @@ public class MenuRoleDao extends BaseToolsDaoImpl<RoleMenu> implements IMenuRole
     public String getNameSpace() {
         return "cn.wzl.nulidexiaoma.original.dao.permissions.impl.MenuRoleDao.";
     }
+
+    @Override
+    public int deleteRoleMenuByRoleId(RoleMenu roleMenu) {
+        return localSqlSession.delete(getNameSpace() + "deleteRoleMenuByRoleId",roleMenu);
+    }
 }

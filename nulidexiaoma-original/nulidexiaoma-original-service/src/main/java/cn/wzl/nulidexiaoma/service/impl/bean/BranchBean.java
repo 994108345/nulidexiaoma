@@ -16,7 +16,35 @@ public class BranchBean {
     private String data;
     private String expandedIcon;
     private String collapsedIcon;
+    private boolean expanded;//结点是否张开
+    private boolean selectable;//是否可选
+    private boolean partialSelected;//默认是否选择
     private Menu menu;
+
+    public boolean isPartialSelected() {
+        return partialSelected;
+    }
+
+    public void setPartialSelected(boolean partialSelected) {
+        this.partialSelected = partialSelected;
+    }
+
+    public boolean isSelectable() {
+        return selectable;
+    }
+
+    public void setSelectable(boolean selectable) {
+        this.selectable = selectable;
+    }
+
+    public boolean isExpanded() {
+        return expanded;
+    }
+
+    public void setExpanded(boolean expanded) {
+        this.expanded = expanded;
+    }
+
     private List<BranchBean> children = new ArrayList();
 
     public Menu getMenu() {

@@ -37,7 +37,7 @@ public class RoleController {
         searchResult = roleService.getPageBean(rolePageBean);
         return searchResult;
     }
-    @RequestMapping(value = "addRole" ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE,method = RequestMethod.POST)
+    @RequestMapping(value = "addRole")
     @ResponseBody
     public MessageInfo addRole(@RequestBody Map map){
         MessageInfo messageInfo = new MessageInfo();
@@ -62,4 +62,25 @@ public class RoleController {
     public MessageInfo deleteRole(@RequestBody RoleUser roleUser){
         return roleService.deleteRole(roleUser);
     }
+
+    @RequestMapping(value = "beginEditRole" ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE,method = RequestMethod.POST,consumes = "application/json")
+    @ResponseBody
+    public MessageInfo beginEditRole(@RequestBody Role role){
+        return roleService.beginEditRole(role);
+    }
+
+    @RequestMapping(value = "saveRole" ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE,method = RequestMethod.POST,consumes = "application/json")
+    @ResponseBody
+    public MessageInfo saveRole(@RequestBody Map map){
+        return roleService.saveOneRole(map);
+    }
+
+    @RequestMapping(value = "getOneRole" ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE,method = RequestMethod.POST,consumes = "application/json")
+    @ResponseBody
+    public MessageInfo getOneRole(@RequestBody Role role){
+        return roleService.getOneRole(role);
+    }
+
+
+
 }

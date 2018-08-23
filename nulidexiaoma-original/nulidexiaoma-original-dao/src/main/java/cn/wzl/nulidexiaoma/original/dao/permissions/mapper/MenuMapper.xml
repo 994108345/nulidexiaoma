@@ -236,4 +236,5 @@
         left join role_user u on r.role_id = u.role_id
         where u.user_id = #{id,jdbcType=VARCHAR}
   </select>
+
 </mapper>
