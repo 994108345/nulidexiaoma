@@ -60,5 +60,21 @@ public class MenuTreeTest {
         int i = 0;
         System.out.println((++i)+"");
     }
+    @Test
+    public void stringTest(){
+        String a = "12";
+        String b = new String("12");
+        System.out.println("equals" + a.equals(b));
+        System.out.println(a.hashCode() +""+b.hashCode());
+    }
+    @Test
+    public void hashTest(){
+        int a = 1;
+        Integer i = 1;
+        String b = "1";
+        System.out.println(b.hashCode());
+        System.out.println("Integer:" +i.hashCode());
+    }
+
 
 }

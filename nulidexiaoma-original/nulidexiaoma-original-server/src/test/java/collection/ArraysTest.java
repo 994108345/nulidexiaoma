@@ -8,6 +8,7 @@ import java.lang.reflect.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * @author wenzailong
@@ -108,6 +109,28 @@ public class ArraysTest {
             return strs;
         }
         return "";
+    }
+    @Test
+    public void listRemove(){
+        List<String> list = new ArrayList();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        list.add("4");
+        list.add("5");
+        list.add("6");
+        /*迭代器*/
+        /*for (Object o : list) {
+            list.remove(o);
+            System.out.println(o);
+        }*/
+        /*循环遍历*/
+        for (int i = 0; i < list.size(); i++) {
+            String str = list.get(i);
+            System.out.println(str);
+            list.remove(str);
+        }
+
     }
 
 }

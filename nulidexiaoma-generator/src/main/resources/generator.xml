@@ -3,7 +3,7 @@
 		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
 	<!-- 数据库驱动包位置 -->
-	<classPathEntry location="E:\maven.downloadfile\mysql\mysql-connector-java\5.1.34\mysql-connector-java-5.1.34.jar" />
+	<classPathEntry location="F:\message\maven-down-file\mysql\mysql-connector-java\5.1.42\mysql-connector-java-5.1.42.jar" />
 	<!--<classPathEntry location="E:\maven.downloadfile\com\oracle\ojdbc6\11.2.0.3\ojdbc6-11.2.0.3.jar" />--> 
 	<context id="DB2Tables" targetRuntime="MyBatis3">
 		<commentGenerator>
@@ -26,18 +26,18 @@
 		</javaTypeResolver>
 		<!-- 生成模型的包名和位置 -->
 		<javaModelGenerator targetPackage="cn.wzl.nulidexiaoma.original"
-							targetProject="E:\projects\home-project\nulidexiaoma\nulidexiaoma\nulidexiaoma-generator\src\main\java">
+							targetProject="F:\project\myproject\nulidexiaoma\nulidexiaoma\nulidexiaoma-generator\src\main\java">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 		<!-- 生成的映射文件包名和位置 -->
 		<sqlMapGenerator targetPackage="cn.wzl.nulidexiaoma.original"
-						 targetProject="E:\projects\home-project\nulidexiaoma\nulidexiaoma\nulidexiaoma-generator\src\main\java">
+						 targetProject="F:\project\myproject\nulidexiaoma\nulidexiaoma\nulidexiaoma-generator\src\main\java">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 		<!-- 生成DAO的包名和位置 -->
 		<javaClientGenerator type="XMLMAPPER" targetPackage="cn.wzl.nulidexiaoma.original"
-							 targetProject="E:\projects\home-project\nulidexiaoma\nulidexiaoma\nulidexiaoma-generator\src\main\java">
+							 targetProject="F:\project\myproject\nulidexiaoma\nulidexiaoma\nulidexiaoma-generator\src\main\java">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 		<!-- 要生成那些表(更改tableName和domainObjectName就可以) 
@@ -58,7 +58,7 @@
         15，delimitAllColumns：设置是否所有生成的SQL中的列名都使用标识符引起来。默认为false，delimitIdentifiers参考context的属性
 
 		-->
-		<table tableName="role" domainObjectName="Role"
+		<table tableName="login_token" domainObjectName="LoginToken"
 		enableCountByExample="false" 
 		enableUpdateByExample="false" 
 		enableDeleteByExample="false" 
