@@ -18,7 +18,7 @@
     <result column="cls_name" property="clsName" jdbcType="VARCHAR" />
     <result column="cls_gred" property="clsGred" jdbcType="INTEGER" />
     <result column="cls_num" property="clsNum" jdbcType="VARCHAR" />
-    <collection property="stuList" column="id" select="cn.wzl.nulidexiaoma.original.dao.cascade.IStudentDao.getStudentByStuId"></collection>
+    <other.collection property="stuList" column="id" select="cn.wzl.nulidexiaoma.original.dao.cascade.IStudentDao.getStudentByStuId"></other.collection>
   </resultMap>
 
   <select id="getClassById" resultMap="CollectionMap">

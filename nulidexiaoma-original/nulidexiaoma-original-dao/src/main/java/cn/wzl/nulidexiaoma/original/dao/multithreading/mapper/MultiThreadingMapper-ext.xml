@@ -12,7 +12,7 @@
   </select>
 
     <update id="updateMultiThreading" parameterType="java.util.List">
-      <foreach close="" collection="list" index="index" item="item" open="" separator=";">
+      <foreach close="" other.collection="list" index="index" item="item" open="" separator=";">
       update multi_threading
         <set>
           thread_name = #{item.threadName,jdbcType=VARCHAR},

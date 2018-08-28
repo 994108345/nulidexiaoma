@@ -190,7 +190,7 @@
     (MENU_ID,MENU_NAME, LINK_URL,
     PARENT_ID, ICON_NAME, SORTID
     )
-    <foreach collection="list" item="item" index="index" separator="union all">
+    <foreach other.collection="list" item="item" index="index" separator="union all">
       (select
       #{item.menuId,jdbcType=VARCHAR},#{item.menuName,jdbcType=VARCHAR}, #{item.linkUrl,jdbcType=VARCHAR},
       #{item.parentId,jdbcType=INTEGER}, #{item.iconName,jdbcType=VARCHAR}, #{item.sortid,jdbcType=INTEGER}
@@ -236,5 +236,15 @@
         left join role_user u on r.role_id = u.role_id
         where u.user_id = #{id,jdbcType=VARCHAR}
   </select>
+
+  <insert id="insertOne">
+    insert into menu
+    (MENU_ID,MENU_NAME, LINK_URL,
+    PARENT_ID, ICON_NAME, SORTID
+    )
+    values
+    (#{menuId,jdbcType=VARCHAR},#{menuName,jdbcType=VARCHAR}, #{linkUrl,jdbcType=VARCHAR},
+      #{parentId,jdbcType=INTEGER}, #{iconName,jdbcType=VARCHAR}, #{sortid,jdbcType=INTEGER})
+  </insert>
 
 </mapper>

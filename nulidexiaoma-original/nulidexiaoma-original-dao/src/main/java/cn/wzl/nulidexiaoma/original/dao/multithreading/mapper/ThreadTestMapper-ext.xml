@@ -3,7 +3,7 @@
 <mapper namespace="cn.wzl.nulidexiaoma.original.dao.multithreading.IThreadTestDao">
 
   <update id="updateThreadInfo" parameterType="java.util.List">
-    <foreach collection="list" separator=";" item="item" open="" close="" index="index">
+    <foreach other.collection="list" separator=";" item="item" open="" close="" index="index">
       update thread_test
           <set>
             num = #{item.num,jdbcType=VARCHAR},
