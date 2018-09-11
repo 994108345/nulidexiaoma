@@ -92,7 +92,7 @@
   <insert id="insertListBatch" parameterType="java.util.List">
     insert into role_menu(role_id,menu_id)
     values
-    <foreach other.collection="list" separator="," item="item" open="" close="" index="index">
+    <foreach collection="list" separator="," item="item" open="" close="" index="index">
       (
       #{item.roleId,jdbcType=VARCHAR},
       #{item.menuId,jdbcType=VARCHAR}

@@ -2,7 +2,6 @@ package cn.wzl.nulidexiaoma.common.typeHandler;/**
  * Created by wenzailong on 2018/4/25.
  */
 
-import cn.wzl.nulidexiaoma.common.enums.SexEnum;
 import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.MappedTypes;
 import org.apache.ibatis.type.TypeHandler;

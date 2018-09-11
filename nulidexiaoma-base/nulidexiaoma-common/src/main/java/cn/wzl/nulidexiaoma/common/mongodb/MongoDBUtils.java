@@ -2,7 +2,6 @@ package cn.wzl.nulidexiaoma.common.mongodb;/**
  * Created by wenzailong on 2018/7/2.
  */
 
-import cn.wzl.nulidexiaoma.common.JSONutils;
 import cn.wzl.nulidexiaoma.common.exception.NulidexiaomaException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -147,7 +147,7 @@
   <!--批量插入-->
   <insert id="insertList" parameterType="cn.wzl.nulidexiaoma.model.Role">
     insert into role (ROLE_NAME)
-    <foreach other.collection="list" item="item" index="index" separator="union all">
+    <foreach collection="list" item="item" index="index" separator="union all">
       ( select
       (#{roleName,jdbcType=VARCHAR})
       from dual)

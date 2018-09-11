@@ -74,7 +74,7 @@ public class MQTest {
     @Test
     public void mqBuMultiThread(){
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 100; i++) {
             MqThread mqThread = new MqThread("demo"+i);
             Thread thread = new Thread(mqThread);
             thread.start();

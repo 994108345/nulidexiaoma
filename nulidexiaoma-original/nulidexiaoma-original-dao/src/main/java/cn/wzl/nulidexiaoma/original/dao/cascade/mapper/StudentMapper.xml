@@ -40,10 +40,10 @@
   </select>
 
   <resultMap id="maleStudentMap" type="cn.wzl.nulidexiaoma.model.MaleStudentBean" extends="DiscriminatorMap">
-      <other.collection property="maleStudents" select="cn.wzl.nulidexiaoma.original.dao.cascade.IMaleStudentDao.getMaleStudentById" column="id"/>
+      <collection property="maleStudents" select="cn.wzl.nulidexiaoma.original.dao.cascade.IMaleStudentDao.getMaleStudentById" column="id"/>
   </resultMap>
 
   <resultMap id="femaleStudentMap" type="cn.wzl.nulidexiaoma.model.FemaleStudentBean" extends="DiscriminatorMap">
-    <other.collection property="famaleStudents" select="cn.wzl.nulidexiaoma.original.dao.cascade.IFemaleStudentDao.getFemaleStudentById" column="id"/>
+    <collection property="famaleStudents" select="cn.wzl.nulidexiaoma.original.dao.cascade.IFemaleStudentDao.getFemaleStudentById" column="id"/>
   </resultMap>
 </mapper>

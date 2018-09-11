@@ -22,7 +22,7 @@ import java.util.concurrent.*;
  * Created by wenzailong on 2018/3/4.
  */
 @Service("iMultiThreading")
-@PropertySource("classpath:other.spring/app.properties")
+@PropertySource("classpath:spring/app.properties")
 public class MultiThreadingService implements IMultiThreadingService{
     private static final Logger logger = LoggerFactory.getLogger(MultiThreadingService.class);
     int i = 0;

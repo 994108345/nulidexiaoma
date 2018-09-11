@@ -190,7 +190,7 @@
     (MENU_ID,MENU_NAME, LINK_URL,
     PARENT_ID, ICON_NAME, SORTID
     )
-    <foreach other.collection="list" item="item" index="index" separator="union all">
+    <foreach collection="list" item="item" index="index" separator="union all">
       (select
       #{item.menuId,jdbcType=VARCHAR},#{item.menuName,jdbcType=VARCHAR}, #{item.linkUrl,jdbcType=VARCHAR},
       #{item.parentId,jdbcType=INTEGER}, #{item.iconName,jdbcType=VARCHAR}, #{item.sortid,jdbcType=INTEGER}
